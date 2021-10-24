@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       document.getElementById("menuToggel")!.style.display = "none";
       document.getElementById("optionsNav")!.style.display = "block";
     }
-    console.log(this.scrHeight, this.scrWidth);
+    // console.log(this.scrHeight, this.scrWidth);
   }
 
 

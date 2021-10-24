@@ -1,0 +1,7 @@
+.adaptacionDesk{
+    height: calc(100vh - 56.37px);
+}
+
+.adaptacionMovil{
+    padding-bottom: 0;
+}

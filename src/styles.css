@@ -2,7 +2,8 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body{
-    background-image: url("assets/img/PatronSinFondo35.png");
+    background-color: #f3f3f0;
+    background-image: url("assets/img/PatronSinFondo35-15.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
