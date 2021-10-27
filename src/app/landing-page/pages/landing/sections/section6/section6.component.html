@@ -1,14 +1,23 @@
-<section class="mt-5">
-    <div style="display:flex; flex-direction: column; justify-content: center; text-align: center;">
-        <h1>Se parte del equipo de motoristas</h1>
-        <p>Unete ya a Bosa</p>
+<section class="mt-5 mt-sm-5 mt-md-0 mt-lg-0">
+    <div class="text-center mb-3" [ngsReveal]="{ reset: true, duration:1000}">
+        <h1>¡Se parte del equipo de <samp style="color: #f2ac0c; font-family: Roboto;">motoristas</samp>!</h1>
+        <h3>Muchos beneficios te esperan con BOSA</h3>
     </div>
-    <div class="para">
-        <section class="parallax">
-            <!-- <button style="position: absolute; bottom: 20px; left: 10px; width: 100px;" mat-raised-button color="warn">Registrate y comienza tu experiencia</button> -->
-            <button class="btn btn-danger"
-                style="position: absolute; bottom: 20px; left: 10px; width: 145px;">Registrate</button>
+    <div>
+        <div class="parallax">
+            <div class="container ventanaFlotante d-none d-md-flex" [ngsReveal]="{ reset: true, distance:'100px', origin:'left', duration:1000}">
+                <div>
+                    <h1 class="text-center" style="color: #424041;">Nuesto equipo te espera, Ninguno de nosotros es tan bueno como todos nosotros juntos</h1>
+                </div>
+                <button class="btn btn-danger">Comenzar la experiencia</button>
+            </div>
+            <div class="container ventanaFlotantee d-flex d-md-none" [ngsReveal]="{ reset: true, distance:'100px', origin:'left', duration:1000}">
+                <div>
+                    <h3 class="text-center" style="color: #424041;">Ninguno de nosotros es tan bueno como todos nosotros juntos</h3>
+                </div>
+                <button class="btn btn-danger">Unirme</button>
+            </div>
             <img src="../../../../../../assets/img/imgOptimizadas/corazon-min.jpg" alt="">
-        </section>
+        </div>
     </div>
 </section>

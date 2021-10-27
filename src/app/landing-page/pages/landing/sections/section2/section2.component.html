@@ -1,12 +1,8 @@
 <section class="mt-5">
-    <div class="container-fluid" style="text-align: center;">
-        <div style="display: flex; justify-content: center;">
-            <h1>¿Qué te ofrece</h1>
-            <h1 style="color: #f2a30c;">&nbsp; BOSA</h1>
-            <h1>?</h1>
-        </div>
-        <div class="container gridPrincipal">
-            <div>
+    <div class="container" style="text-align: center;">
+        <h1 [ngsReveal]="{ reset: true, duration:1000}">¿Qué te ofrece <samp style="color: #f2ac0c; font-family: Roboto;">BOSA</samp>?</h1>
+        <div class="gridPrincipal">
+            <div [ngsReveal]="{ reset: true, distance:'150px', origin:'left', duration:1000}">
                 <h3>¡¡BOSA te ofrece de todo!!</h3>
                 <p class="" style="font-size: larger;">Escoge entre nuestras opciones como comida, medicamentos,
                     papeleria, cosmeticos, mandaditos o ropa a tu medida.</p>
@@ -52,7 +48,7 @@
                         </div>
                     </div>
             </div>
-            <div class="d-none d-lg-block d-md-block">
+            <div class="d-none d-lg-block d-md-block" [ngsReveal]="{ reset: true, duration:1000}">
                 <img class="imgResp" src="../../../../assets/img/undraw_ice_cream_s2rh.svg" alt="">
             </div>
         </div>

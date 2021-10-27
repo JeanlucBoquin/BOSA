@@ -10,6 +10,7 @@ import { Section4Component } from './pages/landing/sections/section4/section4.co
 import { Section5Component } from './pages/landing/sections/section5/section5.component';
 import { Section6Component } from './pages/landing/sections/section6/section6.component';
 import { Section7Component } from './pages/landing/sections/section7/section7.component';
+import { NgsRevealModule } from 'ngx-scrollreveal';
 
 
 
@@ -28,7 +29,8 @@ import { Section7Component } from './pages/landing/sections/section7/section7.co
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    NgsRevealModule
   ]
 })
 export class LandingPageModule { }

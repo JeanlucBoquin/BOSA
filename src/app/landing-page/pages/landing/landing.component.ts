@@ -10,6 +10,7 @@ export class LandingComponent implements OnInit {
   scrHeight: number = 0;
   scrWidth: number = 0;
   reAdaptacion!: NodeListOf<Element>;
+  ventanaFlotante!: NodeListOf<Element>;
 
   constructor() { }
 
@@ -19,6 +20,19 @@ export class LandingComponent implements OnInit {
     this.scrWidth = window.innerWidth;
     this.reAdaptacion = document.querySelectorAll(".adaptacionDesk");
     (this.reAdaptacion.length==0)?(this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")):null;
+
+    this.ventanaFlotante = document.querySelectorAll(".ventanaFlotante")!;
+    (this.ventanaFlotante.length==0)?(this.ventanaFlotante = document.querySelectorAll(".ventanaFlotanteMovil")!):null;
+    
+    this.ventanaFlotante.forEach(element=>{
+      if (this.scrWidth < 912) {
+        element.classList.remove("ventanaFlotante")
+        element.classList.add("ventanaFlotanteMovil")
+      }else{
+        element.classList.add("ventanaFlotante")
+        element.classList.remove("ventanaFlotanteMovil")
+      }
+    })
     
     this.reAdaptacion.forEach(element=>{
       if (this.scrWidth < 912) {
@@ -35,7 +49,19 @@ export class LandingComponent implements OnInit {
   ngOnInit(): void {
     this.scrWidth = window.innerWidth;
     this.reAdaptacion = document.querySelectorAll(".adaptacionDesk");
-    (this.reAdaptacion.length==0)?(this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")):null;
+    this.ventanaFlotante = document.querySelectorAll(".ventanaFlotante");
+    
+    this.ventanaFlotante.forEach(element=>{
+      if (this.scrWidth < 912) {
+        element.classList.remove("ventanaFlotante")
+        element.classList.add("ventanaFlotanteMovil")
+      }else{
+        element.classList.add("ventanaFlotante")
+        element.classList.remove("ventanaFlotanteMovil")
+      }
+    })
+    
+    // (this.reAdaptacion.length==0)?(this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")):null;
 
     this.reAdaptacion.forEach(element=>{
       if (this.scrWidth < 912) {
@@ -46,7 +72,6 @@ export class LandingComponent implements OnInit {
         element.classList.remove("adaptacionMovil")
       }
     })
-
   }
 
 }

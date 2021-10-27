@@ -5,3 +5,36 @@
 .adaptacionMovil{
     padding-bottom: 0;
 }
+.ventanaFlotante{
+    width: 35%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    gap: 5rem;
+    position: absolute;
+    top: 20px; 
+    bottom: 20px; 
+    left: 100px;
+}
+.ventanaFlotantee{
+    width: 60%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    gap: 1rem;
+    position: absolute;
+    top: 20px; 
+    bottom: 20px; 
+    left: 10px;
+}
+.ventanaFlotanteMovil{
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-around; 
+    /* gap: 5rem; */
+    position: absolute;
+    top: 0px; 
+    bottom: 15px; 
+    
+}
