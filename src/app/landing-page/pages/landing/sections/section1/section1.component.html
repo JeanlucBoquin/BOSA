@@ -9,55 +9,24 @@
                 aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <!-- Aplicacion de ngFor ngIf -->
+            <div *ngFor="let element of carrusel; let i=index" class="carousel-item" [class.active]="i==0">
                 <div style="background-color: rgba(0, 0, 0, 0.32); position: absolute; top: 0; bottom: 0px; width: 100%;"></div>
-                <img src="../../../../../../assets/img/imgOptimizadas/full-length-portrait-cheerful.jpg"
+                <img [src]="element.img"
                     class="d-block w-100 adaptacionDesk adaptacionMovil" alt="...">
                 <div class="container ventanaFlotante d-none d-md-flex">
                     <div>
-                        <h1 class="text-center" style="color: #f2b705;">Tu experiencia en BOSA sera unica e inolvidable</h1>
-                        <h3 class="container text-center mt-4" style="color: #fff;">Nuestro servico esta garactizado</h3>
+                        <h1 class="text-center" style="color: #f2e205;">{{element.titulo}}</h1>
+                        <h3 class="container text-center mt-4" style="color: #fff;">{{element.subtitulo}}</h3>
                     </div>
-                    <button class="btn btn-danger">Comenzar la experiencia</button>
+                    <button *ngIf="element.mensajebtn!=''" class="btn btn-danger">{{element.mensajebtn}}</button>
                 </div>
                 <div class="container ventanaFlotantee d-flex d-md-none">
                     <div>
-                        <h3 class="container text-center mt-4" style="color: #fff;">Nuestro servico esta garactizado</h3>
+                        <h3 class="container text-center mt-4" style="color: #fff;">{{element.subtitulo}}</h3>
                     </div>
-                    <button class="btn btn-danger">Comenzar la experiencia</button>
+                    <button *ngIf="element.mensajebtn!=''" class="btn btn-danger btn-sm">{{element.mensajebtn}}</button>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div style="background-color: rgba(0, 0, 0, 0.32); position: absolute; top: 0; bottom: 0px; width: 100%;"></div>
-                <img src="../../../../../../assets/img/imgOptimizadas/shopping-carts2.jpg"
-                    class="d-block w-100 adaptacionDesk adaptacionMovil" alt="...">
-                    <div class="container ventanaFlotante d-none d-md-flex">
-                        <div>
-                            <h1 class="text-center" style="color: #f2b705;">Olvida las limitaciones con BOSA puedes realizar multiples compras</h1>
-                            <h3 class="container text-center mt-4" style="color: #fff;">Realiza compras en cualquiera de las tiendas afiliadas</h3>
-                        </div>
-                    </div>
-                    <div class="container ventanaFlotantee d-flex d-md-none">
-                        <div>
-                            <h3 class="container text-center mt-4" style="color: #fff;">Realiza compras en cualquiera de las tiendas afiliadas</h3>
-                        </div>
-                    </div>
-            </div>
-            <div class="carousel-item">
-                <div style="background-color: rgba(0, 0, 0, 0.32); position: absolute; top: 0; bottom: 0px; width: 100%;"></div>
-                <img src="../../../../../../assets/img/imgOptimizadas/shopping-carts4444.jpg"
-                    class="d-block w-100 adaptacionDesk adaptacionMovil" alt="...">
-                    <div class="container ventanaFlotante d-none d-md-flex">
-                        <div> 
-                            <h1 class="text-center" style="color: #f2b705;">El registro de entregas BOSA posee el record actual de entregas rapidas</h1>
-                            <h3 class="container text-center mt-4" style="color: #fff;">El tiempo es una de nuestrar mayores prioridades</h3>
-                        </div>
-                    </div>
-                    <div class="container ventanaFlotantee d-flex d-md-none">
-                        <div> 
-                            <h3 class="container text-center mt-4" style="color: #fff;">El tiempo es una de nuestrar mayores prioridades</h3>
-                        </div>
-                    </div>
             </div>
 
         </div>

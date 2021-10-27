@@ -49,8 +49,10 @@ export class LandingComponent implements OnInit {
   ngOnInit(): void {
     this.scrWidth = window.innerWidth;
     this.reAdaptacion = document.querySelectorAll(".adaptacionDesk");
+    console.log(this.reAdaptacion);
+    (this.reAdaptacion.length==0)?(this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")):null;
+    console.log(this.reAdaptacion);
     this.ventanaFlotante = document.querySelectorAll(".ventanaFlotante");
-    
     this.ventanaFlotante.forEach(element=>{
       if (this.scrWidth < 912) {
         element.classList.remove("ventanaFlotante")
@@ -61,7 +63,6 @@ export class LandingComponent implements OnInit {
       }
     })
     
-    // (this.reAdaptacion.length==0)?(this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")):null;
 
     this.reAdaptacion.forEach(element=>{
       if (this.scrWidth < 912) {

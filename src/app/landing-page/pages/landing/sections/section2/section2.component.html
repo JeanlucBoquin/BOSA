@@ -8,43 +8,13 @@
                     papeleria, cosmeticos, mandaditos o ropa a tu medida.</p>
                     <div class="cotendedorAlternativas">
                         <div class="gridHijo">
-                            <div class="alternativas my-2">
+                            <!-- Aplicacion de ngFor y class.nameClase -->
+                            <div *ngFor="let categoria of categorias; let i=index" class="alternativas my-2" [class.mx-3]="i==1||i==4">
                                 <div class="cajas">
-                                    <img src="assets/img/seccion 1/Tienda.png" alt="">
+                                    <img [src]="categoria.img" alt="">
                                 </div>
-                                <strong class="mt-1">Restaurantes</strong>
+                                <strong class="mt-1">{{categoria.nombre}}</strong>
                             </div>
-                            <div class="alternativas my-2 mx-3">
-                                <div class="cajas">
-                                    <img src="assets/img/seccion 1/Manzana.png" alt="">
-                                </div>
-                                <strong class="mt-1">Mercados</strong>
-                            </div>
-                            <div class="alternativas my-2">
-                                <div class="cajas">
-                                    <img src="assets/img/seccion 1/Eje.png" alt="">
-                                </div>
-                                <strong class="mt-1">Ferreterias</strong>
-                            </div>
-                            <div class="alternativas my-2">
-                                <div class="cajas">
-                                    <img src="assets/img/seccion 1/Ropa.png" alt="">
-                                </div>
-                                <strong class="mt-1">Ropa</strong>
-                            </div>
-                            <div class="alternativas my-2 mx-3">
-                                <div class="cajas">
-                                    <img src="assets/img/seccion 1/Corazon.png" alt="">
-                                </div>
-                                <strong class="mt-1">Farmacias</strong>
-                            </div>
-                            <div class="alternativas my-2">
-                                <div class="cajas">
-                                    <img src="assets/img/seccion 1/Tecnologia.png" alt="">
-                                </div>
-                                <strong class="mt-1">Tecnologia</strong>
-                            </div>
-        
                         </div>
                     </div>
             </div>

@@ -5,6 +5,7 @@
 .adaptacionMovil{
     padding-bottom: 0;
 }
+
 .ventanaFlotante{
     width: 35%;
     display: flex;
@@ -16,6 +17,7 @@
     bottom: 20px; 
     left: 100px;
 }
+
 .ventanaFlotantee{
     width: 60%;
     display: flex;
@@ -27,6 +29,7 @@
     bottom: 20px; 
     left: 10px;
 }
+
 .ventanaFlotanteMovil{
     width: 100%;
     display: flex;
