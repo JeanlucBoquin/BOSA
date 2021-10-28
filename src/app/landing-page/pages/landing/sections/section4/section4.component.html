@@ -5,15 +5,27 @@
     </div>
     <div class="container gripPrincipal">
         <div class="mx-2" [ngsRevealSet]="{ reset:true}" [ngsInterval]="200" [ngsSelector]="'.item'">
-            <!-- Aplicacion de ngFor -->
-            <div *ngFor="let item of funciones; let i=index" class="item mb-4">
-                <h4 style="margin: 0;">{{ item.nombre }}</h4>
-                <div [class.pasosBasicos]="i==0||i==2" [class.pasosBasicos2]="i==1"> 
-                    <img style="width: 4.5rem; height: 4.5rem;" [src]="item.img" alt="">
-                    <p style="margin: 0;">{{item.descripcion}}</p>
+            <div class="item mb-4">
+                <h4 style="margin: 0;">Carrito</h4>
+                <div class="pasosBasicos"> 
+                    <img style="width: 4.5rem; height: 4.5rem;" src="../../../../assets/img/Carrito.png" alt="">
+                    <p style="margin: 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, amet!</p>
                 </div>
             </div>
-
+            <div class="item mb-4">
+                <h4 style="margin: 0; text-align: end;">Realiza tu pago</h4>
+                <div class="pasosBasicos2"> 
+                    <img style="width: 4.5rem; height: 4.5rem;" src="../../../../assets/img/Pago2.png" alt="">
+                    <p style="margin: 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, amet!</p>
+                </div>
+            </div>
+            <div class="item mb-4">
+                <h4 style="margin: 0;">Producto en camino</h4>
+                <div class="pasosBasicos"> 
+                    <img style="width: 4.5rem; height: 4.5rem;" src="../../../../assets/img/Envio2.png" alt="">
+                    <p style="margin: 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, amet!</p>
+                </div>
+            </div>
         </div>
         <div class="d-none d-lg-block d-md-block" [ngsReveal]="{ reset: true, duration:1000}">
             <img class="imgResp" src="../../../../assets/img/undraw_deliveries_131a.svg" alt="">

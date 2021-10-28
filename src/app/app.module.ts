@@ -7,6 +7,7 @@ import { LandingPageModule } from './landing-page/landing-page.module';
 import { Page404Component } from './shared/page404/page404.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     LandingPageModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

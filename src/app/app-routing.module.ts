@@ -3,12 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing-page/pages/landing/landing.component';
 import { Page404Component } from './shared/page404/page404.component';
 
+// Visualizacion (Borrar)
+import { LoginComponent } from './auth/pages/login/login.component';
+
 const routes: Routes = [
   {
     path: "landing-page",
-    component: LandingComponent
+    component: LoginComponent
   },
-  { path: "", 
+  { path: "",
     redirectTo: "landing-page",
     pathMatch: "full"
   },

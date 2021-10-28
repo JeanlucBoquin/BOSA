@@ -16,29 +16,29 @@ export class AppComponent implements OnInit {
   onResize(event?: any) {
     this.scrHeight = window.innerHeight;
     this.scrWidth = window.innerWidth;
-    if (this.scrWidth < 825) {
-      document.getElementById("menuToggel")!.style.display = "block";
-      document.getElementById("optionsNav")!.style.display = "none";
-      console.log(document.getElementById("menuToggel")?.style.display);
+    // if (this.scrWidth < 825) {
+    //   document.getElementById("menuToggel")!.style.display = "block";
+    //   document.getElementById("optionsNav")!.style.display = "none";
+    //   console.log(document.getElementById("menuToggel")?.style.display);
 
-    } else {
-      document.getElementById("menuToggel")!.style.display = "none";
-      document.getElementById("optionsNav")!.style.display = "block";
-    }
+    // } else {
+    //   document.getElementById("menuToggel")!.style.display = "none";
+    //   document.getElementById("optionsNav")!.style.display = "block";
+    // }
     // console.log(this.scrHeight, this.scrWidth);
   }
 
 
   ngOnInit() {
     this.scrWidth = window.innerWidth;
-    if (this.scrWidth < 825) {
-      document.getElementById("menuToggel")!.style.display = "block";
-      document.getElementById("optionsNav")!.style.display = "none";
-      console.log(document.getElementById("menuToggel")?.style.display);
+    // if (this.scrWidth < 825) {
+    //   document.getElementById("menuToggel")!.style.display = "block";
+    //   document.getElementById("optionsNav")!.style.display = "none";
+    //   console.log(document.getElementById("menuToggel")?.style.display);
 
-    } else {
-      document.getElementById("menuToggel")!.style.display = "none";
-      document.getElementById("optionsNav")!.style.display = "block";
-    }
+    // } else {
+    //   document.getElementById("menuToggel")!.style.display = "none";
+    //   document.getElementById("optionsNav")!.style.display = "block";
+    // }
   }
 }

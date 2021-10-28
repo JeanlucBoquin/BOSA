@@ -18,27 +18,36 @@ export class LandingComponent implements OnInit {
   onResize(event?: any) {
     this.scrHeight = window.innerHeight;
     this.scrWidth = window.innerWidth;
-    this.reAdaptacion = document.querySelectorAll(".adaptacionDesk");
-    (this.reAdaptacion.length==0)?(this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")):null;
+
+    if (this.scrWidth < 825) {
+      document.getElementById("menuToggel")!.style.display = "block";
+      document.getElementById("optionsNav")!.style.display = "none";
+      console.log(document.getElementById("menuToggel")?.style.display);
+
+    } else {
+      document.getElementById("menuToggel")!.style.display = "none";
+      document.getElementById("optionsNav")!.style.display = "block";
+    }
 
     this.ventanaFlotante = document.querySelectorAll(".ventanaFlotante")!;
-    (this.ventanaFlotante.length==0)?(this.ventanaFlotante = document.querySelectorAll(".ventanaFlotanteMovil")!):null;
-    
-    this.ventanaFlotante.forEach(element=>{
+    (this.ventanaFlotante.length == 0) ? (this.ventanaFlotante = document.querySelectorAll(".ventanaFlotanteMovil")!) : null;
+    this.ventanaFlotante.forEach(element => {
       if (this.scrWidth < 912) {
         element.classList.remove("ventanaFlotante")
         element.classList.add("ventanaFlotanteMovil")
-      }else{
+      } else {
         element.classList.add("ventanaFlotante")
         element.classList.remove("ventanaFlotanteMovil")
       }
     })
-    
-    this.reAdaptacion.forEach(element=>{
+
+    this.reAdaptacion = document.querySelectorAll(".adaptacionDesk");
+    (this.reAdaptacion.length == 0) ? (this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")) : null;
+    this.reAdaptacion.forEach(element => {
       if (this.scrWidth < 912) {
         element.classList.remove("adaptacionDesk")
         element.classList.add("adaptacionMovil")
-      }else{
+      } else {
         element.classList.add("adaptacionDesk")
         element.classList.remove("adaptacionMovil")
       }
@@ -48,27 +57,38 @@ export class LandingComponent implements OnInit {
 
   ngOnInit(): void {
     this.scrWidth = window.innerWidth;
+
+    if (this.scrWidth < 825) {
+      document.getElementById("menuToggel")!.style.display = "block";
+      document.getElementById("optionsNav")!.style.display = "none";
+      console.log(document.getElementById("menuToggel")?.style.display);
+
+    } else {
+      document.getElementById("menuToggel")!.style.display = "none";
+      document.getElementById("optionsNav")!.style.display = "block";
+    }
+
     this.reAdaptacion = document.querySelectorAll(".adaptacionDesk");
-    console.log(this.reAdaptacion);
-    (this.reAdaptacion.length==0)?(this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")):null;
-    console.log(this.reAdaptacion);
+    // console.log(this.reAdaptacion);
+    (this.reAdaptacion.length == 0) ? (this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")) : null;
+    // console.log(this.reAdaptacion);
     this.ventanaFlotante = document.querySelectorAll(".ventanaFlotante");
-    this.ventanaFlotante.forEach(element=>{
+    this.ventanaFlotante.forEach(element => {
       if (this.scrWidth < 912) {
         element.classList.remove("ventanaFlotante")
         element.classList.add("ventanaFlotanteMovil")
-      }else{
+      } else {
         element.classList.add("ventanaFlotante")
         element.classList.remove("ventanaFlotanteMovil")
       }
     })
-    
 
-    this.reAdaptacion.forEach(element=>{
+
+    this.reAdaptacion.forEach(element => {
       if (this.scrWidth < 912) {
         element.classList.remove("adaptacionDesk")
         element.classList.add("adaptacionMovil")
-      }else{
+      } else {
         element.classList.add("adaptacionDesk")
         element.classList.remove("adaptacionMovil")
       }
