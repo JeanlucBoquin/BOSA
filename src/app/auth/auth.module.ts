@@ -4,6 +4,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MaterialModule } from '../material/material.module';
 import { NgsRevealModule } from 'ngx-scrollreveal';
+import { AuthRoutingModule } from './auth-routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { NgsRevealModule } from 'ngx-scrollreveal';
   imports: [
     CommonModule,
     MaterialModule,
-    NgsRevealModule
+    NgsRevealModule,
+    AuthRoutingModule
   ]
 })
 export class AuthModule { }

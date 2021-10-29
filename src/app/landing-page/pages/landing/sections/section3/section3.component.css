@@ -2,8 +2,8 @@
 position: relative;
 }
 
-.ventanaFlotante{
-    width: 35%;
+.ventanaFlotanteLg{
+    width: 36%;
     display: flex;
     flex-direction: column; 
     justify-content: center; 
@@ -11,10 +11,22 @@ position: relative;
     position: absolute;
     top: 20px; 
     bottom: 20px; 
-    right: 160px;
+    right: 120px;
 }
 
-.ventanaFlotantee{
+.ventanaFlotanteMd{
+    width: 48%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    gap: 5rem;
+    position: absolute;
+    top: 20px; 
+    bottom: 20px; 
+    right: 100px;
+}
+
+.ventanaFlotanteSm{
     width: 60%;
     display: flex;
     flex-direction: column; 

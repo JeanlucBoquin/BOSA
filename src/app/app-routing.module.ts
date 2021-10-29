@@ -10,7 +10,11 @@ import { RegisterComponent } from './auth/pages/register/register.component';
 const routes: Routes = [
   {
     path: "landing-page",
-    component: RegisterComponent
+    component: LandingComponent
+  },
+  {
+    path:"auth",
+    loadChildren: () => import("./auth/auth.module").then((module)=>module.AuthModule)
   },
   { path: "",
     redirectTo: "landing-page",

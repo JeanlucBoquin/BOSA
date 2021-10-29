@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-.ventanaFlotante{
+.ventanaFlotanteLg{
     width: 37%;
     display: flex;
     flex-direction: column; 
@@ -20,7 +20,19 @@
     left: 20px;
 }
 
-.ventanaFlotantee{
+.ventanaFlotanteMd{
+    width: 35%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-around; 
+    /* gap: 5rem; */
+    position: absolute;
+    top: 0px; 
+    bottom: 0px; 
+    left: 20px;
+}
+
+.ventanaFlotanteSm{
     width: 55%;
     display: flex;
     flex-direction: column; 

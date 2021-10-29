@@ -42,9 +42,9 @@ export class Section1Component implements AfterViewInit {
   ngAfterViewInit(): void {
     this.scrWidth = window.innerWidth;
     this.reAdaptacion = document.querySelectorAll(".adaptacionDesk");
-    console.log(this.reAdaptacion);
+    // console.log(this.reAdaptacion);
     (this.reAdaptacion.length == 0) ? (this.reAdaptacion = document.querySelectorAll(".adaptacionMovil")) : null;
-    console.log(this.reAdaptacion);
+    // console.log(this.reAdaptacion);
     this.reAdaptacion.forEach(element => {
       if (this.scrWidth < 912) {
         element.classList.remove("adaptacionDesk")
