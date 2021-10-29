@@ -5,11 +5,12 @@ import { Page404Component } from './shared/page404/page404.component';
 
 // Visualizacion (Borrar)
 import { LoginComponent } from './auth/pages/login/login.component';
+import { RegisterComponent } from './auth/pages/register/register.component';
 
 const routes: Routes = [
   {
     path: "landing-page",
-    component: LoginComponent
+    component: RegisterComponent
   },
   { path: "",
     redirectTo: "landing-page",

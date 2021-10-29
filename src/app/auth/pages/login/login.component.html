@@ -1,56 +1,51 @@
 <section>
     <!-- Desktop -->
-    <div class="gripDesktop d-none d-sm-grid">
+    <div class="gripDesktop d-none d-md-grid" ngsReveal>
         <!-- Decoracion lado izquierdo -->
         <div class="sideLeft">
-            <div class="backgroundDark"> </div>
-            <div class="imgLeft">
-                <img src="../../../../assets/img/login/undraw_Access_account_re_8spm.svg" alt="">
-            </div>
+            <img src="../../../../assets/img/login/undraw_Access_account_re_8spm.svg" alt="">
         </div>
         <!-- Login Desktop-->
         <div>
             <div class="sideRight">
-                <div class="flexRight p-4">
-                    <img class="mt-4" src="../../../../assets/img/logo NELSON Y JEAN.png" alt="">
-                    <h1 class="text-center">Bienvenido de <samp
-                            style="color:#f2a20c; font-family: Roboto;">vuelta</samp></h1>
-                    <p class="d-none d-md-block">Gracias por volver, iniciar sesión en su cuenta completando este formulario</p>
-                    <form>
-                        <div>
-                            <input class="form-control mb-3" type="text" id=""
-                                placeholder="Ingresa tu correo electronico">
-                        </div>
-                        <div>
-                            <input class="form-control mb-2" type="password" id=""
-                                placeholder="Ingresa tu contraseña">
-                        </div>
-                        <a class="text-end d-block mb-3"
-                            style="cursor: pointer; text-decoration: none; color: #424041;">¿olvidaste tu
-                            contraseña?</a>
-                        <button class="btn btn-danger w-100 btn-sm mb-1">Iniciar sesión</button>
-                    </form>
-                </div>
+                <img class="mt-2" src="../../../../assets/img/logo NELSON Y JEAN.png" alt="">
+                <h1 class="text-center">Bienvenido de <samp style="color:#f2a20c; font-family: Roboto;">vuelta</samp></h1>
+                <p>Gracias por volver, para iniciar sesión completando este formulario</p>
+                <form>
+                    <div>
+                        <input class="form-control mb-3" type="text" id="" placeholder="Ingresa tu correo electronico">
+                    </div>
+                    <div>
+                        <input class="form-control mb-2" type="password" id="" placeholder="Ingresa tu contraseña">
+                    </div>
+                    <a class="d-block mb-3"
+                        style="cursor: pointer; font-size: 14px; text-decoration: none; color: #424041;">¿Olvidaste tu
+                        contraseña?</a>
+                    <button class="btn btn-danger w-100 btn-sm mb-1">Iniciar sesión</button>
+                    <a class="d-block mt-2" style="font-size: 14px; text-decoration: none; color: #424041;">¿Necesitas
+                        una cuenta? <span style="cursor: pointer; color: #f2a20c;">Registrate</span></a>
+                </form>
+
             </div>
         </div>
     </div>
     <!-- Movil -->
-    <div class="gripMovil p-3 d-flex d-sm-none">
+    <div class="gripMovil p-3 d-flex d-md-none" ngsReveal>
         <div class="mt-3">
-            <h1 style="color:#f3f3f0; font-size: 32px;">iniciar <span style="color: #f2a20c;">sesión</span></h1>
+            <h1 style="color:#f3f3f0; font-size: 34px;">Iniciar <span style="color: #f2a20c;">sesión</span></h1>
         </div>
-
+        <!-- Login Movil-->
         <form class="mx-3">
-            <p style="text-align: center;"><img style="width: 100px; height:100px; text-align: center;" src="../../../../assets/img/logo NELSON Y JEAN.png" alt=""></p>
-            <div>
-                <input class="form-control mb-3" type="text" id="" placeholder="Ingresa tu correo electronico">
-            </div>
-            <div>
-                <input class="form-control mb-2" type="password" id="" placeholder="Ingresa tu contraseña">
-            </div>
-            <a class="text-end d-block mb-3" style="cursor: pointer; text-decoration: none; color: #424041;">¿olvidaste
+            <p style="text-align: center; margin-bottom: 10px;"><img
+                    style="width: 100px; height:100px; text-align: center;"
+                    src="../../../../assets/img/logo NELSON Y JEAN.png" alt="">
+            </p>
+            <input class="form-control mb-2" type="text" id="" placeholder="Ingresa tu correo electronico">
+            <input class="form-control mb-2" type="password" id="" placeholder="Ingresa tu contraseña">
+            <a class="d-block mb-3" style="cursor: pointer; text-decoration: none; color: #424041;">¿olvidaste
                 tu contraseña?</a>
-            <button class="btn btn-danger w-100 btn-sm mb-1">Iniciar sesión</button>
+            <button class="btn btn-danger w-100 btn-sm mb-2">Iniciar sesión</button>
+            <p style="color: #424041; margin-top: 5px;">¿Necesitas una cuenta? <span style="cursor: pointer; color: #f2a20c;">Registrate</span></p>
         </form>
 
         <div>

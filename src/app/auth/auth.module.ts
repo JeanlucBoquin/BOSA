@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MaterialModule } from '../material/material.module';
+import { NgsRevealModule } from 'ngx-scrollreveal';
 
 
 
@@ -11,7 +13,9 @@ import { LoginComponent } from './pages/login/login.component';
     LoginComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    NgsRevealModule
   ]
 })
 export class AuthModule { }
