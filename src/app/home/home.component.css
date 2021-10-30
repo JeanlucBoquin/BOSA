@@ -1,0 +1,30 @@
+mat-toolbar{
+    background-color: #f2a30c;
+}
+mat-toolbar button{
+    padding: 0 9px;
+}
+
+.material-container{
+    position: absolute;
+    top: 63.99px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+}
+
+.material-sidenav{
+    background-color: #f3f3f0;
+    width: 190px;
+}
+
+.contenedorBotones{
+    background-color: #e2e2e2;
+    border-radius: 10px;
+    margin: 0 8px;
+}
+
+.contenedorBotones button{
+    width: 100%;
+}

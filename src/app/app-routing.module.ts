@@ -16,8 +16,12 @@ const routes: Routes = [
     path:"auth",
     loadChildren: () => import("./auth/auth.module").then((module)=>module.AuthModule)
   },
+  {
+    path:'home',
+    loadChildren: ()=>import("./home/home.module").then(module=>module.HomeModule)
+  },
   { path: "",
-    redirectTo: "landing-page",
+    redirectTo: "home",
     pathMatch: "full"
   },
   { path: "**",

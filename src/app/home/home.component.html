@@ -1,0 +1,103 @@
+<mat-toolbar>
+    <div>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>BOSA</span>
+    </div>
+    <span class="example-spacer"></span>
+    <button mat-button>
+        <mat-icon>thumb_up_off_alt</mat-icon><span class="ms-1">Ofertas</span>
+    </button>
+    <button mat-button>
+        <mat-icon>star_outline</mat-icon><span class="ms-1">Empresas mas populares</span>
+    </button>
+    <button mat-button>
+        <mat-icon>add_shopping_cart</mat-icon><span class="ms-1">Carrito</span>
+    </button>
+
+</mat-toolbar>
+
+
+<mat-sidenav-container class="material-container" [hasBackdrop]="false">
+    <mat-sidenav class="material-sidenav" #sidenav mode="push" opened=true>
+        <div class="my-2" style="display: flex; flex-direction: column; align-items: center;">
+            <img style="width: 100px; border-radius: 50%;" src="../../assets/img/sidenav/JeanCuadrada.png" alt="">
+            <p>Jeanluc Boquin</p>
+        </div>
+        <div class="contenedorBotones">
+            <button mat-button>
+                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+                    <div>
+                        <div>
+                            <img style="width: 18px;" src="../../assets/img/sidenav/categoria.png" alt="">
+                        </div>
+                    </div>
+                    <span>Categorias</span>
+                </div>
+            </button>
+            <button mat-button>
+                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+                    <div>
+                        <img style="width: 18px;" src="../../assets/img/sidenav/company.png" alt="">
+                    </div>
+                    <span>Empresas favoritas</span>
+                </div>
+            </button>
+            <button mat-button>
+                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+                    <div>
+                        <img style="width: 18px;" src="../../assets/img/sidenav/package.png" alt="">
+                    </div>
+                    <span>Productos favoritas</span>
+                </div>
+            </button>
+            <button mat-button>
+                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+                    <div>
+                        <img style="width: 18px;" src="../../assets/img/sidenav/carrito-de-compras.png" alt="">
+                    </div>
+                    <span>Carrito</span>
+                </div>
+            </button>
+            <button mat-button>
+                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+                    <div>
+                        <img style="width: 18px;" src="../../assets/img/sidenav/historial-medico.png" alt="">
+                    </div>
+                    <span>Historial</span>
+                </div>
+            </button>
+            <hr class="mx-3">
+            <button mat-button>
+                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+                    <div>
+                        <img style="width: 18px;" src="../../assets/img/sidenav/cuenta.png" alt="">
+                    </div>
+                    <span>Cuenta</span>
+                </div>
+            </button>
+            <button mat-button>
+                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+                    <div>
+                        <img style="width: 18px;" src="../../assets/img/sidenav/ajustamiento.png" alt="">
+                    </div>
+                    <span>Ajustes</span>
+                </div>
+            </button>
+            <button mat-button>
+                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+                    <div>
+                        <img style="width: 18px;" src="../../assets/img/sidenav/cerrar-sesion.png" alt="">
+                    </div>
+                    <span>Cerrar sesion</span>
+                </div>
+            </button>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height:300px">Main content {{'python'}}</div>
+        <div style="height:300px">Main content {{'javascritp'}}</div>
+        <div style="height:300px">Main content {{'go'}}</div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
