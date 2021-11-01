@@ -1,0 +1,10 @@
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.principal app-title {
+    margin-bottom: 20px;
+    padding: 10px;
+}
