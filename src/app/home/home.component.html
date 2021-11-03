@@ -1,103 +1,53 @@
 <mat-toolbar>
-    <div>
-        <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span>BOSA</span>
-    </div>
+
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>BOSA</span>
+
     <span class="example-spacer"></span>
     <button mat-button>
-        <mat-icon>thumb_up_off_alt</mat-icon><span class="ms-1">Ofertas</span>
+        <mat-icon>thumb_up_off_alt</mat-icon><span class="ms-1 d-none d-md-inline">Ofertas</span>
     </button>
     <button mat-button>
-        <mat-icon>star_outline</mat-icon><span class="ms-1">Empresas mas populares</span>
+        <mat-icon>star_outline</mat-icon><span class="ms-1 d-none d-md-inline">Empresas mas populares</span>
     </button>
     <button mat-button>
-        <mat-icon>add_shopping_cart</mat-icon><span class="ms-1">Carrito</span>
+        <mat-icon>add_shopping_cart</mat-icon><span class="ms-1 d-none d-md-inline">Carrito</span>
     </button>
 
 </mat-toolbar>
 
 
 <mat-sidenav-container class="material-container" [hasBackdrop]="false">
-    <mat-sidenav class="material-sidenav" #sidenav mode="push" opened=true>
+    <mat-sidenav class="material-sidenav" #sidenav mode="push" opened=false>
         <div class="my-2" style="display: flex; flex-direction: column; align-items: center;">
             <img style="width: 100px; border-radius: 50%;" src="../../assets/img/sidenav/JeanCuadrada.png" alt="">
             <p>Jeanluc Boquin</p>
         </div>
         <div class="contenedorBotones">
-            <button mat-button>
-                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+            <button *ngFor="let btnOption of btnOptions_1" mat-button>
+                <div class="contenidoBotones">
                     <div>
-                        <div>
-                            <img style="width: 18px;" src="../../assets/img/sidenav/categoria.png" alt="">
-                        </div>
+                        <img style="width: 18px;" [src]=btnOption.img alt="imgBreak">
                     </div>
-                    <span>Categorias</span>
-                </div>
-            </button>
-            <button mat-button>
-                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
-                    <div>
-                        <img style="width: 18px;" src="../../assets/img/sidenav/company.png" alt="">
-                    </div>
-                    <span>Empresas favoritas</span>
-                </div>
-            </button>
-            <button mat-button>
-                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
-                    <div>
-                        <img style="width: 18px;" src="../../assets/img/sidenav/package.png" alt="">
-                    </div>
-                    <span>Productos favoritas</span>
-                </div>
-            </button>
-            <button mat-button>
-                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
-                    <div>
-                        <img style="width: 18px;" src="../../assets/img/sidenav/carrito-de-compras.png" alt="">
-                    </div>
-                    <span>Carrito</span>
-                </div>
-            </button>
-            <button mat-button>
-                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
-                    <div>
-                        <img style="width: 18px;" src="../../assets/img/sidenav/historial-medico.png" alt="">
-                    </div>
-                    <span>Historial</span>
+                    <span>{{btnOption.nombre}}</span>
                 </div>
             </button>
             <hr class="mx-3">
-            <button mat-button>
-                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
+            <button *ngFor="let btnOption of btnOptions_2" mat-button>
+                <div class="contenidoBotones">
                     <div>
-                        <img style="width: 18px;" src="../../assets/img/sidenav/cuenta.png" alt="">
+                        <img style="width: 18px;" [src]=btnOption.img alt="imgBreak">
                     </div>
-                    <span>Cuenta</span>
-                </div>
-            </button>
-            <button mat-button>
-                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
-                    <div>
-                        <img style="width: 18px;" src="../../assets/img/sidenav/ajustamiento.png" alt="">
-                    </div>
-                    <span>Ajustes</span>
-                </div>
-            </button>
-            <button mat-button>
-                <div style="display: flex; justify-content: flex-start; gap: .5rem;">
-                    <div>
-                        <img style="width: 18px;" src="../../assets/img/sidenav/cerrar-sesion.png" alt="">
-                    </div>
-                    <span>Cerrar sesion</span>
+                    <span>{{btnOption.nombre}}</span>
                 </div>
             </button>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
-        <div style="height:300px">Main content {{'python'}}</div>
-        <div style="height:300px">Main content {{'javascritp'}}</div>
-        <div style="height:300px">Main content {{'go'}}</div>
+
+        <router-outlet></router-outlet>
+    
     </mat-sidenav-content>
 </mat-sidenav-container>

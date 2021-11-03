@@ -1,5 +1,6 @@
 mat-toolbar{
     background-color: #f2a30c;
+    height: 63.99px;
 }
 mat-toolbar button{
     padding: 0 9px;
@@ -27,4 +28,10 @@ mat-toolbar button{
 
 .contenedorBotones button{
     width: 100%;
+}
+
+.contenidoBotones{
+    display: flex; 
+    justify-content: flex-start;
+    gap: .5rem;
 }
