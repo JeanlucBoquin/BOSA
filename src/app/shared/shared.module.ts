@@ -10,12 +10,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     TitleComponent,
     SidebarComponent,
-    ProfileComponent
+    ProfileComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { ProfileComponent } from './components/profile/profile.component';
   exports: [
     TitleComponent,
     SidebarComponent,
-    ProfileComponent
+    ProfileComponent,
+    NavbarComponent
   ]
 })
 export class SharedModule { }

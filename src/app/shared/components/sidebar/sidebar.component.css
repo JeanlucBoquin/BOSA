@@ -1,3 +1,23 @@
 mat-drawer-container {
     min-height: 100vh;
 }
+
+.sidebar {
+    padding: 20px;
+}
+
+li {
+    background-color: #0e3469be;
+    color: #fff;
+    font-size: 0.90rem;
+}
+
+.avatar{
+    width: 120px;
+}
+
+.profile-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

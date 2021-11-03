@@ -1,14 +1,10 @@
 
 <mat-drawer-container class="example-container" [hasBackdrop]="true" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <ul>
-      <li>alo</li>
-      <li>alo</li>
-      <li>alo</li>
-    </ul>
+    <app-sidebar></app-sidebar>
   </mat-drawer>
 
-  <div>
+  <div class="container-fluid">
     <div class="d-flex justify-content-between m-4 mb-2">
       <a (click)="drawer.toggle()"> <i class="fas fa-bars fs-1"></i></a>
       <div class="profile">
@@ -21,19 +17,3 @@
     </div>
   </div>
 </mat-drawer-container>
-
-<!-- 
-<div class="container-fluid container-home">
-  <div class="element">
-      <h5 class="text-center">Col Centeno #1, Bloque D, Casa #2</h5>
-      <p class="text-center mb-0">Comision: 90 Lps</p>
-  </div>
-  <div class="element">
-      <h5 class="text-center">Col Centeno #1, Bloque D, Casa #2</h5>
-      <p class="text-center mb-0">Comision: 90 Lps</p>
-  </div>
-  <div class="element">
-      <h5 class="text-center">Col Centeno #1, Bloque D, Casa #2</h5>
-      <p class="text-center mb-0">Comision: 90 Lps</p>
-  </div>
-</div> -->

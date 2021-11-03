@@ -16,3 +16,8 @@
   margin-bottom: 20px;
   padding: 10px;
 }
+
+
+.container-fluid {
+  height: 100vh;
+}

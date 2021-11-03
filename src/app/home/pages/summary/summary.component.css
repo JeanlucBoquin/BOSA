@@ -1,3 +1,7 @@
+/* mat-drawer-container {
+  background-image: url(../../../../assets/img/contenido.png);
+} */
+
 .component {
   color: #fff;
   width: 300px;
@@ -9,14 +13,17 @@
   padding-top: 12px;
 }
 
-.option .component {
-  background-color: #d48773;
+.bt1 {
+  background-color: #af5151;
+  color: #fff;
 }
-.option1 .component {
-  background-color: #067bc1;
+.bt2 {
+  background-color: #216a92;
+  color: #fff;
 }
-.option2 .component {
-  background-color: #bc9c89;
+.bt3 {
+  background-color: #a5826d;
+  color: #fff;
 }
 
 .option .motorista {
@@ -63,4 +70,31 @@
   width: 42px;
   height: 40px;
   border-radius: 20px;
+}
+
+.container-fluid {
+  height: 100vh;
+  background-image: url(../../../../assets/img/contenido.png);
+}
+
+.sidebar {
+  padding: 12px 15px 0px 15px;
+}
+
+.logo-sidebar {
+  width: 35px;
+}
+
+.motorista {
+  width: 70%;
+}
+
+button {
+  width: 60%;
+  margin-left: 30px;
+  margin-bottom: 80px;
+}
+
+.sidenav {
+  background-color: #0e305fa8;
 }

@@ -1,40 +1,94 @@
-<nav class="d-flex justify-content-between m-4">
-  <i class="fas fa-bars"></i>
-  <div class="profile">
-    <h5 class="text-center mt-2">NS</h5>
+<mat-drawer-container class="example-container" [hasBackdrop]="true" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+
+  <div>
+    <div class="sidebar d-flex justify-content-between">
+      <a (click)="drawer.toggle()"> <i class="fas fa-bars fs-1"></i></a>
+      <img
+        class="logo-sidebar"
+        src="../../../../assets/img/logo-bosa.png"
+        alt=""
+      />
+      <div class="profile">
+        <h5 class="text-center mt-2">NS</h5>
+      </div>
+    </div>
+    <div class="principal">
+      <div class="container-fluid d-flex flex-column align-items-center">
+        <div class="welcome-text mb-5 mt-5">
+          <h1>Hola Nelsinho!!</h1>
+          <h4>Estas son tus Ordenes</h4>
+        </div>
+
+        <button
+          type="button"
+          class="btn bt1 position-relative mt-4"
+          routerLink="/inicio/ordenes-pendientes"
+        >
+          <h4>Pendientes {{ 3 }}</h4>
+          <span
+            class="
+              position-absolute
+              top-30
+              start-0
+              translate-middle
+              badge
+              rounded-pill
+            "
+            ><img
+              class="motorista"
+              src="../../../../assets/img/moto.png"
+              alt=""
+            /><span class="visually-hidden">unread messages</span></span
+          >
+        </button>
+        <button
+          type="button"
+          class="btn bt2 position-relative"
+          routerLink="/inicio/ordenes-disponibles"
+        >
+          <h4>Disponibles {{ 3 }}</h4>
+          <span
+            class="
+              position-absolute
+              top-30
+              start-0
+              translate-middle
+              badge
+              rounded-pill
+            "
+            ><img
+              class="motorista"
+              src="../../../../assets/img/repartidor.png"
+              alt=""
+            /><span class="visually-hidden">unread messages</span></span
+          >
+        </button>
+        <button
+          type="button"
+          class="btn bt3 position-relative"
+          routerLink="/inicio/ordenes-entregadas"
+        >
+          <h4>Entregadas {{ 3 }}</h4>
+          <span
+            class="
+              position-absolute
+              top-30
+              start-0
+              translate-middle
+              badge
+              rounded-pill
+            "
+            ><img
+              class="motorista"
+              src="../../../../assets/img/tarea-completada .png"
+              alt=""
+            /><span class="visually-hidden">unread messages</span></span
+          >
+        </button>
+      </div>
+    </div>
   </div>
-</nav>
-
-
-<div class="container-fluid d-flex flex-column align-items-center">
-
-<div class="welcome-text">
-  <h1>Hola Nelsinho!!</h1>
-  <h4>Estas son tus Ordenes</h4>
-</div>
-
-<div class="option mb-5" routerLink="/inicio/ordenes-pendientes">
-  <img class="motorista" src="../../../../assets/img/moto.png" alt="">
-  <div class="component">
-    <h3>Pendientes 2</h3>
-  </div>
-</div>
-
-<div class="option1 mb-5 mt-4" routerLink="/inicio/ordenes-disponibles">
-  <img class="repartidor" src="../../../../assets/img/repartidor.png" alt="">
-  <div class="component">
-    <h3>disponibles 2</h3>
-  </div>
-</div>
-
-<div class="option2 mb-5 mt-4" routerLink="/inicio/ordenes-entregadas">
-  <img class="entregadas" src="../../../../assets/img/tarea-completada .png" alt="">
-  <div class="component">
-    <h3>Entregadas 2</h3>
-  </div>
-</div>
-
-
-
-
-</div>
+</mat-drawer-container>
