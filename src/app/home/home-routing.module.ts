@@ -2,6 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { FavoriteCompaniesComponent } from './pages/favorite-companies/favorite-companies.component';
+import { FavoriteProductsComponent } from './pages/favorite-products/favorite-products.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { AccountComponent } from './pages/account/account.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { RecordComponent } from './pages/record/record.component';
+import { CompaniesComponent } from './pages/companies/companies.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 // Queda pendiente el lazy-load de los componentes hijos
 
@@ -13,6 +21,38 @@ const routes: Routes = [
       {
         path:'categories',
         component: CategoriesComponent
+      },
+      {
+        path:'companies',
+        component: CompaniesComponent
+      },
+      {
+        path:'products',
+        component: ProductsComponent
+      },
+      {
+        path:'favorite-companies',
+        component:FavoriteCompaniesComponent
+      },
+      {
+        path:'favorite-products',
+        component:FavoriteProductsComponent
+      },
+      {
+        path:'shopping-cart',
+        component:ShoppingCartComponent
+      },
+      {
+        path:'record',
+        component:RecordComponent
+      },
+      {
+        path:'account',
+        component:AccountComponent
+      },
+      {
+        path:'settings',
+        component:SettingsComponent
       },
       {
         path:'',

@@ -26,7 +26,7 @@
             <p>Jeanluc Boquin</p>
         </div>
         <div class="contenedorBotones">
-            <button *ngFor="let btnOption of btnOptions_1" mat-button>
+            <button *ngFor="let btnOption of btnOptions_1" mat-button (click)="navegation(btnOption.nombre)">
                 <div class="contenidoBotones">
                     <div>
                         <img style="width: 18px;" [src]=btnOption.img alt="imgBreak">
@@ -35,7 +35,7 @@
                 </div>
             </button>
             <hr class="mx-3">
-            <button *ngFor="let btnOption of btnOptions_2" mat-button>
+            <button *ngFor="let btnOption of btnOptions_2" mat-button (click)="navegation(btnOption.nombre)">
                 <div class="contenidoBotones">
                     <div>
                         <img style="width: 18px;" [src]=btnOption.img alt="imgBreak">
@@ -45,7 +45,7 @@
             </button>
         </div>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content (click)="sidenav.close()">
 
         <router-outlet></router-outlet>
     

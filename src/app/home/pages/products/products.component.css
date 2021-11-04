@@ -1,0 +1,30 @@
+.bgImgMd{
+    width: 100%;
+    height: 30vh;
+    background-image: url("../../../../assets/img/home/Companies/walmart.png");
+    background-position: center center;
+}
+.bgImg{
+    width: 100%;
+    height: 25vh;
+    background-image: url("../../../../assets/img/home/Companies/walmart.png");
+    background-position: center center;
+    background-size: cover;
+}
+
+.gripProducts{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
+}
+
+.back{
+    width: 100%;
+    height: auto;
+    background-image: url('../../../../assets/img/home/Productos/background.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}

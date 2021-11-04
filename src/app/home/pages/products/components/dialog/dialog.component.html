@@ -1,0 +1,25 @@
+<div>
+    <h1 class="text-center" mat-dialog-title>JOHNNIE WALKER</h1>
+    <div mat-dialog-content>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex;">
+                <div>
+                    <p>What's your favorite animal?</p>
+                    <p>L 1920.33</p>
+                </div>
+                <div>
+                    <img style="width: 100px; height: 100px;"
+                        src="../../../../../../assets/img/home/Productos/johnnie walker.png" alt="">
+                </div>
+            </div>
+            <div>
+                <p class="m-0">Unidades a ordenar</p>
+                <input type="number" name="" id="">
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions style="display: flex; justify-content: center; width: 100%;">
+        <button mat-button style="width: 40%;" (click)="onNoClick()">Cancelar</button>
+        <button mat-button style="width: 40%;" [mat-dialog-close]="'saliendo del dialog'" cdkFocusInitial>Ordenar</button>
+    </div>
+</div>

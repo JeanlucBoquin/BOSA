@@ -15,6 +15,9 @@ import { OffersComponent } from './pages/offers/offers.component';
 import { RecordComponent } from './pages/record/record.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { CompaniesComponent } from './pages/companies/companies.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { DialogComponent } from './pages/products/components/dialog/dialog.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
     OffersComponent,
     RecordComponent,
     SettingsComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CompaniesComponent,
+    ProductsComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
