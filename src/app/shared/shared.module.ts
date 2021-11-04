@@ -11,16 +11,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeRoutingModule } from '../home/home-routing.module';
+import { ItemComponent } from './components/item/item.component';
 
 @NgModule({
   declarations: [
     TitleComponent,
     SidebarComponent,
     ProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    ItemComponent
   ],
   imports: [
     CommonModule,
+    HomeRoutingModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
@@ -33,7 +37,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     TitleComponent,
     SidebarComponent,
     ProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    ItemComponent
   ]
 })
 export class SharedModule { }

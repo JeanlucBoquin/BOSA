@@ -1,0 +1,14 @@
+.rounded {
+    border-radius: 20px !important;
+    width: 130px !important;
+    height: 35px !important;
+}
+
+.text{
+    font-weight: 400;
+    font-size: 93%;
+}
+
+section h6 {
+    color: #163157;
+}

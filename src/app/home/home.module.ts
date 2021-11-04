@@ -14,14 +14,25 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { DetailsComponent } from './pages/details/details.component';
+import { InvoiceComponent } from './pages/invoice/invoice.component';
+import { AccountComponent } from './pages/account/account.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { MatTableModule } from '@angular/material/table';
+import { TablesInvoiceComponent } from './components/tables-invoice/tables-invoice.component';
 
 @NgModule({
   declarations: [
     SummaryComponent,
     OrdersAvailableComponent,
     OrdersDeliveredComponent,
-    OrdersPendingComponent
+    OrdersPendingComponent,
+    DetailsComponent,
+    InvoiceComponent,
+    AccountComponent,
+    SettingsComponent,
+    TablesInvoiceComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +44,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    ScrollingModule,
+    MatTableModule
   ]
 })
 export class HomeModule { }

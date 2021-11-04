@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/app-Motoristas",
     "ignore": [
       "firebase.json",
       "**/.*",

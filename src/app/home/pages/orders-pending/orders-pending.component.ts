@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersPendingComponent implements OnInit {
 
+  items = Array.from({length: 10}).map((_, i) => `Item #${i}`);
+
   constructor() { }
 
   ngOnInit(): void {

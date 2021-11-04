@@ -6,6 +6,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
   styleUrls: ['./orders-delivered.component.css']
 })
 export class OrdersDeliveredComponent implements OnInit {
+  items = Array.from({length: 10}).map((_, i) => `Item #${i}`);
 
   showFiller = false;
 

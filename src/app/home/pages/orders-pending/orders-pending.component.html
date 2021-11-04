@@ -1,10 +1,6 @@
 <mat-drawer-container class="example-container" [hasBackdrop]="true" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <ul>
-      <li>alo</li>
-      <li>alo</li>
-      <li>alo</li>
-    </ul>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <app-sidebar></app-sidebar>
   </mat-drawer>
 
   <div class="container-fluid">
@@ -16,7 +12,13 @@
     </div>
     <div class="principal">
       <app-title title1="Pendientes" src="../../../../assets/img/pendientes.png"></app-title>
-      <div class="container container-home"></div>
+      <cdk-virtual-scroll-viewport
+      appendOnly
+      itemSize="4"
+      class="container container-home"
+    >
+      <app-item *ngFor="let item of items" [name]="true" [btn]="true"></app-item>
+    </cdk-virtual-scroll-viewport>
     </div>
   </div>
 </mat-drawer-container>
