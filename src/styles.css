@@ -50,3 +50,13 @@ body {
   margin-bottom: 20px;
   padding: 10px;
 }
+
+.desktop {
+  min-height: 100vh;
+  background-image: url(./assets/img/contenido.png);
+}
+
+.mobile {
+  min-height: 100vh;
+  background-color:#f3f3f0;
+}

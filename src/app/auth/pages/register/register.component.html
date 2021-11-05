@@ -1,23 +1,38 @@
 <div class="container-fluid">
-  <div class="mt-5 mb-3">
-    <img src="../../../../assets/img/logo-bosa.png" alt="" class="logo" />
+  <div class="row d-flex">
+    <div
+      class="
+        col-sm- col-md-7 col-lg-7 col-xl-8 col-xxl-9
+        d-none d-md-block d-lg-block d-xl-block
+        desktop
+      "
+    ></div>
+    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 col-xxl-3 mobile">
+      <div class="container align-items-center d-flex flex-column">
+        <div class="container align-items-center d-flex flex-column">
+          <img src="../../../../assets/img/logo-bosa.png" alt="" class="logo" />
+
+          <div class="mb-5">
+            <h3 class="text-center">
+              Regístrate para ser parte de nuestro equipo
+            </h3>
+          </div>
+
+          <form [formGroup]="form">
+            <input type="text" placeholder="Numero de celular" formControlName="number"/>
+            <input type="text" placeholder="Nombre completo" formControlName="name"/>
+            <input type="email" placeholder="Correo electrónico" formControlName="email"/>
+            <input type="password" placeholder="Contraseña" formControlName="password"/>
+            <input type="password" placeholder="Confirmar contraseña" formControlName="passwordConfirm"/>
+            <button [disabled]="!form.valid" type="button" class="btn-form">Registrarme</button>
+          </form>
+
+          <span class="text-center mt-3">
+            Al registrarse, aceptas nuestras Condiciones, la Política de datos y
+            la Política de cookies.
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="mb-5">
-    <h1 class="text-center">Regístrate para ser parte de nuestro equipo</h1>
-  </div>
-
-  <form autocomplete="off">
-    <input type="number" placeholder="Numero de celular" />
-    <input type="text" placeholder="Nombre completo" />
-    <input type="email" placeholder="Correo electrónico" />
-    <input type="password" placeholder="Contraseña" />
-    <input type="password" placeholder="Confirmar contraseña" />
-    <button type="button" class="btn-form">Registrarme</button>
-  </form>
-
-  <span class="text-center mt-3">
-    Al registrarse, aceptas nuestras Condiciones, la Política de datos y la
-    Política de cookies.
-  </span>
 </div>

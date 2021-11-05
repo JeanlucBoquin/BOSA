@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 
@@ -18,7 +19,8 @@ import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
     AppRoutingModule,
     AuthModule,
     NoopAnimationsModule,
-    AnimateOnScrollModule.forRoot()
+    AnimateOnScrollModule.forRoot(),
+    ReactiveFormsModule,
 
   ],
   exports: [
