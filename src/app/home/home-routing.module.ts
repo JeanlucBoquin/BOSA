@@ -10,61 +10,71 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { RecordComponent } from './pages/record/record.component';
 import { CompaniesComponent } from './pages/companies/companies.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { MapComponent } from './pages/map/map.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 // Queda pendiente el lazy-load de los componentes hijos
 
 const routes: Routes = [
   {
-    path:'',
-    component:HomeComponent,
-    children:[
+    path: '',
+    component: HomeComponent,
+    children: [
       {
-        path:'categories',
+        path: 'categories',
         component: CategoriesComponent
       },
       {
-        path:'companies',
+        path: 'companies',
         component: CompaniesComponent
       },
       {
-        path:'products',
+        path: 'products',
         component: ProductsComponent
       },
       {
-        path:'favorite-companies',
-        component:FavoriteCompaniesComponent
+        path: 'favorite-companies',
+        component: FavoriteCompaniesComponent
       },
       {
-        path:'favorite-products',
-        component:FavoriteProductsComponent
+        path: 'favorite-products',
+        component: FavoriteProductsComponent
       },
       {
-        path:'shopping-cart',
-        component:ShoppingCartComponent
+        path: 'shopping-cart',
+        component: ShoppingCartComponent
       },
       {
-        path:'record',
-        component:RecordComponent
+        path: 'map',
+        component: MapComponent
       },
       {
-        path:'account',
-        component:AccountComponent
+        path: 'payment',
+        component: PaymentComponent
       },
       {
-        path:'settings',
-        component:SettingsComponent
+        path: 'record',
+        component: RecordComponent
       },
       {
-        path:'',
-        redirectTo:'categories',
-        pathMatch:'full'
+        path: 'account',
+        component: AccountComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
+      },
+      {
+        path: '',
+        redirectTo: 'categories',
+        pathMatch: 'full'
       }
     ]
   },
   {
-    path:'',
-    redirectTo:'home',
-    pathMatch:'full'
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   }
 ];
 

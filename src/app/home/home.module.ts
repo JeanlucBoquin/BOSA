@@ -18,6 +18,8 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
 import { CompaniesComponent } from './pages/companies/companies.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { DialogComponent } from './pages/products/components/dialog/dialog.component';
+import { MapComponent } from './pages/map/map.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { DialogComponent } from './pages/products/components/dialog/dialog.compo
     ShoppingCartComponent,
     CompaniesComponent,
     ProductsComponent,
-    DialogComponent
+    DialogComponent,
+    MapComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,

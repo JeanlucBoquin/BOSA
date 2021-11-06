@@ -13,13 +13,21 @@
                 </div>
             </div>
             <div>
-                <p class="m-0">Unidades a ordenar</p>
-                <input type="number" name="" id="">
+                <!-- <p class="m-0">Unidades a ordenar</p> -->
+                <div class="example-container">
+                    <mat-form-field appearance="outline" floatLabel="always">
+                        <mat-label>Unidades a ordenar</mat-label>
+                        <input matInput type="number" class="example-right-align" placeholder="0">
+                        <!-- <span matPrefix>$&nbsp;</span>
+                        <span matSuffix>.00</span> -->
+                    </mat-form-field>
+                </div>
             </div>
         </div>
     </div>
     <div mat-dialog-actions style="display: flex; justify-content: center; width: 100%;">
         <button mat-button style="width: 40%;" (click)="onNoClick()">Cancelar</button>
-        <button mat-button style="width: 40%;" [mat-dialog-close]="'saliendo del dialog'" cdkFocusInitial>Ordenar</button>
+        <button mat-button style="width: 40%;" [mat-dialog-close]="'saliendo del dialog'"
+            cdkFocusInitial>Ordenar</button>
     </div>
 </div>
