@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface BtnOptions {
   nombre: string;
@@ -21,16 +22,24 @@ export class HomeComponent implements OnInit {
       img: "../../assets/sidenav/empresa.png"
     },
     {
+      nombre: "Productos",
+      img: "../../assets/sidenav/package.png"
+    },
+    {
       nombre: "Motoristas",
       img: "../../assets/sidenav/scooter.png"
     },
     {
       nombre: "Registrar Empresa",
-      img: "../../assets/sidenav/registrar.png"
+      img: "../../assets/sidenav/empresa.png"
+    },
+    {
+      nombre: "Registrar Producto",
+      img: "../../assets/sidenav/package.png"
     },
     {
       nombre: "Registrar Motorista",
-      img: "../../assets/sidenav/registrar.png"
+      img: "../../assets/sidenav/scooter.png"
     }
   ]
   btnOptions_2: BtnOptions[] = [
@@ -47,11 +56,33 @@ export class HomeComponent implements OnInit {
       img: "../../assets/sidenav/cerrar-sesion.png"
     }
   ]
-  constructor() { }
+
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
   navegation(path:string){
     console.log(path)
+    if(path=="Categorias"){
+      this.router.navigateByUrl('/home/categories')
+    }else if(path=="Empresas"){
+      this.router.navigateByUrl('/home/companies')
+    }else if(path=="Productos"){
+      this.router.navigateByUrl('/home/products')
+    }else if(path=="Motoristas"){
+      this.router.navigateByUrl('/home/bikers')
+    }else if(path=="Registrar Empresa"){
+      this.router.navigateByUrl('/home/register-company')
+    }else if(path=="Registrar Producto"){
+      this.router.navigateByUrl('/home/register-product')
+    }else if(path=="Registrar Motorista"){
+      this.router.navigateByUrl('/home/register-biker')
+    }else if(path=="Cuenta"){
+      this.router.navigateByUrl('/home/account')
+    }else if(path=="Ajustes"){
+      this.router.navigateByUrl('/home/settings')
+    }else if(path=="Cerrar sesion"){
+      this.router.navigateByUrl('/login')
+    }
   }
 }
