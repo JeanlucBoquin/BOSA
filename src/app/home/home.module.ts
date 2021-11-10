@@ -7,6 +7,13 @@ import { RegisterBikerComponent } from './pages/register-biker/register-biker.co
 import { RegisterProductComponent } from './pages/register-product/register-product.component';
 import { RegisterCompanyComponent } from './pages/register-company/register-company.component';
 import { MaterialModule } from '../material/material.module';
+import { CompaniesComponent } from './pages/companies/companies.component';
+import { BikersComponent } from './pages/bikers/bikers.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { RegisterProductsComponent } from './pages/register-products/register-products.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { AccountComponent } from './pages/account/account.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 
 @NgModule({
@@ -14,7 +21,14 @@ import { MaterialModule } from '../material/material.module';
     HomeComponent,
     RegisterBikerComponent,
     RegisterProductComponent,
-    RegisterCompanyComponent
+    RegisterCompanyComponent,
+    CompaniesComponent,
+    BikersComponent,
+    ProductsComponent,
+    RegisterProductsComponent,
+    CategoriesComponent,
+    AccountComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
