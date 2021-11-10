@@ -6,9 +6,13 @@ import { HomeComponent } from './home.component';
 import { RegisterBikerComponent } from './pages/register-biker/register-biker.component';
 import { RegisterProductComponent } from './pages/register-product/register-product.component';
 import { RegisterCompanyComponent } from './pages/register-company/register-company.component';
+<<<<<<< HEAD
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { TableBikersComponent } from './components/table-bikers/table-bikers.component';
+=======
+import { MaterialModule } from '../material/material.module';
+>>>>>>> main
 
 
 @NgModule({
@@ -26,7 +30,13 @@ import { TableBikersComponent } from './components/table-bikers/table-bikers.com
   ],
   imports: [
     CommonModule,
+<<<<<<< HEAD
     HomeRoutingModule
   ],
+=======
+    HomeRoutingModule,
+    MaterialModule 
+  ]
+>>>>>>> main
 })
 export class HomeModule { }
