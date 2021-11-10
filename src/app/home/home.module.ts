@@ -6,6 +6,9 @@ import { HomeComponent } from './home.component';
 import { RegisterBikerComponent } from './pages/register-biker/register-biker.component';
 import { RegisterProductComponent } from './pages/register-product/register-product.component';
 import { RegisterCompanyComponent } from './pages/register-company/register-company.component';
+import { FormRegisterComponent } from './components/form-register/form-register.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
+import { TableBikersComponent } from './components/table-bikers/table-bikers.component';
 
 
 @NgModule({
@@ -13,11 +16,17 @@ import { RegisterCompanyComponent } from './pages/register-company/register-comp
     HomeComponent,
     RegisterBikerComponent,
     RegisterProductComponent,
-    RegisterCompanyComponent
+    RegisterCompanyComponent,
+    FormRegisterComponent,
+    FormProductComponent,
+    TableBikersComponent
+  ],
+  exports: [
+    HomeComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule
-  ]
+  ],
 })
 export class HomeModule { }

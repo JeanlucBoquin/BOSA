@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+.component-body {
+  width: 80%;
+  height: 600px;
+  background-color: #fff;
+  padding: 30px;
+}
+
+.form-label {
+    color: #626262;
+    font-size: 1.1rem;
+    font-weight: 520;
+}
+
+.btn-submit {
+    background-color: #F2A20C;
+    font-weight: 700;
+}
