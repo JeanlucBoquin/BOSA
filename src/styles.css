@@ -1,6 +1,6 @@
 .component-body {
-  width: 80%;
-  height: 600px;
+  /* width: 80%; */
+  min-height: 80%;
   background-color: #fff;
   padding: 30px;
 }

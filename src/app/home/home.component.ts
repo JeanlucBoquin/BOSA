@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   btnOptions_1: BtnOptions[] = [
     {
       nombre: "Categorias",
-      img: "../../assets/sidenav/categoria.png"
+      img: "../../assets/sidenav/categoria.png",
     },
     {
       nombre: "Empresas",

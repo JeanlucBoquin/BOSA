@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormRegisterComponent implements OnInit {
 
+  title = "N"
+
   constructor() { }
 
   ngOnInit(): void {

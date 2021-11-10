@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableBikersComponent implements OnInit {
 
+  title = 'Nuevos Motoristas';
+
   constructor() { }
 
   ngOnInit(): void {
