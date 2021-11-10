@@ -11,6 +11,13 @@ import { FormProductComponent } from './components/form-product/form-product.com
 import { TableBikersComponent } from './components/table-bikers/table-bikers.component';
 import { MaterialModule } from '../material/material.module';
 import { TitleComponent } from './components/title/title.component';
+import { CompaniesComponent } from './pages/companies/companies.component';
+import { BikersComponent } from './pages/bikers/bikers.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { RegisterProductsComponent } from './pages/register-products/register-products.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { AccountComponent } from './pages/account/account.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 
 @NgModule({
@@ -19,13 +26,13 @@ import { TitleComponent } from './components/title/title.component';
     RegisterBikerComponent,
     RegisterProductComponent,
     RegisterCompanyComponent,
-    FormRegisterComponent,
-    FormProductComponent,
-    TableBikersComponent,
-    TitleComponent
-  ],
-  exports: [
-    HomeComponent
+    CompaniesComponent,
+    BikersComponent,
+    ProductsComponent,
+    RegisterProductsComponent,
+    CategoriesComponent,
+    AccountComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
