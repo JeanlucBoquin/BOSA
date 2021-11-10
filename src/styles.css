@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #f3f3f0;
+    background-image: url("assets/PatronSinFondo35-15.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { RegisterBikerComponent } from './pages/register-biker/register-biker.component';
 import { RegisterProductComponent } from './pages/register-product/register-product.component';
 import { RegisterCompanyComponent } from './pages/register-company/register-company.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { RegisterCompanyComponent } from './pages/register-company/register-comp
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MaterialModule 
   ]
 })
 export class HomeModule { }
