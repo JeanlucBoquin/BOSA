@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { RegisterBikerComponent } from './pages/register-biker/register-biker.component';
 import { RegisterCompanyComponent } from './pages/register-company/register-company.component';
-import { RegisterProductComponent } from './pages/register-product/register-product.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { CompaniesComponent } from './pages/companies/companies.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { BikersComponent } from './pages/bikers/bikers.component';
 import { AccountComponent } from './pages/account/account.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { RegisterProductsComponent } from './pages/register-products/register-products.component';
 
 const routes: Routes = [
   {
@@ -38,7 +38,7 @@ const routes: Routes = [
       },
       {
         path:'register-product',
-        component: RegisterProductComponent
+        component: RegisterProductsComponent
       },
       {
         path:'register-biker',

@@ -1,10 +1,95 @@
-body{
-    background-color: #f3f3f0;
-    background-image: url("assets/PatronSinFondo35-15.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+.component-body {
+  /* width: 80%; */
+  min-height: 80%;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-label {
+  color: #626262;
+  font-size: 1.1rem;
+  font-weight: 520;
+}
+
+.btn-submit {
+  background-color: #f2a20c;
+  font-weight: 700;
+}
+body {
+  background-color: #f3f3f0;
+  background-image: url("assets/PatronSinFondo35-15.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Styles tables */
+
+table {
+  text-align: center;
+  width: 100%;
+}
+
+.img-table {
+  width: 40px;
+}
+
+.td-img {
+  width: 60px;
+}
+
+td {
+  vertical-align: middle;
+  font-size: large;
+}
+
+th {
+  font-size: large;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.aprobado {
+  background-color: #55d453;
+  border-radius: 10px;
+}
+
+.pendiente {
+  background-color: #f2a20c;
+  border-radius: 10px;
+}
+
+.rechazado {
+  background-color: #d93232;
+  border-radius: 10px;
+}
+
+.ocupado {
+  background-color: #e7c586;
+  border-radius: 10px;
+}
+
+.inactivo {
+  background-color: #cccccc;
+  border-radius: 10px;
+}
+
+.fa-trash-alt {
+  color: #ff485a;
+  font-size: x-large;
+}
+
+.fa-edit {
+  color: #41a3f1;
+  font-size: x-large;
+}
