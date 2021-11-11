@@ -1,44 +1,16 @@
 <section>
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+    <div class="d-none d-sm-none d-md-block d-lg-block adaptacionDesk">
+        <div class="ventanaFlotante">
+            <h1 style="color: #f3f3f2;">El registro de entregas <span style="color:#f2a20c">BOSA</span> posee el record actual de entregas rapidas</h1>
+            <h4 style="color: #f3f3f2;">El tiempo es una de nuestrar mayores prioridades</h4>
+            <button mat-raised-button style="background-color: #d93232; color: #f3f3f2;">Empezar experiencia <span style="color:#f2a20c">BOSA</span></button>
         </div>
-        <div class="carousel-inner">
-            <!-- Aplicacion de ngFor ngIf -->
-            <div *ngFor="let element of carrusel; let i=index" class="carousel-item" [class.active]="i==0">
-                <div style="background-color: rgba(0, 0, 0, 0.32); position: absolute; top: 0; bottom: 0px; width: 100%;"></div>
-                <img [src]="element.img"
-                    class="d-block w-100 adaptacionDesk adaptacionMovil" alt="...">
-                <div class="container ventanaFlotante d-none d-md-flex">
-                    <div>
-                        <h1 class="text-center" style="color: #f2e205;">{{element.titulo}}</h1>
-                        <h3 class="container text-center mt-4" style="color: #fff;">{{element.subtitulo}}</h3>
-                    </div>
-                    <button *ngIf="element.mensajebtn!=''" class="btn btn-danger">{{element.mensajebtn}}</button>
-                </div>
-                <div class="container ventanaFlotantee d-flex d-md-none">
-                    <div>
-                        <h3 class="container text-center mt-4" style="color: #fff;">{{element.subtitulo}}</h3>
-                    </div>
-                    <button *ngIf="element.mensajebtn!=''" class="btn btn-danger btn-sm">{{element.mensajebtn}}</button>
-                </div>
-            </div>
-
+    </div>
+    <div class="d-block d-sm-block d-md-none d-lg-none adaptacionMovil">
+        <div class="ventanaFlotanteMovil">
+            <!-- <h1 style="color: #f3f3f2;">El registro de entregas <span style="color:#f2a20c">BOSA</span> posee el record actual de entregas rapidas</h1> -->
+            <h4 style="color: #f3f3f2;">El tiempo es una de nuestrar mayores prioridades</h4>
+            <button mat-raised-button style="background-color: #d93232; color: #f3f3f2;">Empeza experiencia</button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 </section>
