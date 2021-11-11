@@ -1,6 +1,81 @@
+<div class="component-body">
+    <form class="row" [formGroup]="form">
+        <div class="col-6">
+            <!-- Nombre de la empresa -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Nombre de la empresa</label>
+                <input type="text" class="form-control" formControlName="name"/>
+            </div>
 
-<app-title [title]="title"></app-title>
+            <!-- Registro Tributario Numerico (RTN) -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Registro Tributario Numerico (RTN)</label>
+                <input type="number" class="form-control" formControlName="rtn"/>
+            </div>
+            <!-- Correo electronico -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Correo electronico</label>
+                <input type="email" class="form-control" formControlName="email"/>
+            </div>
+            <!-- Telefono #1 Telefono #2 (Opcional) -->
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="exampleInputPassword1" class="form-label">Telefono #1</label>
+                    <input type="tel" class="form-control" formControlName="tel" />
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="exampleInputPassword1" class="form-label">Telefono #2 (Opcional)</label>
+                    <input type="tel" class="form-control" formControlName="tel2" />
+                </div>
+            </div>
 
-<div class="container">
-    <app-form-product></app-form-product>
+            <!-- Selecione su pais -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Selecione su pais</label>
+                <!-- <input type="text" class="form-control" /> -->
+                <select class="form-control" aria-label="Default select example">
+                    <option selected></option>
+                    <option value="1">Honduras</option>
+                    <option value="2">Panama</option>
+                    <option value="3">El Salvador</option>
+                </select>
+
+            </div>
+            <!-- Direccion -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Direccion</label>
+                <textarea name="" id="" cols="30" rows="6" class="form-control" formControlName="direction"></textarea>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <!-- Categoria de su negocio -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Categoria de su negocio</label>
+                <input type="text" class="form-control" />
+            </div>
+            <!-- Cantidad de sucursales -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Cantidad de sucursales</label>
+                <input type="number" class="form-control" />
+            </div>
+            <!-- Nombre completo administrador -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Nombre completo administrador</label>
+                <input type="text" class="form-control" />
+            </div>
+            <!-- Imagen o logo -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Imagen o logo</label>
+                <input type="file" class="form-control" name="imagen"/>
+            </div>
+
+            <!-- Registrar Empresa -->
+            <div class="d-grid gap-2 mt-5">
+                <button class="btn btn-submit" type="button">Registrar Empresa</button>
+            </div>
+
+        </div>
+
+    </form>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-product',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormProductComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup = this.fb.group({
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+    price: [0, Validators.required],
+    quantity: [0, Validators.required],
+    img: ['', Validators.required]
+
+  })
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }

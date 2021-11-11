@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterProductsComponent implements OnInit {
 
+  title = 'Nuevo Producto';
+
   constructor() { }
 
   ngOnInit(): void {
