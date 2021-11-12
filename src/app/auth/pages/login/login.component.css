@@ -57,3 +57,9 @@ form{
     align-items: center;
     gap: .5rem;
 }
+
+
+.back{
+    background-color: #D93232;
+    color: #f3f3f2;
+}

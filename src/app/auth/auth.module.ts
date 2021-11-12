@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MaterialModule } from '../material/material.module';
 import { NgsRevealModule } from 'ngx-scrollreveal';
 import { AuthRoutingModule } from './auth-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { AuthRoutingModule } from './auth-routing.module';
     CommonModule,
     MaterialModule,
     NgsRevealModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

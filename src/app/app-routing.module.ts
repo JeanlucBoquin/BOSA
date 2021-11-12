@@ -21,7 +21,7 @@ const routes: Routes = [
     loadChildren: ()=>import("./home/home.module").then(module=>module.HomeModule)
   },
   { path: "",
-    redirectTo: "home",
+    redirectTo: "landing-page",
     pathMatch: "full"
   },
   { path: "**",
