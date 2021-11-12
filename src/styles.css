@@ -13,8 +13,9 @@
 }
 
 .btn-submit {
-  background-color: #f2a20c;
-  font-weight: 700;
+  background-color: #163157;
+  /* font-weight: 700; */
+  color: #f3f3f2;
 }
 body {
   background-color: #f3f3f0;
@@ -60,7 +61,7 @@ th {
 }
 
 .aprobado {
-  background-color: #55d453;
+  background-color:#2ecc71;
   border-radius: 10px;
 }
 
@@ -75,7 +76,7 @@ th {
 }
 
 .ocupado {
-  background-color: #e7c586;
+  background-color: #e67e22;
   border-radius: 10px;
 }
 

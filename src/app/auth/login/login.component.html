@@ -11,19 +11,28 @@
                 <img routerLink="/landing-page" style="cursor: pointer;" class="mt-2" src="../../../assets/login/logo.jpg" alt="">
                 <h1 class="text-center">Bienvenido de <samp style="color:#067bc1; font-family: Roboto;">vuelta</samp></h1>
                 <p>Gracias por volver, para iniciar sesión completando este formulario</p>
-                <form>
-                    <div>
-                        <input class="form-control mb-3" type="text" id="" placeholder="Ingresa tu correo electronico">
-                    </div>
-                    <div>
-                        <input class="form-control mb-2" type="password" id="" placeholder="Ingresa tu contraseña">
-                    </div>
+                <form [formGroup]="miFormulario" autocomplete="off" (ngSubmit)="login()">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Ingresa tu correo</mat-label>
+                        <input matInput placeholder="example@ebosa.com" formControlName="email" required>
+                        <mat-error *ngIf="miFormulario.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100 mb-1">
+                        <mat-label>Ingresa tu contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="miFormulario.get('password')?.invalid">{{getErrorMessage('password')}}</mat-error>
+                    </mat-form-field>
                     <a class="d-block mb-3"
                         style="cursor: pointer; font-size: 14px; text-decoration: none; color: #424041;">¿Olvidaste tu
                         contraseña?</a>
-                    <button class="btn btn-danger w-100 btn-sm mb-1" type="button" routerLink="/home">Iniciar sesión</button>
-                    <a class="d-block mt-2" style="font-size: 14px; text-decoration: none; color: #424041; text-align: center;">¿Necesitas
-                        una cuenta? <span style="cursor: pointer; color: #067bc1;" routerLink="/auth/register">Registrate</span></a>
+                    <button class="w-100 mb-2" [class.back]="this.miFormulario.valid"  mat-raised-button [disabled]="this.miFormulario.invalid" routerLink="/home">Iniciar sesión</button>
+                    <!-- <button class="btn btn-danger w-100 btn-sm mb-1" type="button" routerLink="/home">Iniciar sesión</button> -->
+                    <!-- <a class="d-block mt-2" style="font-size: 14px; text-decoration: none; color: #424041; text-align: center;">¿Necesitas
+                        una cuenta? <span style="cursor: pointer; color: #067bc1;" routerLink="/auth/register">Registrate</span></a> -->
                 </form>
 
             </div>
@@ -32,24 +41,36 @@
     <!-- Movil -->
     <div class="gripMovil p-3 d-flex d-md-none" ngsReveal>
         <div class="mt-3">
-            <h1 style="color:#f3f3f0; font-size: 34px;">Iniciar <span style="color: #f2a20c;">sesión</span></h1>
+            <h1 style="color:#f3f3f0; font-size: 34px;">Iniciar <span style="color: #067bc1;">sesión</span></h1>
         </div>
         <!-- Login Movil-->
-        <form class="mx-3" action="">
+        <form [formGroup]="miFormulario" autocomplete="off" (ngSubmit)="login()">
             <p style="text-align: center; margin-bottom: 12px; cursor: pointer;"><img routerLink="/landing-page"
                     style="width: 85px; height:85px; text-align: center;"
-                    src="../../../../assets/img/logo NELSON Y JEAN.png" alt="">
+                    src="../../../assets/login/logo-depositphotos-bgremover.png" alt="">
             </p>
-            <input class="form-control mb-2" type="text" id="" placeholder="Ingresa tu correo electronico">
-            <input class="form-control mb-2" type="password" id="" placeholder="Ingresa tu contraseña">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Ingresa tu correo</mat-label>
+                <input matInput placeholder="example@ebosa.com" formControlName="email" required>
+                <mat-error *ngIf="miFormulario.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100 mb-1">
+                <mat-label>Ingresa tu contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="miFormulario.get('password')?.invalid">{{getErrorMessage('password')}}</mat-error>
+            </mat-form-field>
             <a class="d-block mb-3" style="cursor: pointer; text-decoration: none; color: #424041;">¿olvidaste
                 tu contraseña?</a>
-            <button class="btn btn-danger w-100 btn-sm mb-2" type="button" routerLink="/home">Iniciar sesión</button>
-            <p style="text-align: center; color: #424041; margin-top: 5px;">¿Necesitas una cuenta? <span style="cursor: pointer; color: #f2a20c;" routerLink="/auth/register">Registrate</span></p>
+                <button class="w-100 mb-2" [class.back]="this.miFormulario.valid"  mat-raised-button [disabled]="this.miFormulario.invalid" routerLink="/home">Iniciar sesión</button>
+            <!-- <p style="text-align: center; color: #424041; margin-top: 5px;">¿Necesitas una cuenta? <span style="cursor: pointer; color: #067bc1;" routerLink="/auth/register">Registrate</span></p> -->
         </form>
 
         <div>
-            <img style="width: 100%; height: 35vh;" src="../../../../assets/img/login/undraw_Access_account_re_8spm.svg"
+            <img style="width: 100%; height: 29vh;" src="../../../assets/login/imgLogin.svg"
                 alt="">
         </div>
     </div>

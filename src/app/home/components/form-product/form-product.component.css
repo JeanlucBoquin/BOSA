@@ -6,3 +6,7 @@
 img {
     width: 80%;
 }
+
+.centrar{
+    display: flex;
+}
