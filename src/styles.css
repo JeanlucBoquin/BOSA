@@ -1,4 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.container-home {
+  height: 70vh;
+  width: 85vw;
+  border: 1px solid #d88f7c;
+  border-radius: 25px;
+}
+
+.container-fluid {
+  min-height: 100vh;
+  /* height: 100vh; */
+  background-image: url(./assets/img/contenido.png);
+}
+
+.profile {
+  background-color: #d88f7c;
+  color: #fff;
+  width: 42px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.sidenav {
+  background-color: #0e305fa8;
+}
+
+.sidebar {
+  padding: 12px 15px 0px 15px;
+}
+.logo-sidebar {
+  width: 35px;
+}
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.principal app-title {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.desktop {
+  min-height: 100vh;
+  background-image: url(./assets/img/contenido.png);
+}
+
+.mobile {
+  min-height: 100vh;
+  background-color:#f3f3f0;
+}

@@ -1,0 +1,12 @@
+<mat-drawer #drawer class="sidenav" mode="side">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+
+
+<div class="sidebar d-flex justify-content-between">
+  <a (click)="drawer.toggle()"> <i class="fas fa-bars fs-1"></i></a>
+  <img class="logo-sidebar" src="../../../../assets/img/logo-bosa.png" alt="" />
+  <div class="profile">
+    <h5 class="text-center mt-2">NS</h5>
+  </div>
+</div>

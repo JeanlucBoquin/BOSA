@@ -1,0 +1,38 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6%;
+  margin: 8%;
+  color: #fff;
+  background-color: #163157;
+  border-radius: 30px;
+}
+
+button {
+  width: 70%;
+  height: 8%;
+  background-color: #15816d;
+  border-radius: 30px;
+  border: 1px solid #adadad;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.direction {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.commission {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px 0px 0px 0px;;
+}
