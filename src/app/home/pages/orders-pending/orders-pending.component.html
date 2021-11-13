@@ -4,21 +4,28 @@
   </mat-drawer>
 
   <div class="container-fluid">
-    <div class=" d-flex justify-content-between m-4 mb-2">
+    <div class="d-flex justify-content-between m-4 mb-2">
       <a (click)="drawer.toggle()"> <i class="fas fa-bars fs-1"></i></a>
       <div class="profile">
         <h5 class="text-center mt-2">NS</h5>
       </div>
     </div>
     <div class="principal">
-      <app-title title1="Pendientes" src="../../../../assets/img/pendientes.png"></app-title>
+      <app-title
+        title1="Pendientes"
+        src="../../../../assets/img/pendientes.png"
+      ></app-title>
       <cdk-virtual-scroll-viewport
-      appendOnly
-      itemSize="4"
-      class="container container-home"
-    >
-      <app-item *ngFor="let item of items" [name]="true" [btn]="true"></app-item>
-    </cdk-virtual-scroll-viewport>
+        appendOnly
+        itemSize="4"
+        class="container container-home"
+      >
+        <app-item
+          *ngFor="let item of items"
+          [name]="true"
+          [btn]="true"
+        ></app-item>
+      </cdk-virtual-scroll-viewport>
     </div>
   </div>
 </mat-drawer-container>
