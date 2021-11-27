@@ -5,9 +5,9 @@
 const { Router } = require("express");
 const { check } = require("express-validator");
 
-const { test, getUsers, newUser, updateData, deleteUser, updatePassword, changeStateUser } = require("../controllers/usuarios");
-const { validarCampos } = require("../middlewares/validar-campos");
-const { validarJWT } = require("../middlewares/validar-jwt");
+const { test, getUsers, newUser, updateData, deleteUser, updatePassword, changeStateUser } = require("./usuariosController");
+const { validarCampos } = require("./validar-campos");
+const { validarJWT } = require("./validar-jwt");
 const router = Router();
 
 router.get("/test", test);

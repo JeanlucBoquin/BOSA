@@ -1,13 +1,40 @@
-Dependencias
+Dependencia de desarrollo
 ---
-* **desarrollo** 
+* **ts-node-dev**: Alternativa a nodemon al usar typescript.  
+``` 
+npm i ts-node-dev
+```
+
+* **typescript**: Lenguaje Typescript.  
+``` 
+npm i typescript
+```
+
+* **@types/express**: Tipos de datos para express.  
+``` 
+npm i @types/express
+```
+
+* **@types/cors**: Tipos de datos para cors.  
+``` 
+npm i @types/cors
+```
+
+* **@types/morgan**: Tipos de datos para morgan.  
+``` 
+npm i @types/morgan
+```
+
 ```
 npm i nodemon
 ```
 
+Dependencias
+---
+
 * **express**: Express es un framework web transigente.  
-``` 
-npm i express
+```
+ npm i express
 ```
 
 * **express-validator**: Validar campos
@@ -59,9 +86,9 @@ npm i nodemailer
 
 mongo credenciales
 ---
-* **username**: admin_serfish
+* **username**: admin_delivery
 
-* **password**: serfish
+* **password**: deliverypass1234
 
 
 
