@@ -1,6 +1,15 @@
 import {Request , Response} from 'express';
 import { Motorista } from '../models/motorista';
 
+
+export const signIn = async (req: Request, res: Response) => {
+    
+    res.send('signIn');
+}
+export const signUp = async (req: Request, res: Response) => {
+    res.send('signUp');
+}
+
 export const getMotoristas = async (req: Request, res: Response) => {
     try {
         const motorista = new Motorista({

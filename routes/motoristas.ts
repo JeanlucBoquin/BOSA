@@ -1,9 +1,11 @@
 import {Router} from 'express';
-import { getMotoristas, newMotorista } from '../controllers/motoristas';
+import * as ctrl from '../controllers/motoristas';
 
 const motoristasRouter = Router();
 
-motoristasRouter.get('/list', getMotoristas);
-motoristasRouter.post('/new', newMotorista);
+motoristasRouter.post('/signin', ctrl.signIn);
+motoristasRouter.post('/signup', ctrl.signUp);
+// motoristasRouter.get('/list' );
+// motoristasRouter.post('/new');
 
 export default motoristasRouter;
