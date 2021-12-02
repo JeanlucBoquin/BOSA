@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-interface Categoria {
-  nombre: string;
-  imagenes: string[];
-}
+import { Categoria } from '../../interfaces/categoria';
+import { HomeService } from '../../home.service';
 
 @Component({
   selector: 'app-categories',
@@ -13,63 +10,29 @@ interface Categoria {
 })
 export class CategoriesComponent implements OnInit {
   intervalo: Number = 10000;
-  categories: Categoria[] = [
-    {
-      nombre: "Alimentos Para El Hogar",
-      imagenes: [
-        "AlimentosParaElHogar/mujerComprando.jpg",
-        "AlimentosParaElHogar/verduras.jpg",
-        "AlimentosParaElHogar/mercado.jpg"
-      ]
-    },
-    {
-      nombre: "Comida Y Bebidas",
-      imagenes: [
-        "ComidaYBebidas/comida.jpg",
-        "ComidaYBebidas/chevanon.jpg",
-        "ComidaYBebidas/donuts.jpg"
-      ]
-    },
-    {
-      nombre: "Medicamentos",
-      imagenes: [
-        "Medicamentos/medical-supplies.jpg",
-        "Medicamentos/medication.jpg",
-        "Medicamentos/ready.jpg"
-      ]
-    },
-    {
-      nombre: "Herramientas Y Papeleria",
-      imagenes: [
-        "HerramientasYPapeleria/herramientas.jpg",
-        "HerramientasYPapeleria/arte.jpg",
-        "HerramientasYPapeleria/taladro.jpg"
-      ]
-    },
-    {
-      nombre: "Ropa Y Accesorios",
-      imagenes: [
-        "RopaYAccesorios/zapatosRopa.jpg",
-        "RopaYAccesorios/accesorios.jpg",
-        "RopaYAccesorios/ropa.jpg"
-      ]
-    },
-    {
-      nombre: "Tecnologia",
-      imagenes: [
-        "Tecnologia/cpuGamer.jpg",
-        "Tecnologia/headphone.jpg",
-        "Tecnologia/desk.jpg"
-      ]
-    },
-  ]
-  constructor(private router: Router) { }
+  vectorCategorias: Categoria[] = []
+  cargado: boolean = false;
+
+  constructor(private router: Router,
+    private homeService: HomeService
+  ) { }
 
   ngOnInit(): void {
+    console.log("inicio")
+    this.homeService.getCategories().subscribe(
+      res => {
+        res.categorias.forEach(categoria => {
+          // console.log(categoria)
+          this.vectorCategorias.push(categoria)
+        });
+        setTimeout(() => {
+          this.cargado=true
+        }, 50)
+      }
+    )
   }
 
-  navegation(path: string) {
-    // console.log(path)
-    this.router.navigateByUrl('/home/companies')
+  navegation(idCategory: string) {
+    this.router.navigate(['home/category', idCategory])
   }
 }

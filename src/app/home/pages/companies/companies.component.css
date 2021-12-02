@@ -3,3 +3,10 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(20rem,1fr));
 }
+.shadow{
+    box-shadow: 1px 1px 15px #888888;
+}
+
+figure,figcaption{
+    background-color: #d93232a8 !important;
+}

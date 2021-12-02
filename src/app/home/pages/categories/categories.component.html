@@ -1,40 +1,30 @@
-<section class="m-4">
+<section ngsReveal *ngIf="cargado" class="m-4">
     <h1 class="m-0">Categorias <span>BOSA</span></h1>
     <svg height="10" width="150">
-        <line x1="0" x2="300" style="stroke:#F2A20C; stroke-width:10"/>
+        <line x1="0" x2="300" style="stroke:#F2A20C; stroke-width:10" />
     </svg>
     <p>Lo que desees, cuando lo desees</p>
-    
-    <!-- GRID -->
+
+
     <div class="gripCategories">
+        <div *ngFor="let categoria of vectorCategorias">
+            <h4>{{categoria.nombre |titlecase}}</h4>
+            <figure class="imghvr-slide-right shadow" style="border-top: 5px solid #D93232; border-radius: 10px;">
+                <img [src]="'../../../../assets/img/home/Categorias/'+categoria.pathImg" alt="example-image"
+                    width="400">
+                <figcaption>
 
-        <div *ngFor="let categoria of categories">
-            <h4>{{categoria.nombre}}</h4>
-            <div class="card" style="border-top-width: 5px; border-style: solid; border-top-color:#D93232;">
-                <div class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;"> 
-                        <div *ngFor="let imagen of categoria.imagenes; let i=index;" class="carousel-item" data-bs-interval="7000" [class.active]="i==0">
-                            <div class="hoverImg"></div>
-                            <img [src]="'assets/img/home/Categorias/'+imagen" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body text-center p-2">
-                    <!-- <button class="w-75" style="color:#D93232" mat-stroked-button color="warn" (click)="navegation(categoria.nombre)">Explorar</button> -->
-                    <button type="button" class="btn btn-outline-danger w-75" (click)="navegation(categoria.nombre)">Explorar</button>
-                </div>
-                <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
-            </div>
+                    <p style="font-weight: 500; color: #424041;" class="ih-zoom-in ih-delay-md">
+                        <i>"{{categoria.descripcion}}"</i>
+                    </p>
+
+                    <button type="button" class="btn btn-danger w-100"
+                        (click)="navegation(categoria._id!)">Explorar</button>
+                </figcaption>
+            </figure>
         </div>
-
     </div>
-    <!-- FIN GRID -->
 </section>
+<div *ngIf="!cargado" class="center">
+    <mat-spinner  ngsReveal color="warn"></mat-spinner>
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,18 +11,39 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   hide: boolean = true;
   miFormulario: FormGroup = this.fb.group({
-    name:       ['',[Validators.required],[]],
-    lastName:   ['',[Validators.required],[]],
-    email:      ['',[Validators.required,Validators.email],[]],
-    password:   ['',[Validators.required],[]],
+    nombre:     ['',[Validators.required],[]],
+    apellido:   ['',[Validators.required],[]],
+    correo:     ['',[Validators.required,Validators.email],[]],
+    contraseña: ['',[Validators.required],[]],
+    tercon:     [false,[Validators.required, Validators.requiredTrue],[]]
   })
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private auntService:AuthService,
+              private router:Router
+    ) { }
 
   ngOnInit(): void {
+    this.miFormulario.reset({
+      nombre:"Cristian",
+      apellido:"Suazo",
+      correo:"crisu@gmail.com",
+      contraseña:"1234"
+    })
   }
 
   register() {
-
+    const {tercon, ...data}= this.miFormulario.value
+    // console.log(this.miFormulario.value)
+    // console.log(data)
+    this.auntService.registerClient(data).subscribe(
+      res=>{
+        if(res.ok){
+          this.router.navigateByUrl("/home")
+        }else{
+          console.log(res.msg)
+        }
+      }
+    )
   }
 
   getErrorMessage(campo: string) {
