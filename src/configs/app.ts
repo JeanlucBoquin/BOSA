@@ -4,6 +4,7 @@ import routes from '../routes/index';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 
+
 import './database';
 dotenv.config();
 

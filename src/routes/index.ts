@@ -5,4 +5,5 @@ const index = Router();
 
 index.use('/motoristas', motoristasRouter);
 
+
 export default index;
