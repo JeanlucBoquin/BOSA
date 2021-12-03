@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChildren, ElementRef, QueryList, 
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../../home.service';
 import { Empresa } from '../../interfaces/empresa';
+import { switchMap, tap } from 'rxjs/operators'
 
 @Component({
   selector: 'app-companies',
@@ -18,29 +19,28 @@ export class CompaniesComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.agregarCalificacion()
-    }, 100)
+      if (this.empresas.length > 0) {
+        this.agregarCalificacion()
+      }
+    }, 200)
   }
 
   ngOnInit(): void {
-    console.log("init")
-    this.router.params.subscribe(
-      res => {
-        // console.log(res)
-        this.homeService.getCompanies(res.idCategory).subscribe(
-          res => {
-            res.empresas.forEach(empresa => {
-              this.empresas.push(empresa)
-            })
-          }
-        )
-      }
-    )
+
+    this.router.params
+      .pipe(
+        tap(console.log),
+        switchMap(res => this.homeService.getCompanies(res.idCategory))
+      ).subscribe(res => {
+        res.empresas.forEach(empresa => {
+          this.empresas.push(empresa)
+        })
+      });
 
   }
 
   agregarCalificacion() {
-    console.log(this.prueba.first.nativeElement)
+    // console.log(this.prueba.first.nativeElement)
     this.prueba.forEach((ele, index) => {
       const calificacion = this.empresas[index].calificacion;
       for (let i = 0; i < 5; i++) {

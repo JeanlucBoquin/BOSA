@@ -10,3 +10,7 @@
 figure,figcaption{
     background-color: #d93232a8 !important;
 }
+
+.card-body:hover{
+    background-color: rgba(242, 194, 162, 0.25);
+}

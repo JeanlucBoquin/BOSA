@@ -4,10 +4,8 @@
         <line x1="0" x2="300" style="stroke:#F2A20C; stroke-width:10"/>
     </svg>
     <p>Todo lo que compres al mejor precio</p>
-    
     <!-- GRID -->
-    <div class="gripCompanies">
-
+    <div *ngIf="empresas.length>0" class="gripCompanies">
         <div *ngFor="let empresa of empresas; let i=index;" class="card shadow" style="border-top-width: 5px; border-style: solid; border-top-color:#D93232;">
             <div>
                 <img class="img-fluid" [src]="'../../../../assets/img/home/Companies/'+empresa.pathImg" [alt]="empresa.pathImg">
@@ -30,105 +28,53 @@
                     <h4>{{empresa.nombre|titlecase}}</h4>
                     <p class="m-0">{{empresa.descripcion}}</p>
                 </div>
-                <div class="card-body text-center pt-3">
+                <div class="text-center py-2">
                     <button type="button" class="btn btn-danger w-100" routerLink='/home/products'>Ver productos</button>
                     <!-- <button class="w-75" style="color:#D93232" mat-stroked-button color="warn">Explorar</button> -->
                 </div>
             </div>
             <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
         </div>
-
-        <div  class="card shadow" style="border-top-width: 5px; border-style: solid; border-top-color:#D93232;">
-            <div>
-                <img class="img-fluid" src="../../../../assets/img/home/Companies/comidaRapida/macdonal.jpg" alt="">
-            </div>
-            <div class="card-body pb-0 pt-2">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <i class="fas fa-star" style="color: #F2E205;"></i>
-                        <i class="fas fa-star" style="color: #F2E205;"></i>
-                        <i class="fas fa-star" style="color: #F2E205;"></i>
-                        <i class="fas fa-star-half-alt" style="color: #F2E205;"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div>
-                        <i class="fab fa-facebook fa-2x me-1"></i>
-                        <i class="fab fa-gratipay fa-2x"></i>
-                    </div>
-                </div>
-                <div>
-                    <h4>Card Estatica</h4>
-                    <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, nisi.</p>
-                </div>
-                <div class="card-body text-center p-2">
-                    <button type="button" class="btn btn-outline-danger" routerLink='/home/products'>Ver productos</button>
-                    <!-- <button class="w-75" style="color:#D93232" mat-stroked-button color="warn">Explorar</button> -->
-                </div>
-            </div>
-            <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
-        </div>
-
-        <div class="card shadow" style="border-top-width: 5px; border-style: solid; border-top-color:#D93232;">
-            <div>
-                <img class="img-fluid" src="../../../../assets/img/home/Companies/ferreteriaPapeleria/larach.jpg" alt="">
-            </div>
-            <div class="card-body pb-0 pt-2">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <i class="fas fa-star" style="color: #F2E205;"></i>
-                        <i class="fas fa-star" style="color: #F2E205;"></i>
-                        <i class="fas fa-star" style="color: #F2E205;"></i>
-                        <i class="fas fa-star-half-alt" style="color: #F2E205;"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div>
-                        <i class="fab fa-facebook fa-2x me-1"></i>
-                        <i class="fab fa-gratipay fa-2x"></i>
-                    </div>
-                </div>
-                <div>
-                    <h4>Card Estatica</h4>
-                    <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, nisi.</p>
-                </div>
-                <div class="card-body text-center p-2">
-                    <button type="button" class="btn btn-outline-danger" routerLink='/home/products'>Ver productos</button>
-                    <!-- <button class="w-75" style="color:#D93232" mat-stroked-button color="warn">Explorar</button> -->
-                </div>
-            </div>
-            <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
-        </div>
-
-        <div class="card shadow" style="border-top-width: 5px; border-style: solid; border-top-color:#D93232;">
-            <div>
-                <img class="img-fluid" src="../../../../assets/img/home/Companies/farmacias/saba.jpg" alt="">
-            </div>
-            <div class="card-body pb-0 pt-2">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <i class="fas fa-star" style="color: #F2E205;"></i>
-                        <i class="fas fa-star" style="color: #F2E205;"></i>
-                        <i class="fas fa-star" style="color: #F2E205;"></i>
-                        <i class="fas fa-star-half-alt" style="color: #F2E205;"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div>
-                        <i class="fab fa-facebook fa-2x me-1"></i>
-                        <i class="fab fa-gratipay fa-2x"></i>
-                    </div>
-                </div>
-                <div>
-                    <h4>Card Estatica</h4>
-                    <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, nisi.</p>
-                </div>
-                <div class="card-body text-center p-2">
-                    <button type="button" class="btn btn-outline-danger" routerLink='/home/products'>Ver productos</button>
-                    <!-- <button class="w-75" style="color:#D93232" mat-stroked-button color="warn">Explorar</button> -->
-                </div>
-            </div>
-            <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
-        </div>
-
-
+    </div>
+    <div *ngIf="!(empresas.length>0)" class="p-3" style="background-color: rgba(217, 50, 50, 0.8); border-radius: 5px;">
+        <h1>Lo sentimos</h1>
+        <p>Aun no se ha registrado una empresa en esta categoria</p>
     </div>
     <!-- FIN GRID -->
 </section>
+
+
+
+
+
+
+
+
+<!-- <div class="card shadow" style="border-top-width: 5px; border-style: solid; border-top-color:#D93232;">
+    <div>
+        <img class="img-fluid" src="../../../../assets/img/home/Companies/farmacias/saba.jpg" alt="">
+    </div>
+    <div class="card-body pb-0 pt-2">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <i class="fas fa-star" style="color: #F2E205;"></i>
+                <i class="fas fa-star" style="color: #F2E205;"></i>
+                <i class="fas fa-star" style="color: #F2E205;"></i>
+                <i class="fas fa-star-half-alt" style="color: #F2E205;"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div>
+                <i class="fab fa-facebook fa-2x me-1"></i>
+                <i class="fab fa-gratipay fa-2x"></i>
+            </div>
+        </div>
+        <div>
+            <h4>Card Estatica</h4>
+            <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, nisi.</p>
+        </div>
+        <div class="card-body text-center p-2">
+            <button type="button" class="btn btn-outline-danger" routerLink='/home/products'>Ver productos</button>
+        </div>
+    </div>
+    <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
+</div> -->
