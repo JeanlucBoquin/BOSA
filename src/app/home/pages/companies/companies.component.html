@@ -29,7 +29,7 @@
                     <p class="m-0">{{empresa.descripcion}}</p>
                 </div>
                 <div class="text-center py-2">
-                    <button type="button" class="btn btn-danger w-100" routerLink='/home/products'>Ver productos</button>
+                    <button type="button" class="btn btn-danger w-100" [routerLink]="[empresa._id,'products']">Ver productos</button>
                     <!-- <button class="w-75" style="color:#D93232" mat-stroked-button color="warn">Explorar</button> -->
                 </div>
             </div>

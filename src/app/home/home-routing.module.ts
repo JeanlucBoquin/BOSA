@@ -26,10 +26,17 @@ const routes: Routes = [
       },
       {
         path: 'category/:idCategory',
-        component: CompaniesComponent
+        component: CompaniesComponent,
+        // Prueba fallida con esta ruta hija, creo que el parametro afecta
+        // children:[
+        //   {
+        //     path:"/product",
+        //     component:ProductsComponent
+        //   }
+        // ]
       },
       {
-        path: 'products',
+        path: 'category/:idCategory/:idCompany/products',
         component: ProductsComponent
       },
       {
