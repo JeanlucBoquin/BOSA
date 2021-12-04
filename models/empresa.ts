@@ -1,6 +1,6 @@
 import { Schema, model, Types } from "mongoose";
 
-interface IEmpresa{
+interface IEmpresa {
     idCategoria: Types.ObjectId;
     nombre: string;
     descripcion: string;
@@ -8,27 +8,28 @@ interface IEmpresa{
     calificacion: number;
 }
 
-const empresaSchema = new Schema({
+const empresaSchema = new Schema<IEmpresa>({
     idCategoria: {
-        type:Types.ObjectId,
-        required:true
+        type: Schema.Types.ObjectId,
+        // ref:"categorias",
+        required: true
     },
     nombre: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
     descripcion: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
     pathImg: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
     calificacion: {
-        type:Number,
-        required:true
+        type: Number,
+        required: true
     }
 })
 
-export default model<IEmpresa>("empresas",empresaSchema)
+export default model<IEmpresa>("empresas", empresaSchema)
