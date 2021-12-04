@@ -26,13 +26,13 @@ export class CategoriesComponent implements OnInit {
           this.vectorCategorias.push(categoria)
         });
         setTimeout(() => {
-          this.cargado=true
+          this.cargado = true
         }, 50)
       }
     )
   }
 
   navegation(idCategory: string) {
-    this.router.navigate(['home/category', idCategory])
+    this.router.navigate(['home/categories', idCategory, "companies"])
   }
 }

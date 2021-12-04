@@ -21,6 +21,7 @@ import { DialogComponent } from './pages/products/components/dialog/dialog.compo
 import { MapComponent } from './pages/map/map.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { NgsRevealModule } from 'ngx-scrollreveal';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { NgsRevealModule } from 'ngx-scrollreveal';
     CommonModule,
     HomeRoutingModule,
     MaterialModule,
-    NgsRevealModule
+    NgsRevealModule,
+    FormsModule
   ]
 })
 export class HomeModule { }
