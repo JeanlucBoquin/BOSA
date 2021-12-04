@@ -8,7 +8,7 @@ const categories = Router();
 categories.get("/obtener-categorias", getCategories);
 categories.get("/:idCategoria/empresas/obtener-empresas", getCompanies);
 categories.get("/:idCategoria/empresas/:idEmpresa/productos-top-categoria", getProductsTopAndCategories);
-categories.get("/:idCategoria/empresas/:idEmpresa/productos/:idCategoriaProducto", getProductCategory);
+categories.get("/:idCategoria/empresas/:idEmpresa/productos/:categoriaProducto", getProductCategory);
 
 export default categories;
 

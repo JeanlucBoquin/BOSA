@@ -5,9 +5,6 @@ import { Types } from 'mongoose';
 
 const getProductsTopAndCategories = async (req: Request, res: Response) => {
     const { idEmpresa } = req.params;
-    // const transIDtypeMongo =  new Types.ObjectId(idEmpresa)
-    // Tarea para mañana aplicar limit, solo devolver los tres mas vendidos
-    // y al especificar la categoria mostrar los otros productos (Esto en otro controlador)
     try {
         const productos = await Producto.aggregate([
             {
@@ -71,7 +68,20 @@ const getProductsTopAndCategories = async (req: Request, res: Response) => {
     }
 }
 
-const getProductCategory = () => { }
+const getProductCategory = async (req: Request, res: Response) => {
+    const { idEmpresa, categoriaProducto } = req.params;
+    try {
+        const productos = await Producto.find({ idEmpresa, categoria: categoriaProducto }, {});
+        // console.log(productos)
+        res.status(200).json({
+            ok:true,
+            productos
+        })
+    } catch (error) {
+        triggerCarch(error, res, "Error en la peticion de obtener productos por su categoria")
+    }
+}
+
 function triggerCarch(error: any, res: Response, msg: string) {
     console.log(error);
     res.status(500).json({
@@ -80,4 +90,4 @@ function triggerCarch(error: any, res: Response, msg: string) {
     })
 }
 
-export { getProductsTopAndCategories, getProductCategory}
+export { getProductsTopAndCategories, getProductCategory }
