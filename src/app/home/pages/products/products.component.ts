@@ -15,11 +15,11 @@ export class ProductsComponent implements OnInit {
   categories: string[] = [];
   products: Producto[] = [];
   categorySelect: string = "default";
-  companyName:string="";
-  companyImg:string="default.png";
+  companyName: string = "";
+  companyImg: string = "default.png";
 
-  animal: string = 'Jeanluc';
-  name: string = 'Jeanluc';
+  idCategory: string = "";
+  idCompany: string = "";
 
   constructor(public dialog: MatDialog,
     private router: ActivatedRoute,
@@ -29,7 +29,11 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.router.params
       .pipe(
-        switchMap(res => this.homeService.getProductsTopAndCategories(res.idCategory, res.idCompany))
+        switchMap(res => {
+          this.idCategory = res.idCategory;
+          this.idCompany = res.idCompany;
+          return this.homeService.getProductsTopAndCategories(this.idCategory, this.idCompany)
+        })
       )
       .subscribe(res => {
         this.companyName = res.nombreEmpresa;
@@ -39,19 +43,35 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-  openDialog(): void {
+  openDialog(idProduct: string): void {
+    const ordenProdut: Producto = this.products.find(product => product._id === idProduct)!;
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '350px',
-      data: { name: this.name, animal: this.animal },
+      data: ordenProdut,
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
+      if (result) {
+        const { _id, nombre, descripcion } = ordenProdut
+        const sendShoppingCard = {
+          _id,
+          nombre,
+          descripcion,
+          cantidad: result,
+        }
+        console.log(sendShoppingCard);
+      }
     });
   }
 
-  changeCategory(){
+  changeCategory() {
     console.log(this.categorySelect)
+    this.homeService.getCategoryProducts(this.idCategory, this.idCompany, this.categorySelect.trim())
+      .subscribe(res => {
+        this.products = [];
+        res.productos.forEach(product => {
+          this.products.push(product);
+        })
+      })
   }
 }

@@ -1,15 +1,15 @@
 <div>
-    <h1 class="text-center" mat-dialog-title>JOHNNIE WALKER</h1>
+    <h1 class="text-center" mat-dialog-title>{{data.nombre | uppercase}}</h1>
     <div mat-dialog-content>
         <div style="display: flex; flex-direction: column; align-items: center;">
             <div style="display: flex;">
                 <div>
-                    <p>What's your favorite animal?</p>
-                    <p>L 1920.33</p>
+                    <p>{{data.descripcion}}</p>
+                    <p>{{data.precio}} Lps</p>
                 </div>
                 <div>
                     <img style="width: 100px; height: 100px;"
-                        src="../../../../../../assets/img/home/Productos/johnnie walker.png" alt="">
+                    [src]="'../../../../assets/img/home/Productos/'+data.pathImg" alt="">
                 </div>
             </div>
             <div>
@@ -17,9 +17,7 @@
                 <div class="example-container">
                     <mat-form-field appearance="outline" floatLabel="always">
                         <mat-label>Unidades a ordenar</mat-label>
-                        <input matInput type="number" class="example-right-align" placeholder="0">
-                        <!-- <span matPrefix>$&nbsp;</span>
-                        <span matSuffix>.00</span> -->
+                        <input matInput [(ngModel)]="cantidad" type="number" class="example-right-align" placeholder="0">
                     </mat-form-field>
                 </div>
             </div>
@@ -27,7 +25,7 @@
     </div>
     <div mat-dialog-actions style="display: flex; justify-content: center; width: 100%;">
         <button mat-button style="width: 40%;" (click)="onNoClick()">Cancelar</button>
-        <button mat-button style="width: 40%;" [mat-dialog-close]="'saliendo del dialog'"
+        <button mat-button style="width: 40%;" [mat-dialog-close]="cantidad"
             cdkFocusInitial>Ordenar</button>
     </div>
 </div>

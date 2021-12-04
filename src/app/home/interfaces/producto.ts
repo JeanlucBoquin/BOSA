@@ -1,4 +1,4 @@
-export interface ObtenerTopProductosYCcategorias {
+export interface ObtenerTopProductosYCategorias {
     ok:                 boolean;
     nombreEmpresa:      string;
     imgEmpresa:         string;
@@ -21,4 +21,10 @@ export interface Producto {
     calificacion: number;
     ventas:       number;
     disponibles:  number;
+}
+
+
+export interface ObtenerProductosSegunCategoria {
+    ok:                      boolean;
+    productos: Producto[];
 }

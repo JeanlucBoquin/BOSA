@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ObtenerCategorias } from './interfaces/categoria';
 import { ObtenerEmpresas } from './interfaces/empresa';
-import { ObtenerTopProductosYCcategorias } from './interfaces/producto';
+import { ObtenerProductosSegunCategoria, ObtenerTopProductosYCategorias } from './interfaces/producto';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ import { ObtenerTopProductosYCcategorias } from './interfaces/producto';
 export class HomeService {
   baseUrl: string = "http://localhost:3000/api/categorias";
   // http://localhost:3000/api/categorias/61a7167c17dae30241712119/empresas/obtener-empresas
+  // http://localhost:3000/api/categorias/61a7167c17dae30241712119/empresas/61a81bab1c46b89ae7f34bed/productos/licor, cerveza y vino
   constructor(private http: HttpClient) { }
 
   getCategories() {
@@ -21,7 +22,11 @@ export class HomeService {
   }
 
   getProductsTopAndCategories(idCategory: string, idCompany: string) {
-    console.log("Servio home:",idCategory,idCompany);
-    return this.http.get<ObtenerTopProductosYCcategorias>(`${this.baseUrl}/${idCategory}/empresas/${idCompany}/productos-top-categoria`);
+    return this.http.get<ObtenerTopProductosYCategorias>(`${this.baseUrl}/${idCategory}/empresas/${idCompany}/productos-top-categoria`);
+  }
+  
+  getCategoryProducts(idCategory: string, idCompany: string, categoryProducts:string){
+    console.log("Servio home getCategoryProducts:\n",idCategory,"\n",idCompany,"\n",categoryProducts);
+    return this.http.get<ObtenerProductosSegunCategoria>(`${this.baseUrl}/${idCategory}/empresas/${idCompany}/productos/${categoryProducts}`);
   }
 }
