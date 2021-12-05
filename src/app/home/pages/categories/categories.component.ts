@@ -18,11 +18,9 @@ export class CategoriesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("inicio")
     this.homeService.getCategories().subscribe(
       res => {
         res.categorias.forEach(categoria => {
-          // console.log(categoria)
           this.vectorCategorias.push(categoria)
         });
         setTimeout(() => {

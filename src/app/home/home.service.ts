@@ -9,8 +9,6 @@ import { ObtenerProductosSegunCategoria, ObtenerTopProductosYCategorias } from '
 })
 export class HomeService {
   baseUrl: string = "http://localhost:3000/api/categorias";
-  // http://localhost:3000/api/categorias/61a7167c17dae30241712119/empresas/obtener-empresas
-  // http://localhost:3000/api/categorias/61a7167c17dae30241712119/empresas/61a81bab1c46b89ae7f34bed/productos/licor, cerveza y vino
   constructor(private http: HttpClient) { }
 
   getCategories() {

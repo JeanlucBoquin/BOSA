@@ -26,10 +26,8 @@ export class CompaniesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-
     this.router.params
       .pipe(
-        tap(console.log),
         switchMap(res => this.homeService.getCompanies(res.idCategory))
       ).subscribe(res => {
         res.empresas.forEach(empresa => {

@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
   }
 
   navegation(path: string) {
-    console.log(path)
+    // console.log(path)
     if (path == "Categorias") {
       this.router.navigateByUrl('/home/categories');
     } else if (path == "Empresas favoritas") {

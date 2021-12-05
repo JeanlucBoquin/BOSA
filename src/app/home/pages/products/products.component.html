@@ -65,7 +65,7 @@
                         <p class="m-0">{{product.descripcion}}</p>
                     </div>
                     <div class="py-2" style="display: flex; justify-content:space-between; align-items: center;">
-                        <button type="button" class="btn btn-outline-danger" (click)="openDialog(product._id)">Ordenar
+                        <button type="button" class="btn btn-outline-danger" [disabled]="product.disponibles==0" (click)="openDialog(product._id)">Ordenar
                             producto</button>
                         <strong>{{product.precio}} Lps</strong>
                     </div>

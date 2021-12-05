@@ -5,6 +5,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { HomeService } from '../../home.service';
 import { switchMap } from 'rxjs/operators';
 import { Producto } from '../../interfaces/producto';
+import { ShoppingCart } from '../../interfaces/carrito-de-compras';
 
 @Component({
   selector: 'app-products',
@@ -14,6 +15,7 @@ import { Producto } from '../../interfaces/producto';
 export class ProductsComponent implements OnInit {
   categories: string[] = [];
   products: Producto[] = [];
+  shoppingCarts: ShoppingCart[] = [];
   categorySelect: string = "default";
   companyName: string = "";
   companyImg: string = "default.png";
@@ -50,22 +52,23 @@ export class ProductsComponent implements OnInit {
       data: ordenProdut,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        const { _id, nombre, descripcion } = ordenProdut
-        const sendShoppingCard = {
-          _id,
-          nombre,
-          descripcion,
-          cantidad: result,
+    dialogRef.afterClosed().subscribe(cantidad => {
+      if (cantidad) {
+        const { _id, nombre, descripcion, precio } = ordenProdut
+        const sendShoppingCart = { _id, idCompany: this.idCompany, nombre, descripcion, precio, cantidad }
+        if (localStorage.getItem("shoppingcart")) {
+          this.shoppingCarts = JSON.parse(localStorage.getItem("shoppingcart")!);
+          this.shoppingCarts.push(sendShoppingCart);
+          localStorage.setItem("shoppingcart", JSON.stringify(this.shoppingCarts));
+        } else {
+          this.shoppingCarts.push(sendShoppingCart);
+          localStorage.setItem("shoppingcart", JSON.stringify(this.shoppingCarts));
         }
-        console.log(sendShoppingCard);
       }
     });
   }
 
   changeCategory() {
-    console.log(this.categorySelect)
     this.homeService.getCategoryProducts(this.idCategory, this.idCompany, this.categorySelect.trim())
       .subscribe(res => {
         this.products = [];
