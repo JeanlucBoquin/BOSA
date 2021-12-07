@@ -1,6 +1,6 @@
 import { Schema, model, Model } from 'mongoose';
-import bcrypt from 'bcryptjs';
 import { IMotorista } from '../interfaces/motorista';
+import bcrypt from 'bcryptjs';
 
 interface MotoristaModel extends Model<IMotorista> {
     encryptPassword(password: string): string;
@@ -13,7 +13,7 @@ const motoristaSchema = new Schema<IMotorista, MotoristaModel>({
     correo: { type: 'string', unique: true, required: true },
     password: { type: 'string', required: true },
     telefono: { type: 'string', unique: true, required: true },
-    // estado: {type: 'string', required: true, default: 'acep'}
+    estado: {type: 'string', required: true, default: 'pendiente'}
 }, { timestamps: true, versionKey: false });
 
 

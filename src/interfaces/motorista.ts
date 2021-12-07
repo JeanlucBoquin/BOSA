@@ -4,5 +4,5 @@ export interface IMotorista {
     correo: string;
     password: string;
     telefono: string;
-    // estado: string;
+    estado: string;
 }
