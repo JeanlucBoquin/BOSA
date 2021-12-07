@@ -22,7 +22,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.mapa = new mapboxgl.Map({
       container: this.map.nativeElement,
-      style: 'mapbox://styles/mapbox/dark-v10',
+      style: 'mapbox://styles/mapbox/streets-v11',
       center: this.center,
       zoom: 5.5
     });
