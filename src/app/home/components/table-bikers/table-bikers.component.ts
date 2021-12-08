@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MotoristasService } from 'src/app/services/motoristas.service';
 
 @Component({
   selector: 'app-table-bikers',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableBikersComponent implements OnInit {
 
-  constructor() { }
+  bikers: any = [];
+
+  constructor(
+    private $bikers: MotoristasService
+  ) { }
 
   ngOnInit(): void {
+    this.$bikers.getBakers().subscribe(resp => {
+      this.bikers = resp;
+      console.log(resp);
+    })
   }
 
 }

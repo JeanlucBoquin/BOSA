@@ -14,8 +14,8 @@
                 <form [formGroup]="miFormulario" autocomplete="off" (ngSubmit)="login()">
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Ingresa tu correo</mat-label>
-                        <input matInput placeholder="example@ebosa.com" formControlName="email" required>
-                        <mat-error *ngIf="miFormulario.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
+                        <input matInput placeholder="example@ebosa.com" formControlName="correo" required>
+                        <mat-error *ngIf="miFormulario.get('correo')?.invalid">{{getErrorMessage('correo')}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="w-100 mb-1">
                         <mat-label>Ingresa tu contraseña</mat-label>
@@ -29,7 +29,7 @@
                     <a class="d-block mb-3"
                         style="cursor: pointer; font-size: 14px; text-decoration: none; color: #424041;">¿Olvidaste tu
                         contraseña?</a>
-                    <button class="w-100 mb-2" [class.back]="this.miFormulario.valid"  mat-raised-button [disabled]="this.miFormulario.invalid" routerLink="/home">Iniciar sesión</button>
+                    <button class="w-100 mb-2" type="submit" [class.back]="this.miFormulario.valid"  mat-raised-button [disabled]="this.miFormulario.invalid" >Iniciar sesión</button>
                     <!-- <button class="btn btn-danger w-100 btn-sm mb-1" type="button" routerLink="/home">Iniciar sesión</button> -->
                     <!-- <a class="d-block mt-2" style="font-size: 14px; text-decoration: none; color: #424041; text-align: center;">¿Necesitas
                         una cuenta? <span style="cursor: pointer; color: #067bc1;" routerLink="/auth/register">Registrate</span></a> -->
@@ -51,8 +51,8 @@
             </p>
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Ingresa tu correo</mat-label>
-                <input matInput placeholder="example@ebosa.com" formControlName="email" required>
-                <mat-error *ngIf="miFormulario.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
+                <input matInput placeholder="example@ebosa.com" formControlName="correo" required>
+                <mat-error *ngIf="miFormulario.get('correo')?.invalid">{{getErrorMessage('correo')}}</mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline" class="w-100 mb-1">
                 <mat-label>Ingresa tu contraseña</mat-label>
