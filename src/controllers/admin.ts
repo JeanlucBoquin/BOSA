@@ -7,13 +7,14 @@ import jwt from 'jsonwebtoken';
 dotenv.config();
 
 export const signUp = async (req: Request, res: Response) => {
-    const { apellido, correo, nombre, password } = req.body;
+    const { apellido, correo, nombre, password, imagen } = req.body;
     try {
         const administracion = new Admins({
             apellido,
             correo,
             nombre,
-            password: await Admins.encryptPassword(password)
+            password: await Admins.encryptPassword(password),
+            imagen
         });
         await administracion.save();
         res.status(200).json(administracion);
@@ -40,7 +41,7 @@ export const signIn = async (req: Request, res: Response) => {
 
 export const getBikers = async (req: Request, res: Response) => {
     try {
-        const motoristas = await Motorista.find();
+        const motoristas = await Motorista.find().populate('imagen');
         res.status(200).json(motoristas);
     } catch (error) {
         res.status(401).json({error: 'No se encontraron motoristas'});

@@ -10,10 +10,14 @@ interface MotoristaModel extends Model<IMotorista> {
 const motoristaSchema = new Schema<IMotorista, MotoristaModel>({
     nombre: { type: 'string', required: true },
     apellido: { type: 'string', required: true },
+    identidad: { type: 'string', required: true },
+    fechaNacimiento: Date,
     correo: { type: 'string', unique: true, required: true },
     password: { type: 'string', required: true },
     telefono: { type: 'string', unique: true, required: true },
-    estado: {type: 'string', required: true, default: 'pendiente'}
+    estado: { type: 'string', required: true, default: 'libre' },
+    aceptacion: { type: 'string', required: true, default: 'pendiente' },
+    imagen: { type: Schema.Types.ObjectId, ref: 'Image' }
 }, { timestamps: true, versionKey: false });
 
 

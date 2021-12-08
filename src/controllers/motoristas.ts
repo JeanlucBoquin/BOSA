@@ -7,7 +7,14 @@ dotenv.config();
 
 export const signUp = async (req: Request, res: Response) => {
 
-    const { nombre, apellido, correo, password, telefono } = req.body;
+    const {
+        nombre,
+        apellido,
+        correo,
+        password,
+        telefono,
+        fechaNacimiento,
+        identidad } = req.body;
 
     try {
         const motorista = new Motorista({
@@ -15,7 +22,9 @@ export const signUp = async (req: Request, res: Response) => {
             apellido,
             correo,
             password: await Motorista.encryptPassword(password),
-            telefono
+            telefono,
+            fechaNacimiento: new Date(fechaNacimiento),
+            identidad,
         });
         const motoristaGuardado = await motorista.save();
 
