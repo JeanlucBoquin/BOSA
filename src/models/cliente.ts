@@ -1,4 +1,4 @@
-import { Schema, model, Date } from 'mongoose';
+import { Schema, model, Date, Types } from 'mongoose';
 
 // Paso 1 Interface
 interface ICliente {
@@ -6,8 +6,9 @@ interface ICliente {
     apellido: string,
     correo: string,
     contraseña: string,
-    fecha: Date
-
+    fecha: Date,
+    empresas_favoritas: Types.ObjectId[]
+    productos_favoritos: Types.ObjectId[]
 }
 
 // Paso 2 Schema
@@ -28,8 +29,9 @@ const clienteSchema = new Schema<ICliente>({
         type: String,
         require: true
     },
-    fecha: Date 
-
+    fecha: Date,
+    empresas_favoritas: [Schema.Types.ObjectId],
+    productos_favoritos: [Schema.Types.ObjectId]
 })
 
 // Paso 3 exportar Modelo
