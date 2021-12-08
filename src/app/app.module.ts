@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 
 @NgModule({
@@ -21,11 +23,12 @@ import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
     NoopAnimationsModule,
     AnimateOnScrollModule.forRoot(),
     ReactiveFormsModule,
+    HttpClientModule
 
   ],
   exports: [
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
