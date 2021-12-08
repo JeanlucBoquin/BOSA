@@ -5,12 +5,14 @@ export interface Login {
 }
 
 export interface UserLogin {
-    nombre:     string;
-    contraseña: string;
-    apellido?:   string;
-    correo?:     string;
-    fecha?:      Date;
-    _id?:        string;
+    empresas_favoritas:  any[];
+    productos_favoritos: any[];
+    _id:                 string;
+    nombre:              string;
+    apellido:            string;
+    correo:              string;
+    contraseña:          string;
+    fecha?:               Date;
 }
 
 export interface LoginFrontend {

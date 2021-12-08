@@ -11,3 +11,8 @@ export interface Empresa {
     pathImg:      string;
     calificacion: number;
 }
+
+export interface EmpresasFavoritas {
+    ok:                boolean;
+    empresasFavoritas: Empresa[];
+}

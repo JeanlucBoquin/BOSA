@@ -11,6 +11,7 @@ import { switchMap, tap } from 'rxjs/operators'
 })
 export class CompaniesComponent implements OnInit, AfterViewInit {
   @ViewChildren('font') prueba!: QueryList<ElementRef>;
+  @ViewChild("noDisponibles") noDisponibles!:ElementRef;
   empresas: Empresa[] = [];
 
   constructor(private router: ActivatedRoute,
@@ -32,7 +33,17 @@ export class CompaniesComponent implements OnInit, AfterViewInit {
       ).subscribe(res => {
         res.empresas.forEach(empresa => {
           this.empresas.push(empresa)
-        })
+        });
+        if(res.empresas.length==0){
+          // console.log("init",this.noDisponibles.nativeElement);  
+          this.noDisponibles.nativeElement.innerHTML =  
+            `
+            <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+              <h1>Lo sentimos</h1>
+              <p>Aun no se ha registrado empresas en esta categoria</p>
+            </div>
+            `
+          }
       });
 
   }

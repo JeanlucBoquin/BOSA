@@ -36,9 +36,11 @@
             <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
         </div>
     </div>
-    <div *ngIf="!(empresas.length>0)" class="p-3" style="background-color: rgba(217, 50, 50, 0.8); border-radius: 5px;">
-        <h1>Lo sentimos</h1>
-        <p>Aun no se ha registrado una empresa en esta categoria</p>
+    <div #noDisponibles>
+        <!-- <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+            <h1>Lo sentimos</h1>
+            <p>Aun no se ha registrado productos en esta empresa</p>
+        </div> -->
     </div>
     <!-- FIN GRID -->
 </section>

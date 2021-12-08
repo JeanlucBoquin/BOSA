@@ -28,3 +28,8 @@ export interface ObtenerProductosSegunCategoria {
     ok:                      boolean;
     productos: Producto[];
 }
+
+export interface ProductosFavoritos {
+    ok:                 boolean;
+    productosFavoritos: Producto[];
+}

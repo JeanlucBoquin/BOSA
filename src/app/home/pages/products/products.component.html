@@ -30,7 +30,13 @@
     <!-- fin "banner" -->
     
     <div class="m-4">
-        <div *ngIf="categorySelect== 'default';">
+        <div #noDisponibles>
+            <!-- <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+                <h1>Lo sentimos</h1>
+                <p>Aun no se ha registrado productos en esta empresa</p>
+            </div> -->
+        </div>
+        <div *ngIf="categorySelect == 'default' && products.length > 0;">
             <h3 class="m-0">Top 5</h3>
             <svg height="10" width="150">
                 <line x1="0" x2="70" style="stroke:#F2A20C; stroke-width:10" />

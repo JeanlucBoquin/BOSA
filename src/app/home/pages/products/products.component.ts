@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { DialogComponent } from './components/dialog/dialog.component';
@@ -13,6 +13,7 @@ import { ShoppingCart } from '../../interfaces/carrito-de-compras';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  @ViewChild("noDisponibles") noDisponibles!:ElementRef
   categories: string[] = [];
   products: Producto[] = [];
   shoppingCarts: ShoppingCart[] = [];
@@ -42,6 +43,16 @@ export class ProductsComponent implements OnInit {
         this.companyImg = res.imgEmpresa;
         res.categotiasProducto.forEach(category => { this.categories.push(category._id) });
         res.productos.forEach(product => { this.products.push(product) })
+        if(res.productos.length==0){
+        // console.log("init",this.noDisponibles.nativeElement);  
+        this.noDisponibles.nativeElement.innerHTML =  
+          `
+          <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+            <h1>Lo sentimos</h1>
+            <p>Aun no se ha registrado productos en esta empresa</p>
+          </div>
+          `
+        }
       });
   }
 
