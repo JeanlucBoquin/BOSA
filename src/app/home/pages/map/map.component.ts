@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import * as mapboxgl from "mapbox-gl";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -13,7 +14,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   lng: number = -86.33086937621516;
   lat: number = 14.007209269298926;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnDestroy(): void {
     this.mapa.off("move", () => { })
@@ -37,5 +38,10 @@ export class MapComponent implements AfterViewInit, OnDestroy {
       this.lat = lat;
       marker.setLngLat(this.mapa.getCenter())
     });
+  }
+
+  almacenarCoordenadas(){
+    localStorage.setItem("lnglat",JSON.stringify(this.mapa.getCenter()));
+    this.router.navigateByUrl("/home/payment")
   }
 }

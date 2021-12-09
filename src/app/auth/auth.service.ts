@@ -9,11 +9,13 @@ import { EmpresasFavoritas } from '../home/interfaces/empresa';
   providedIn: 'root'
 })
 export class AuthService {
+  // TODO, esta data tiene que ser controlada con un guard ya que al momento de recargar
+  // tiene que mandarlo al login o revisar si exite un token 
   baseUrl: string = "http://localhost:3000/api/cliente";
   usuarioActual: UserLogin = {
     empresas_favoritas: [],
     productos_favoritos: [],
-    _id: "",
+    _id: "61a7161117dae30241712115",
     nombre: "",
     apellido: "",
     correo: "",
