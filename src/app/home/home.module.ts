@@ -42,7 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TitleComponent,
     TableProductsComponent,
     TableCompaniesComponent,
-    FormBikersComponent
+    FormBikersComponent,
   ],
   imports: [
     CommonModule,

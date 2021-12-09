@@ -1,39 +1,55 @@
 <div class="component-body">
-    <form class="row" action="">
+    <form [formGroup]="form" class="row" (submit)="newBiker()">
         <div class="col-6">
             <!-- Nombre del motorista -->
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Nombre del motorista</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" formControlName="nombre"/>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Apellido del motorista</label>
+                <input type="text" class="form-control" formControlName="apellido" />
+            </div>
+
+            <!-- Identidad -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Identidad</label>
+                <input type="text" class="form-control" formControlName="identidad" />
+            </div>
+
+            <!-- Fecha de nacimiento -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Fecha de nacimiento</label>
+                <input type="date" class="form-control" formControlName="fechaNacimiento" />
             </div>
 
             <!-- Numero de celular -->
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Numero de celular</label>
-                <input type="text" class="form-control" />
+                <input type="tel" class="form-control" formControlName="telefono" />
             </div>
 
             <!-- Correo Electronico -->
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Correo electronico</label>
-                <input type="number" class="form-control" />
+                <input type="email" class="form-control" formControlName="correo"/>
             </div>
 
             <!-- Contrasena -->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">contraseña</label>
-                <input type="number" class="form-control" />
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password"  class="form-control" formControlName="password"/>
             </div>
 
             <!-- Imagen  -->
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Imagen</label>
                 <input type="file" class="form-control" />
-            </div>
+            </div> -->
 
             <!-- Registrar  -->
             <div class="d-grid gap-2 mt-5">
-                <button class="btn btn-submit" type="button">Registrar Motorista</button>
+                <button [disabled]="!form.valid" class="btn btn-submit" type="submit">Registrar Motorista</button>
             </div>
         </div>
 

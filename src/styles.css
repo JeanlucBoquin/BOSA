@@ -1,5 +1,5 @@
 .component-body {
-  width: 90%;
+  /* width: 90%; */
   min-height: 80%;
   background-color: #fff;
   padding: 30px;
@@ -76,12 +76,12 @@ th {
 }
 
 .ocupado {
-  background-color: #e67e22;
+  background-color: #8a5656;
   border-radius: 10px;
 }
 
-.inactivo {
-  background-color: #cccccc;
+.libre {
+  background-color: #97c7a9;
   border-radius: 10px;
 }
 
