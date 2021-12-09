@@ -12,12 +12,13 @@ import { MaterialModule } from './material/material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    Page404Component
+    Page404Component,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [CookieService,
     {

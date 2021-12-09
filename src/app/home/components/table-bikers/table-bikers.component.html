@@ -5,7 +5,7 @@
           <tr>
             <th scope="col"></th>
             <th scope="col">Nombre</th>
-            <th scope="col">Edad</th>
+            <th scope="col">Fecha de Nacimiento</th>
             <th scope="col">Identidad</th>
             <th scope="col">Aprobado</th>
             <th scope="col">Estado</th>
@@ -16,25 +16,25 @@
         <tbody>
           <tr *ngFor="let bike of bikers">
             <td class="td-img">
-                    <img src="../../../../assets/sidenav/JeanCuadrada.png" class="rounded-circle img-table" alt="profile">
+                <img *ngIf="estadoImg(bike)" [src]="bike.imagen.imageUrl" class="rounded-circle img-table" alt="profile">
             </td>
             <td>{{bike.nombre}} {{bike.apellido}}</td>
-            <td>25</td>
+            <td>{{bike.fechaNacimiento | date}}</td>
             <td>{{bike.identidad}}</td>
             <td>
-                <div class="aprobado">
-                    {{bike.estado}}
+                <div class="{{bike.aceptacion}}">
+                    {{bike.aceptacion | titlecase}}
                 </div>
             </td>
             <td>
-                <div class="ocupado">
-                    Ocupado
+                <div class="{{bike.estado}}">
+                    {{bike.estado | titlecase}}
                 </div>
             </td>
             <td>
                 <div class="">
-                    <i class="far fa-edit"></i>
-                    <i class="fas fa-trash-alt"></i>
+                    <i (click)="editar(bike)" class="far fa-edit" ></i>
+                    <i (click)="eliminar(bike)"class="fas fa-trash-alt"></i>
                 </div>
             </td>
           </tr>          
