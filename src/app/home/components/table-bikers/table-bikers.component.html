@@ -14,16 +14,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let bike of bikers">
             <td class="td-img">
                     <img src="../../../../assets/sidenav/JeanCuadrada.png" class="rounded-circle img-table" alt="profile">
             </td>
-            <td>Cristian Boquin</td>
+            <td>{{bike.nombre}} {{bike.apellido}}</td>
             <td>25</td>
-            <td>0801-1996-01233</td>
+            <td>{{bike.identidad}}</td>
             <td>
                 <div class="aprobado">
-                    Aprobado
+                    {{bike.estado}}
                 </div>
             </td>
             <td>
@@ -37,32 +37,7 @@
                     <i class="fas fa-trash-alt"></i>
                 </div>
             </td>
-          </tr>
-          <tr>
-            <td class="td-img">
-                    <img src="../../../../assets/sidenav/JeanCuadrada.png" class="rounded-circle img-table" alt="profile">
-            </td>
-            <td>Cristian Boquin</td>
-            <td>25</td>
-            <td>0801-1996-01233</td>
-            <td>
-                <div class="aprobado">
-                    Aprobado
-                </div>
-            </td>
-            <td>
-                <div class="ocupado">
-                    Ocupado
-                </div>
-            </td>
-            <td>
-                <div class="">
-                    <i class="far fa-edit"></i>
-                    <i class="fas fa-trash-alt"></i>
-                </div>
-            </td>
-          </tr>
-          
+          </tr>          
         </tbody>
       </table>
     
