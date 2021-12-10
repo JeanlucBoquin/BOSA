@@ -1,81 +1,52 @@
 <div class="component-body">
-    <form class="row" [formGroup]="form">
-        <div class="col-6">
+    <form class="row" [formGroup]="miFormulario" (ngSubmit)="registrar()">
+        <div class="col-12 col-md-6 col-lg-6">
             <!-- Nombre de la empresa -->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Nombre de la empresa</label>
-                <input type="text" class="form-control" formControlName="name"/>
+                <label for="nombre" class="form-label">Nombre de la empresa</label>
+                <input id="nombre" type="text" class="form-control" formControlName="nombre"/>
+            </div>
+            <!-- Descripcion -->
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <textarea name="" id="descripcion" cols="30" rows="5" class="form-control" formControlName="descripcion"></textarea>
+            </div>
+            <!-- Calificacion -->
+            <div class="mb-3">
+                <label for="cali" class="form-label">Calificacion</label>
+                <input id="cali" type="number" class="form-control" formControlName="calificacion" min="0" max="5"/>
             </div>
 
-            <!-- Registro Tributario Numerico (RTN) -->
+            <!-- Selecione categoria -->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Registro Tributario Numerico (RTN)</label>
-                <input type="number" class="form-control" formControlName="rtn"/>
-            </div>
-            <!-- Correo electronico -->
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Correo electronico</label>
-                <input type="email" class="form-control" formControlName="email"/>
-            </div>
-            <!-- Telefono #1 Telefono #2 (Opcional) -->
-            <div class="row">
-                <div class="mb-3 col-6">
-                    <label for="exampleInputPassword1" class="form-label">Telefono #1</label>
-                    <input type="tel" class="form-control" formControlName="tel" />
-                </div>
-                <div class="mb-3 col-6">
-                    <label for="exampleInputPassword1" class="form-label">Telefono #2 (Opcional)</label>
-                    <input type="tel" class="form-control" formControlName="tel2" />
-                </div>
-            </div>
-
-            <!-- Selecione su pais -->
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Selecione su pais</label>
-                <!-- <input type="text" class="form-control" /> -->
-                <select class="form-control" aria-label="Default select example">
-                    <option selected></option>
-                    <option value="1">Honduras</option>
-                    <option value="2">Panama</option>
-                    <option value="3">El Salvador</option>
+                <label for="selectCategory" class="form-label">Selecione su pais</label>
+                <select id="selectCategory" class="form-select" formControlName="categoria">
+                    <option selected>-- seleccione una categoria --</option>
+                    <option value="alimentos para el hogar">{{"alimentos para el hogar"|titlecase}}</option>
+                    <option value="comida rapida y bebidas">{{"comida rapida y bebidas"|titlecase}}</option>
+                    <option value="medicamentos">{{"medicamentos"|titlecase}}</option>
+                    <option value="herramientas y papeleria">{{"herramientas y papeleria"|titlecase}}</option>
+                    <option value="ropa y accesorios">{{"ropa y accesorios"|titlecase}}</option>
+                    <option value="tecnologia">{{"tecnologia"|titlecase}}</option>
                 </select>
 
             </div>
-            <!-- Direccion -->
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Direccion</label>
-                <textarea name="" id="" cols="30" rows="6" class="form-control" formControlName="direction"></textarea>
-            </div>
-        </div>
-
-        <div class="col-6">
-            <!-- Categoria de su negocio -->
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Categoria de su negocio</label>
-                <input type="text" class="form-control" />
-            </div>
-            <!-- Cantidad de sucursales -->
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Cantidad de sucursales</label>
-                <input type="number" class="form-control" />
-            </div>
-            <!-- Nombre completo administrador -->
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Nombre completo administrador</label>
-                <input type="text" class="form-control" />
-            </div>
             <!-- Imagen o logo -->
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Imagen o logo</label>
-                <input type="file" class="form-control" name="imagen"/>
+            <div class="mb-4">
+                <label for="imgLog" class="form-label">Imagen o logo</label>
+                <input id="imgLog" type="file" class="form-control" name="imagen" formControlName=pathImg/>
             </div>
 
             <!-- Registrar Empresa -->
-            <div class="d-grid gap-2 mt-5">
-                <button class="btn btn-submit" type="button">Registrar Empresa</button>
+            <div class="d-grid mt-4">
+                <button class="btn btn-submit" type="submit" [disabled]="miFormulario.invalid">Registrar Empresa</button>
             </div>
-
         </div>
 
+        <div class="col-12 col-md-6 col-lg-6 d-none d-md-block d-lg-block d-xl-block">
+            <img src="../../../../assets/imagenesForms/undraw_web_devices_re_m8sc.svg" alt="" width="100%"
+                height="100%">
+                <!-- {{miFormulario.invalid}} -->
+        </div>
     </form>
 </div>
