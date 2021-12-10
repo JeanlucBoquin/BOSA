@@ -5,7 +5,4 @@ const motoristasRouter = Router();
 
 motoristasRouter.post('/signin', ctrl.signIn);
 motoristasRouter.post('/signup', ctrl.signUp);
-// motoristasRouter.get('/list' );
-// motoristasRouter.post('/new');
-
 export default motoristasRouter;

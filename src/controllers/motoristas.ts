@@ -45,11 +45,24 @@ export const signIn = async (req: Request, res: Response) => {
         if (!motorista) return res.status(400).json({ message: 'El motorista no existe' });
         const match = await Motorista.comparePassword(password, motorista.password);
         if (!match) return res.status(401).json({ token: null, message: 'Password invalida' });
+        if (motorista.aceptacion !== 'aprobado') return res.status(201).json({ token: null, message: 'Motorista no Aprobado' });
         const token = jwt.sign({ id: motorista._id }, process.env.SECRET!, { expiresIn: 43200 });
         res.status(200).send({ token });
     } catch (error) {
 
     }
 
+}
+
+export const updateBiker = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const { aceptacion } = req.body;
+
+    try {
+        const motorista = await Motorista.findByIdAndUpdate(id, {aceptacion});
+        res.status(200).json({motorista});
+    } catch (error) {
+        res.status(400).json({message: 'Error al actualizar motorista'})
+    }
 }
 
