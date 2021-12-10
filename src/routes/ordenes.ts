@@ -1,9 +1,12 @@
-import { Router } from "express";
-import { agregarOrden, obtenerOrdenes } from "../controllers/ordenes";
+import { Router } from 'express';
+import * as controllers from '../controllers/ordenes';
 
 const ordenes = Router();
 
-ordenes.post("/agregar-orden", agregarOrden);
-ordenes.get("/obtener-ordenes", obtenerOrdenes);
-
-export default ordenes
+ordenes.get('/obtener-ordenes', controllers.obtenerOrdenes);
+ordenes.get('/pendientes/:id', controllers.ordenesPendientes);
+ordenes.get('/entregadas/:id', controllers.ordenesEntregadas);
+ordenes.put('/:idOrden/:idMotorista', controllers.actualizarOrden);
+ordenes.put('/:idOrden', controllers.actualizarRecorrido);
+ordenes.post('/agregar-orden', controllers.agregarOrden);
+export default ordenes;
