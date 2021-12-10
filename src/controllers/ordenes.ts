@@ -9,7 +9,7 @@ interface ProductoOrdenado {
 
 }
 
-const agregarOrden = async (req: Request, res: Response) => {
+export const agregarOrden = async (req: Request, res: Response) => {
     const datos = req.body;
     const { productos } = req.body
     try {
@@ -18,7 +18,7 @@ const agregarOrden = async (req: Request, res: Response) => {
                 { _id: dataProducto.idProduct },
                 {
                     $inc: {
-                        disponibles:-dataProducto.cantidad
+                        disponibles: -dataProducto.cantidad
                     }
                 }
             );
@@ -34,9 +34,9 @@ const agregarOrden = async (req: Request, res: Response) => {
     }
 }
 
-const obtenerOrdenes = async (req: Request, res: Response) => {
+export const obtenerOrdenes = async (req: Request, res: Response) => {
     try {
-        const ordenes = await Orden.find({estadoOrden:"disponible"})
+        const ordenes = await Orden.find({ estadoOrden: "disponible" })
         res.status(200).json({
             ok: true,
             ordenes
@@ -46,6 +46,50 @@ const obtenerOrdenes = async (req: Request, res: Response) => {
     }
 }
 
+export const ordenesPendientes = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    try {
+        const ordenes = await Orden.find({ idMotorista: id, estadoOrden: 'pendiente' });
+        res.status(200).json({ ordenes });
+    } catch (error) {
+        triggerCarch(error, res, 'Error al obtener las ordenes pendientes');
+    }
+}
+export const ordenesEntregadas = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    try {
+        const ordenes = await Orden.find({ idMotorista: id }, { estadoOrden: 'entregada' });
+        res.status(200).json({ ordenes });
+    } catch (error) {
+        triggerCarch(error, res, 'Error al obtener las ordenes pendientes');
+    }
+}
+export const actualizarOrden = async (req: Request, res: Response) => {
+    const { idOrden, idMotorista } = req.params;
+    const { estadoOrden, } = req.body;
+
+    try {
+        await Orden.findByIdAndUpdate(idOrden, { estadoOrden, idMotorista });
+        res.status(200).json({ ok: 'true' })
+    } catch (error) {
+        triggerCarch(error, res, 'Error al actualizar estado de la orden');
+    }
+}
+
+export const actualizarRecorrido = async (req: Request, res: Response) => {
+    const { idOrden } = req.params;
+    const { estadoRecorrido } = req.body;
+    console.log(req.body);
+
+    try {
+        await Orden.findByIdAndUpdate(idOrden, { estadoRecorrido });
+        res.status(200).json({ ok: 'true' });
+    } catch (error) {
+        triggerCarch(error, res, 'Error al actualizar estado de la orden');
+    }
+}
+
+
 function triggerCarch(error: any, res: Response, msg: string) {
     console.log(error);
     res.status(500).json({
@@ -53,5 +97,3 @@ function triggerCarch(error: any, res: Response, msg: string) {
         msg: `Por favor contáctese con el administrador: ${msg}`
     })
 }
-
-export { agregarOrden, obtenerOrdenes }
