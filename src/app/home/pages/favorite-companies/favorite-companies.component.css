@@ -20,7 +20,12 @@ figure,figcaption{
     color: #0E8EF1;
 }
 
-.fa-gratipay:hover{
+.fa-gratipay{
     cursor: pointer;
-    color: #e74c3c;
+    /* color: #e74c3c; */
+}
+
+.fa-gratipay:active, .fa-facebook:active {
+    transform: translateY(-2px);
+    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); */
 }

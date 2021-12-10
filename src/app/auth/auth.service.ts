@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { ProductosFavoritos } from '../home/interfaces/producto';
+import { EstablecerProductoFavorita, ProductosFavoritos } from '../home/interfaces/producto';
 import { Login, UserLogin, Register } from './interfaces/login';
-import { EmpresasFavoritas } from '../home/interfaces/empresa';
+import { EmpresasFavoritas, EstablecerEmpresaFavorita } from '../home/interfaces/empresa';
 
 @Injectable({
   providedIn: 'root'
@@ -40,8 +40,29 @@ export class AuthService {
   }
 
   getCompaniesFavorite() {
-    console.log("Usuario", this.usuarioActual)
+    // console.log("Usuario", this.usuarioActual)
     return this.http.get<EmpresasFavoritas>(`${this.baseUrl}/${this.usuarioActual._id}/empresas-favoritas`);
   }
 
+  setCompaniesFavorite(idEmpresa: string, flag: boolean) {
+    const body = {
+      idCliente: this.usuarioActual._id,
+      idEmpresa,
+      favorito: flag
+    }
+    return this.http.put<EstablecerEmpresaFavorita>(`${this.baseUrl}/empresas-favoritas`, body)
+  }
+  
+  getProductsFavorite() {
+    return this.http.get<ProductosFavoritos>(`${this.baseUrl}/${this.usuarioActual._id}/productos-favoritos`);
+  }
+
+  setProductFavorite(idProducto: string, flag: boolean) {
+    const body = {
+      idCliente: this.usuarioActual._id,
+      idProducto,
+      favorito: flag
+    }
+    return this.http.put<EstablecerProductoFavorita>(`${this.baseUrl}/productos-favoritos`, body)
+  }
 }

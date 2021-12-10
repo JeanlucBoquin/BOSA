@@ -6,6 +6,7 @@ import { HomeService } from '../../home.service';
 import { switchMap } from 'rxjs/operators';
 import { Producto } from '../../interfaces/producto';
 import { ShoppingCart } from '../../interfaces/carrito-de-compras';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-products',
@@ -17,6 +18,7 @@ export class ProductsComponent implements OnInit {
   categories: string[] = [];
   products: Producto[] = [];
   shoppingCarts: ShoppingCart[] = [];
+  productosFavoritos: string[] = []
   categorySelect: string = "default";
   companyName: string = "";
   companyImg: string = "default.png";
@@ -24,9 +26,11 @@ export class ProductsComponent implements OnInit {
   idCategory: string = "";
   idCompany: string = "";
 
-  constructor(public dialog: MatDialog,
+  constructor(
+    public dialog: MatDialog,
     private router: ActivatedRoute,
-    private homeService: HomeService
+    private homeService: HomeService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -36,23 +40,28 @@ export class ProductsComponent implements OnInit {
           this.idCategory = res.idCategory;
           this.idCompany = res.idCompany;
           return this.homeService.getProductsTopAndCategories(this.idCategory, this.idCompany)
+        }),
+        switchMap(res => {
+          this.companyName = res.nombreEmpresa;
+          this.companyImg = res.imgEmpresa;
+          res.categotiasProducto.forEach(category => { this.categories.push(category._id) });
+          res.productos.forEach(product => { this.products.push(product) })
+          if(res.productos.length==0){ 
+          this.noDisponibles.nativeElement.innerHTML =  
+            `
+            <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+              <h1>Lo sentimos</h1>
+              <p>Aun no se ha registrado productos en esta empresa</p>
+            </div>
+            `
+          }
+          return this.authService.getProductsFavorite()
         })
       )
       .subscribe(res => {
-        this.companyName = res.nombreEmpresa;
-        this.companyImg = res.imgEmpresa;
-        res.categotiasProducto.forEach(category => { this.categories.push(category._id) });
-        res.productos.forEach(product => { this.products.push(product) })
-        if(res.productos.length==0){
-        // console.log("init",this.noDisponibles.nativeElement);  
-        this.noDisponibles.nativeElement.innerHTML =  
-          `
-          <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
-            <h1>Lo sentimos</h1>
-            <p>Aun no se ha registrado productos en esta empresa</p>
-          </div>
-          `
-        }
+        res.productosFavoritos.forEach(product=>{
+          this.productosFavoritos.push(product._id)
+        })
       });
   }
 
@@ -65,8 +74,8 @@ export class ProductsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(cantidad => {
       if (cantidad) {
-        const { _id, nombre, descripcion, precio } = ordenProdut
-        const sendShoppingCart = { _id, idCompany: this.idCompany, nombre, descripcion, precio, cantidad }
+        const { _id, nombre, descripcion, precio, idEmpresa } = ordenProdut
+        const sendShoppingCart = { _id, idEmpresa, nombre, descripcion, precio, cantidad }
         if (localStorage.getItem("shoppingcart")) {
           this.shoppingCarts = JSON.parse(localStorage.getItem("shoppingcart")!);
           this.shoppingCarts.push(sendShoppingCart);
@@ -87,5 +96,20 @@ export class ProductsComponent implements OnInit {
           this.products.push(product);
         })
       })
+  }
+
+  like_dislike(idEmpresa: string, element: HTMLElement) {
+    if (this.productosFavoritos.includes(idEmpresa)) {
+      this.authService.setProductFavorite(idEmpresa, false)
+        .subscribe()
+      const index = this.productosFavoritos.indexOf(idEmpresa);
+      this.productosFavoritos.splice(index, 1);
+      element.style.color = "#000";
+    } else {
+      this.authService.setProductFavorite(idEmpresa, true)
+        .subscribe();
+      this.productosFavoritos.push(idEmpresa)
+      element.style.color = "#e74c3c";
+    }
   }
 }

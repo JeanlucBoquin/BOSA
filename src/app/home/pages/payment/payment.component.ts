@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
 import { ShoppingCart } from '../../interfaces/carrito-de-compras';
+import { Order } from '../../interfaces/orden';
+import { HomeService } from '../../home.service';
 
 @Component({
   selector: 'app-payment',
@@ -20,7 +22,8 @@ export class PaymentComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private homeService:HomeService
   ) { }
 
   ngOnInit(): void {
@@ -34,27 +37,35 @@ export class PaymentComponent implements OnInit {
   }
 
   procesarOrden() {
-    const idCliente = this.authService.usuarioActual._id
-    const datosTarjeta = {
-      tarjeta:this.miFormulario.get("tarjeta")?.value.slice(0,-3)+"***",
-      cvv: this.miFormulario.get("cvv")?.value
-    };
-    const lnglat = JSON.parse(localStorage.getItem("lnglat") || "")
-    const localStorageProductos = JSON.parse(localStorage.getItem("shoppingcart")!)
-    const productos = localStorageProductos.map((element: ShoppingCart) => {
-      const data = {
-        idProduct: element._id,
-        idCompany: element.idCompany,
-        cantidad: element.cantidad,
+    if (localStorage.getItem("lnglat") && localStorage.getItem("shoppingcart")) {
+      const idCliente = this.authService.usuarioActual._id
+      const datosTarjeta = {
+        tarjeta: this.miFormulario.get("tarjeta")?.value.slice(0, -3) + "***",
+        cvv: this.miFormulario.get("cvv")?.value
+      };
+      const lnglat = JSON.parse(localStorage.getItem("lnglat")!)
+      const localStorageProductos = JSON.parse(localStorage.getItem("shoppingcart")!)
+      const productos = localStorageProductos.map((element: ShoppingCart) => {
+        const data = {
+          idProducto: element._id,
+          idEmpresa: element.idEmpresa,
+          cantidad: element.cantidad,
+        }
+        return data
+      });
+      const orden:Order = {
+        idCliente,
+        productos,
+        datosTarjeta,
+        lnglat
       }
-      return data
-    });
-    const orden = {
-      idCliente,
-      productos,
-      datosTarjeta,
-      lnglat
+      // console.log(orden)
+      this.homeService.setOrder(orden)
+        .subscribe(res=>{
+          if(res.ok===true){
+            localStorage.clear();
+          }
+        })
     }
-    console.log(orden)
   }
 }

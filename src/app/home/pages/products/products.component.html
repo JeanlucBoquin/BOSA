@@ -63,7 +63,11 @@
                             <strong
                                 [ngStyle]="{'color':(product.disponibles>0)?'#27ae60':'#e74c3c'}">{{(product.disponibles>0)?"disponible":"no
                                 disponible"}}</strong>
-                            <i class="fab fa-gratipay fa-2x"></i>
+                            <i  #corazon 
+                                (click)="like_dislike(product._id,corazon)"
+                                class="fab fa-gratipay fa-2x"
+                                [ngStyle]="{'color':productosFavoritos.includes(product._id)?'#e74c3c':''}">
+                            </i>
                         </div>
                     </div>
                     <div>

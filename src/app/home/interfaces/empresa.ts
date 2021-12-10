@@ -16,3 +16,9 @@ export interface EmpresasFavoritas {
     ok:                boolean;
     empresasFavoritas: Empresa[];
 }
+
+export interface EstablecerEmpresaFavorita {
+    ok:                boolean;
+    empresasFavoritas: string[];
+    msg:               string;
+}

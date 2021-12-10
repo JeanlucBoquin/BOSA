@@ -21,7 +21,11 @@
                     </div>
                     <div>
                         <i class="fab fa-facebook fa-2x me-1"></i>
-                        <i class="fab fa-gratipay fa-2x"></i>
+                        <i  #corazon 
+                            (click)="like_dislike(empresa._id,corazon)"
+                            class="fab fa-gratipay fa-2x"
+                            [ngStyle]="{'color':empresasFavoritas.includes(empresa._id)?'#e74c3c':''}">
+                        </i>
                     </div>
                 </div>
                 <div>

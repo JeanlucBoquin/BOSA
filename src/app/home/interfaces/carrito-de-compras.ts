@@ -1,6 +1,6 @@
 export interface ShoppingCart {
     _id:         string;
-    idCompany:   string;
+    idEmpresa:   string;
     nombre:      string;
     descripcion: string;
     precio:      number;

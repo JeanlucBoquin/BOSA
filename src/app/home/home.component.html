@@ -19,11 +19,11 @@
 </mat-toolbar>
 
 
-<mat-sidenav-container class="material-container" [hasBackdrop]="false">
-    <mat-sidenav class="material-sidenav" #sidenav mode="push" opened=false>
-        <div class="my-2" style="display: flex; flex-direction: column; align-items: center;">
+<mat-sidenav-container class="material-container" [hasBackdrop]="true">
+    <mat-sidenav class="material-sidenav" #sidenav mode="over" opened=false>
+        <div class="mt-4 mb-3" style="display: flex; flex-direction: column; align-items: center;">
             <img style="width: 100px; border-radius: 50%;" src="../../assets/img/sidenav/JeanCuadrada.png" alt="">
-            <p>Jeanluc Boquin</p>
+            <strong>Jeanluc Boquin</strong>
         </div>
         <div class="contenedorBotones">
             <button *ngFor="let btnOption of btnOptions_1" mat-button (click)="navegation(btnOption.nombre)">

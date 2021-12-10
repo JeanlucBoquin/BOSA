@@ -33,3 +33,10 @@ export interface ProductosFavoritos {
     ok:                 boolean;
     productosFavoritos: Producto[];
 }
+
+
+export interface EstablecerProductoFavorita {
+    ok:                boolean;
+    empresasFavoritas: string[];
+    msg:               string;
+}
