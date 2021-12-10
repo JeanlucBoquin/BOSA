@@ -11,8 +11,6 @@ const main = async () => {
     } catch (error) {
         console.log('CONNECTED IS FAILED', error);
     }
-
-
 }
 
 
