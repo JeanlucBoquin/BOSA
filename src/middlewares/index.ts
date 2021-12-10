@@ -1,1 +1,3 @@
-console.log('Middlewares')
+import {verifyToken} from './authJwt';
+
+export {verifyToken};

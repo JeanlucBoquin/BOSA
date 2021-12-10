@@ -1,28 +1,68 @@
-import {Request , Response} from 'express';
+import { Request, Response } from 'express';
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 import { Motorista } from '../models/motorista';
 
-export const getMotoristas = async (req: Request, res: Response) => {
+dotenv.config();
+
+export const signUp = async (req: Request, res: Response) => {
+
+    const {
+        nombre,
+        apellido,
+        correo,
+        password,
+        telefono,
+        fechaNacimiento,
+        identidad } = req.body;
+
     try {
         const motorista = new Motorista({
-            cell: '96109748',
-            nombre: 'Nelson Sambula'
+            nombre,
+            apellido,
+            correo,
+            password: await Motorista.encryptPassword(password),
+            telefono,
+            fechaNacimiento: new Date(fechaNacimiento),
+            identidad,
         });
-        res.status(200).send({hola: 'Hola Mundo'});
+        const motoristaGuardado = await motorista.save();
+
+        const token = jwt.sign({ id: motoristaGuardado._id }, process.env.SECRET!, { expiresIn: 43200 })
+        res.status(200).json({ token: token });
     } catch (error) {
-        res.status(500).send('Error al obtner usuario')
+        res.status(500).json({ error: `error al registrar usuario ${error}` });
+
     }
 }
 
-export const newMotorista = async (req: Request, res: Response) => {
+
+export const signIn = async (req: Request, res: Response) => {
+    const { telefono, password } = req.body;
+
     try {
-        const motorista = new Motorista({
-            cell: '96109748',
-            nombre: 'Nelson Sambula'
-        });
-        motorista.save();
-        res.status(200).send(motorista);
+        const motorista = await Motorista.findOne({ telefono });
+        if (!motorista) return res.status(400).json({ message: 'El motorista no existe' });
+        const match = await Motorista.comparePassword(password, motorista.password);
+        if (!match) return res.status(401).json({ token: null, message: 'Password invalida' });
+        if (motorista.aceptacion !== 'aprobado') return res.status(201).json({ token: null, message: 'Motorista no Aprobado' });
+        const token = jwt.sign({ id: motorista._id }, process.env.SECRET!, { expiresIn: 43200 });
+        res.status(200).send({ token });
     } catch (error) {
-        res.status(500).send('Error al crear Motorista')
+
+    }
+
+}
+
+export const updateBiker = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const { aceptacion } = req.body;
+
+    try {
+        const motorista = await Motorista.findByIdAndUpdate(id, {aceptacion});
+        res.status(200).json({motorista});
+    } catch (error) {
+        res.status(400).json({message: 'Error al actualizar motorista'})
     }
 }
 
