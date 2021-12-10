@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import Categoria from "../models/categoria";
 
 const getCategories = async(req: Request, res: Response) => {
-    const categorias = await Categoria.find({},{});
     try {
+        const categorias = await Categoria.find({},{});
         res.status(200).json({
             ok:true,
             categorias

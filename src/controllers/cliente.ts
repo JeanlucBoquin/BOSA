@@ -40,29 +40,33 @@ const establecerEmpresasFavoritas = async (req: Request, res: Response) => {
     const { idCliente, idEmpresa, favorito } = req.body
     try {
         if (favorito) {
-            const empresasFavoritas = await Cliente.updateOne(
+            await Cliente.updateOne(
                 { _id: new Types.ObjectId(idCliente) },
                 {
                     $addToSet: {
                         empresas_favoritas: idEmpresa
                     }
                 });
+            const empresasFavoritas = await Cliente.findOne({ _id: new Types.ObjectId(idCliente) }, { _id: false, empresas_favoritas: true })
             res.status(200).json({
                 ok: true,
-                idCliente,
+                // idCliente,
+                empresasFavoritas: empresasFavoritas?.empresas_favoritas,
                 msg: "empresa agregado con exito"
             });
         } else {
-            const empresasFavoritas = await Cliente.updateOne(
+            await Cliente.updateOne(
                 { _id: new Types.ObjectId(idCliente) },
                 {
                     $pull: {
                         empresas_favoritas: idEmpresa
                     }
                 });
+            const empresasFavoritas = await Cliente.findOne({ _id: new Types.ObjectId(idCliente) }, { _id: false, empresas_favoritas: true })
             res.status(200).json({
                 ok: true,
-                idCliente,
+                // idCliente,
+                empresasFavoritas: empresasFavoritas?.empresas_favoritas,
                 msg: "empresa removida con exito"
             });
         }
