@@ -58,5 +58,15 @@ body {
 
 .mobile {
   min-height: 100vh;
-  background-color:#f3f3f0;
+  background-color: #f3f3f0;
+}
+
+mat-dialog-container {
+  /* border-color: #f2a20c;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px; */
+  border-radius: 16px!important;
+  padding: 0!important;
 }

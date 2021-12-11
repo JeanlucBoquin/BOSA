@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DetailsSbComponent } from './pages/details-sb/details-sb.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { InvoiceComponent } from './pages/invoice/invoice.component';
 import { OrdersAvailableComponent } from './pages/orders-available/orders-available.component';
@@ -32,11 +33,15 @@ const routes: Routes = [
         component: OrdersAvailableComponent
       },
       {
-        path: 'detalle',
+        path: 'detalle/:id',
         component: DetailsComponent
       },
       {
-        path: 'factura',
+        path: 'detalle-sb/:id',
+        component: DetailsSbComponent
+      },
+      {
+        path: 'factura/:id',
         component: InvoiceComponent
       },
       {

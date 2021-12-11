@@ -1,17 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrdenesService } from 'src/app/services/ordenes.service';
-import Swal from 'sweetalert2';
 import { MapaComponent } from '../../components/mapa/mapa.component';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  selector: 'app-details-sb',
+  templateUrl: './details-sb.component.html',
+  styleUrls: ['./details-sb.component.css']
 })
-export class DetailsComponent implements OnInit {
-
+export class DetailsSbComponent implements OnInit {
   idOrden = '';
   buttons = true;
   orden: any = {};
@@ -22,7 +20,7 @@ export class DetailsComponent implements OnInit {
   productos: any = [];
   productosFinal: any = [];
   comision = 45;
-  currentBiker: any= {};
+  currentBiker:any = {};
   constructor(
     private dialog: MatDialog,
     private route: ActivatedRoute,
@@ -32,6 +30,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentBiker = JSON.parse(localStorage.getItem('currentBiker')!);
+
     this.productos = [];
     this.productosFinal = [];
 
@@ -69,50 +68,6 @@ export class DetailsComponent implements OnInit {
       data: map,
       width: '80%',
       height: '80%',
-    })
-  }
-
-  takeOrder(): void {
-
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success m-3',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-
-    swalWithBootstrapButtons.fire({
-      title: 'Tomar la orden?',
-      text: "Seguro que quiere tomar esta orden!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Si, tomar la orden!',
-      cancelButtonText: 'No, cancelar!',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const { _id } = JSON.parse(localStorage.getItem('currentBiker')!);
-        this.$orden.updateOrder(this.idOrden, _id, { estadoOrden: 'pendiente' }).subscribe(resp => {
-          swalWithBootstrapButtons.fire(
-            'Tomada!',
-            'La orden a sido tomada con exito.',
-            'success'
-          );
-          this.router.navigateByUrl('inicio/ordenes-pendientes');
-        });
-
-
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Cancelado',
-          'No se a tomado la orden',
-          'error'
-        )
-      }
     })
   }
 

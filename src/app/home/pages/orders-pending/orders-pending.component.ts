@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdenesService } from 'src/app/services/ordenes.service';
 
 @Component({
   selector: 'app-orders-pending',
@@ -7,11 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersPendingComponent implements OnInit {
 
-  items = Array.from({length: 10}).map((_, i) => `Item #${i}`);
-
-  constructor() { }
+  ordenes: any = [];
+  currentBiker: any = {};
+  constructor(
+    private $orden: OrdenesService
+  ) { }
 
   ngOnInit(): void {
+    this.currentBiker = JSON.parse(localStorage.getItem('currentBiker')!);
+    const { _id } = JSON.parse(localStorage.getItem('currentBiker')!);
+    this.$orden.getOrdersPending(_id).subscribe(resp => {
+      this.ordenes = resp.ordenes;
+      console.log(resp);
+
+    })
+  }
+
+  getIdOrden(orden: any): string {
+    return orden._id;
   }
 
 }

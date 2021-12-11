@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registry',
@@ -32,8 +33,13 @@ export class RegisterComponent implements OnInit {
   registro(): void {
     const biker = this.form.getRawValue();
     this.$auth.signUp(biker).subscribe(resp => {
-      console.log(resp);
-      this.router.navigateByUrl('/identificacion');
+      Swal.fire(
+        'Registro Exitoso!',
+        'Se revisara tu solicitud, pronto te contactaremos!',
+        'success'
+      ).then( (result) => {
+        this.router.navigateByUrl('/identificacion');
+      })
     });
 
   }

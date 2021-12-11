@@ -6,9 +6,8 @@
   <div class="container-fluid">
     <div class="d-flex justify-content-between m-4 mb-2">
       <a (click)="drawer.toggle()"> <i class="fas fa-bars fs-1"></i></a>
-      <div class="profile">
-        <h5 class="text-center mt-2">NS</h5>
-      </div>
+      <app-profile [name]="currentBiker.nombre" [lastName]="currentBiker.apellido"></app-profile>
+
     </div>
     <div class="principal">
       <app-title
@@ -21,7 +20,7 @@
         itemSize="4"
         class="container container-home"
       >
-      <app-item  *ngFor="let item of items"></app-item>
+      <app-item [direccion]="orden.direccion" [id]="getIdOrden(orden)"  *ngFor="let orden of ordenes"></app-item>
       </cdk-virtual-scroll-viewport>
     </div>
   </div>
