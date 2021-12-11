@@ -11,7 +11,7 @@ interface IEmpresa {
 const empresaSchema = new Schema<IEmpresa>({
     idCategoria: {
         type: Schema.Types.ObjectId,
-        // ref:"categorias",
+        ref:"categorias",
         required: true
     },
     nombre: {

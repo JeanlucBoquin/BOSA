@@ -3,6 +3,27 @@ import Empresa from "../models/empresa"
 import Producto from "../models/producto";
 import { Types } from 'mongoose';
 
+const registrarProducto = async (req: Request, res: Response) => {
+    // const { idEmpresa } = req.params;
+    const data = req.body;
+    try {
+        if(data.nombre){
+            const nuevoProducto = new Producto(data);
+            await nuevoProducto.save()
+            return res.status(200).json({
+                ok:true,
+                msg:"El producto se agrego de forma exitosa"
+            })
+        }
+        return res.status(200).json({
+            ok:false,
+            msg:"No se pudo agregar el producto"
+        })
+    } catch (error) {
+        triggerCarch(error, res, "Error al registrar el producto")
+    }
+}
+
 const getProductsTopAndCategories = async (req: Request, res: Response) => {
     const { idEmpresa } = req.params;
     try {
@@ -64,7 +85,7 @@ const getProductsTopAndCategories = async (req: Request, res: Response) => {
             productos
         });
     } catch (error) {
-        triggerCarch(error, res, "Error en la peticion de obtener productos")
+        triggerCarch(error, res, "Error en la peticion de obtener productos");
     }
 }
 
@@ -74,7 +95,21 @@ const getProductCategory = async (req: Request, res: Response) => {
         const productos = await Producto.find({ idEmpresa, categoria: categoriaProducto }, {});
         // console.log(productos)
         res.status(200).json({
-            ok:true,
+            ok: true,
+            productos
+        })
+    } catch (error) {
+        triggerCarch(error, res, "Error en la peticion de obtener productos por su categoria")
+    }
+}
+
+const obtenerProductosDeEmpresa = async (req: Request, res: Response) => {
+    const { idEmpresa } = req.params;
+    try {
+        const productos = await Producto.find({ idEmpresa }, {});
+        // console.log(productos)
+        res.status(200).json({
+            ok: true,
             productos
         })
     } catch (error) {
@@ -90,4 +125,9 @@ function triggerCarch(error: any, res: Response, msg: string) {
     })
 }
 
-export { getProductsTopAndCategories, getProductCategory }
+export {
+    getProductsTopAndCategories,
+    getProductCategory,
+    registrarProducto,
+    obtenerProductosDeEmpresa
+}
