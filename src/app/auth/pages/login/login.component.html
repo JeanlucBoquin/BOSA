@@ -18,10 +18,10 @@
           
         </div>
         
-        <form [formGroup]="form">
-          <input type="tel" placeholder="Numero de celular" formControlName="number" />
+        <form [formGroup]="form" (ngSubmit)="login()">
+          <input type="tel" placeholder="Numero de celular" formControlName="telefono" />
           <input type="password" placeholder="Contraseña" formControlName="password" />
-          <button type="submit" [disabled]="!form.valid" class="btn-form" routerLink="/inicio/resumen">Iniciar Sesion</button>
+          <button type="submit" [disabled]="!form.valid" class="btn-form">Iniciar Sesion</button>
         </form>
       
         <span class="text-center mt-3">

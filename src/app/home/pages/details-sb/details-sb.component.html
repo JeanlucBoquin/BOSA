@@ -17,7 +17,7 @@
 
           <section class="mt-4">
             <h6 class="m-0">Cliente:</h6>
-            <h6 class="text">{{cliente.nombre}} {{cliente.apellido}}
+            <h6 class="text">{{cliente.nombre}} {{cliente.apellido}} | 9602-2913
             </h6>
           </section>
 
@@ -57,10 +57,6 @@
           </section>
         </div>
       </div>
-    </div>
-    <div *ngIf="buttons" class="d-flex justify-content-around mt-3">
-      <button type="button" class="btn btn-danger rounded" routerLink="/inicio/ordenes-disponibles">Cancelar</button>
-      <button type="button" class="btn btn-success rounded" (click)="takeOrder()">Tomar orden</button>
     </div>
   </div>
 </mat-drawer-container>

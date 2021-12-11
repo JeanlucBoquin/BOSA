@@ -11,14 +11,15 @@
         src="../../../../assets/img/logo-bosa.png"
         alt=""
       />
-      <div class="profile">
+      <!-- <div class="profile">
         <h5 class="text-center mt-2">NS</h5>
-      </div>
+      </div> -->
+      <app-profile [name]="currentBiker.nombre" [lastName]="currentBiker.apellido"></app-profile>
     </div>
     <div class="principal">
       <div class="container-fluid d-flex flex-column align-items-center">
         <div class="welcome-text mb-5 mt-5">
-          <h1>Hola Nelsinho!!</h1>
+          <h1>Hola {{currentBiker.nombre}}!!</h1>
           <h4>Estas son tus Ordenes</h4>
         </div>
 
@@ -27,7 +28,7 @@
           class="btn bt1 position-relative mt-4"
           routerLink="/inicio/ordenes-pendientes"
         >
-          <h4>Pendientes {{ 3 }}</h4>
+          <h4>Pendientes {{ pending }}</h4>
           <span
             class="
               position-absolute
@@ -49,7 +50,7 @@
           class="btn bt2 position-relative"
           routerLink="/inicio/ordenes-disponibles"
         >
-          <h4>Disponibles {{ 3 }}</h4>
+          <h4>Disponibles {{ available }}</h4>
           <span
             class="
               position-absolute
@@ -71,7 +72,7 @@
           class="btn bt3 position-relative"
           routerLink="/inicio/ordenes-entregadas"
         >
-          <h4>Entregadas {{ 3 }}</h4>
+          <h4>Entregadas {{ delivered }}</h4>
           <span
             class="
               position-absolute

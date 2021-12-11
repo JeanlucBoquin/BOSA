@@ -1,1 +1,95 @@
-<p>invoice works!</p>
+<mat-drawer-container class="example-container" [hasBackdrop]="true" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between m-4 mb-2">
+      <a (click)="drawer.toggle()"> <i class="fas fa-bars fs-1"></i></a>
+      <app-profile [name]="currentBiker.nombre" [lastName]="currentBiker.apellido"></app-profile>
+
+    </div>
+    <div class="principal">
+      <app-title
+        title="Detalle de"
+        title1="la Factura"
+        src="../../../../assets/img/factura.png"
+      ></app-title>
+
+      <div class="container container-home">
+        <div class="d-flex flex-column">
+          <h5 class="text-center mt-2"><i>Pago del Cliente</i></h5>
+
+          <section class="mt-2">
+            <h6 class="m-0">Fecha:</h6>
+            <h6 class="text">{{orden.createdAt | date: 'short'}}</h6>
+          </section>
+
+          <section class="mt-3">
+            <h6 class="m-0">Cliente:</h6>
+            <h6 class="text">{{cliente.nombre}} {{cliente.apellido}}</h6>
+          </section>
+
+          <section class="mt-3">
+            <h6 class="m-0">Metodo de Pago:</h6>
+            <h6 class="text">Tarjeta</h6>
+          </section>
+
+          <section class="mt-3">
+            <h6 class="m-0">Produtos:</h6>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+              <table class="table table-bordered table-striped mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let producto of productosFinal; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{producto.resp.producto.descripcion}}</td>
+                    <td>{{producto.cantidad}}</td>
+                    <td>{{producto.resp.producto.precio}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </section>
+
+          <div class="d-flex flex-column align-items-center">
+            <section class="d-flex">
+              <h6 class="">Subtotal</h6>
+              <h6>L.{{subtotal | number}}</h6>
+            </section>
+            <!-- <section class="d-flex">
+              <h6>15% ISV</h6>
+              <h6>L.400</h6>
+            </section>
+            <section class="d-flex">
+              <h6>18% ISV</h6>
+              <h6>L.400</h6>
+            </section> -->
+            <section class="d-flex">
+              <h6>Comision Venta</h6>
+              <h6>L.{{comisionVenta | number}}</h6>
+            </section>
+            <section class="d-flex">
+              <h6><b>Total a pagar</b></h6>
+              <h6 class="">L.{{comisionVenta + subtotal | number}}</h6>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around mt-3">
+      <button type="button" class="btn btn-success rounded" (click)="deliver()">
+        Entregar Orden
+      </button>
+    </div>
+  </div>
+</mat-drawer-container>

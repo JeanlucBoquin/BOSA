@@ -21,6 +21,8 @@ import { AccountComponent } from './pages/account/account.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { MatTableModule } from '@angular/material/table';
 import { TablesInvoiceComponent } from './components/tables-invoice/tables-invoice.component';
+import { MapaComponent } from './components/mapa/mapa.component';
+import { DetailsSbComponent } from './pages/details-sb/details-sb.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { TablesInvoiceComponent } from './components/tables-invoice/tables-invoi
     InvoiceComponent,
     AccountComponent,
     SettingsComponent,
-    TablesInvoiceComponent
+    TablesInvoiceComponent,
+    MapaComponent,
+    DetailsSbComponent
   ],
   imports: [
     CommonModule,
