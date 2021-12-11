@@ -2,9 +2,10 @@
     <form class="row" [formGroup]="miFormulario" (ngSubmit)="registrar()">
         <div class="col-12 mb-3">
             <label for="empresa" class="form-label">Empresa</label>
-            <select id="empresa" class="form-select" formControlName="categoria">
+            <select id="empresa" class="form-select" formControlName="idEmpresa">
                 <option selected value="">-- seleccione la empresa donde agrega el producto --</option>
-                <option value="alimentos para el hogar">{{"alimentos para el hogar"|titlecase}}</option>
+                <option *ngFor="let empresa of empresas" 
+                        [value]="empresa._id">{{empresa.nombre|titlecase}}</option>
             </select>
         </div>
         <div class="col-12 col-md-6 col-lg-6">
@@ -47,7 +48,7 @@
             <!-- Imagen o logo -->
             <div class="mb-3">
                 <label for="imagen" class="form-label">Imagen o logo</label>
-                <input id="imagen" type="file" class="form-control" formControlName="pathImg" />
+                <input readonly id="imagen" type="text" class="form-control" formControlName="pathImg" />
             </div>
 
             <!-- Calificacion -->

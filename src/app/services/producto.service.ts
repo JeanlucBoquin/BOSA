@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductoService {
-
+  baseUrl:string="http://localhost:3000/api/categorias"
   constructor(private http:HttpClient) { }
 
   registrarProducto(data:NuevaProducto){
-    return this.http.post("",data)
+    return this.http.post(`${this.baseUrl}/productos/agregar-producto`,data)
   }
 }

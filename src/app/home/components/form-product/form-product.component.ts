@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductoService } from '../../../services/producto.service';
+import { EmpresaService } from '../../../services/empresa.service';
+import { Empresa } from 'src/app/services/interfaces/empresas';
 
 export interface NuevaProducto {
   nombre:       string;
@@ -20,23 +22,34 @@ export interface NuevaProducto {
   styleUrls: ['./form-product.component.css']
 })
 export class FormProductComponent implements OnInit {
+  empresas:Empresa[]=[];
 
   miFormulario: FormGroup = this.fb.group({
     nombre:       ['', Validators.required],
     descripcion:  ['', Validators.required],
-    precio:       [0, [Validators.required, Validators.min(0)]],
-    disponibles:  [0, [Validators.required, Validators.min(0)]],
-    calificacion: [0, [Validators.required, Validators.min(0), Validators.max(5)]],
+    precio:       [  , [Validators.required, Validators.min(0)]],
+    disponibles:  [  , [Validators.required, Validators.min(0)]],
+    calificacion: [  , [Validators.required, Validators.min(0), Validators.max(5)]],
     categoria:    ['', Validators.required],
-    pathImg:      ['', Validators.required]
-  })
+    pathImg:      ["default/microsoft.jpg", Validators.required],
+    idEmpresa:    ['', Validators.required],
+  });
 
   constructor(
     private fb: FormBuilder,
-    private productoService:ProductoService
+    private productoService:ProductoService,
+    private empresaService:EmpresaService
   ) { }
 
   ngOnInit(): void {
+    this.empresaService.obtenerTodasLasEmpresas()
+      .subscribe(res=>{
+        if(res.ok===true){
+          res.empresas.forEach(empresa=>{
+            this.empresas.push(empresa);
+          })
+        }
+      })
   }
 
   registrar() {
@@ -44,5 +57,6 @@ export class FormProductComponent implements OnInit {
     data.ventas=0;
     console.log(data)
     this.productoService.registrarProducto(data)
+      .subscribe(console.log)
   }
 }

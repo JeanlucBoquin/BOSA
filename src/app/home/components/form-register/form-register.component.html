@@ -19,22 +19,18 @@
 
             <!-- Selecione categoria -->
             <div class="mb-3">
-                <label for="selectCategory" class="form-label">Selecione su pais</label>
-                <select id="selectCategory" class="form-select" formControlName="categoria">
-                    <option selected>-- seleccione una categoria --</option>
-                    <option value="alimentos para el hogar">{{"alimentos para el hogar"|titlecase}}</option>
-                    <option value="comida rapida y bebidas">{{"comida rapida y bebidas"|titlecase}}</option>
-                    <option value="medicamentos">{{"medicamentos"|titlecase}}</option>
-                    <option value="herramientas y papeleria">{{"herramientas y papeleria"|titlecase}}</option>
-                    <option value="ropa y accesorios">{{"ropa y accesorios"|titlecase}}</option>
-                    <option value="tecnologia">{{"tecnologia"|titlecase}}</option>
+                <label for="selectCategory" class="form-label">Selecione la categoria</label>
+                <select id="selectCategory" class="form-select" formControlName="idCategoria">
+                    <option selected value="">-- seleccione una categoria --</option>
+                    <option *ngFor="let categoria of categorias"
+                            [value]="categoria._id">{{categoria.nombre|titlecase}}</option>
                 </select>
 
             </div>
             <!-- Imagen o logo -->
             <div class="mb-4">
-                <label for="imgLog" class="form-label">Imagen o logo</label>
-                <input id="imgLog" type="file" class="form-control" name="imagen" formControlName=pathImg/>
+                <label for="imgLog" class="form-label">Imagen o logo (Incompleto)</label>
+                <input readonly id="imgLog" type="text" class="form-control" name="imagen" formControlName=pathImg/>
             </div>
 
             <!-- Registrar Empresa -->
