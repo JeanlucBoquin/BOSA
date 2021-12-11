@@ -15,7 +15,7 @@ interface IProducto {
 const productoSchema = new Schema<IProducto>({
     idEmpresa: {
         type: Schema.Types.ObjectId,
-        // ref:"empresas"
+        ref:"empresas",
         required: true
     },
     nombre: {
