@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import * as mapboxgl from "mapbox-gl";
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-map',
@@ -9,12 +10,19 @@ import { Router } from '@angular/router';
 })
 export class MapComponent implements AfterViewInit, OnDestroy {
   @ViewChild("map") map!: ElementRef;
+  miformulario: FormGroup = this.fb.group({
+    direccion: ["", [Validators.required], []]
+  })
+
   mapa!: mapboxgl.Map;
   center: mapboxgl.LngLat = new mapboxgl.LngLat(-87.17909, 14.007209269298926)
   lng: number = -86.33086937621516;
   lat: number = 14.007209269298926;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private fb: FormBuilder
+  ) { }
 
   ngOnDestroy(): void {
     this.mapa.off("move", () => { })
@@ -40,8 +48,10 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  almacenarCoordenadas(){
-    localStorage.setItem("lnglat",JSON.stringify(this.mapa.getCenter()));
+  almacenarCoordenadas() {
+    // console.log('hola', this.mapa.getCenter(), this.miformulario.get("direccion")?.value)
+    localStorage.setItem("lnglat", JSON.stringify(this.mapa.getCenter()));
+    localStorage.setItem("direccion", JSON.stringify(this.miformulario.get("direccion")?.value));
     this.router.navigateByUrl("/home/payment")
   }
 }

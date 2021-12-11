@@ -4,6 +4,7 @@ import { AuthService } from '../../../auth/auth.service';
 import { ShoppingCart } from '../../interfaces/carrito-de-compras';
 import { Order } from '../../interfaces/orden';
 import { HomeService } from '../../home.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-payment',
@@ -23,7 +24,7 @@ export class PaymentComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private homeService:HomeService
+    private homeService: HomeService
   ) { }
 
   ngOnInit(): void {
@@ -37,13 +38,18 @@ export class PaymentComponent implements OnInit {
   }
 
   procesarOrden() {
-    if (localStorage.getItem("lnglat") && localStorage.getItem("shoppingcart")) {
+    if (
+      localStorage.getItem("lnglat") &&
+      localStorage.getItem("shoppingcart") &&
+      localStorage.getItem("direccion")
+    ) {
       const idCliente = this.authService.usuarioActual._id
       const datosTarjeta = {
         tarjeta: this.miFormulario.get("tarjeta")?.value.slice(0, -3) + "***",
         cvv: this.miFormulario.get("cvv")?.value
       };
       const lnglat = JSON.parse(localStorage.getItem("lnglat")!)
+      const direccion = JSON.parse(localStorage.getItem("direccion")!)
       const localStorageProductos = JSON.parse(localStorage.getItem("shoppingcart")!)
       const productos = localStorageProductos.map((element: ShoppingCart) => {
         const data = {
@@ -53,19 +59,33 @@ export class PaymentComponent implements OnInit {
         }
         return data
       });
-      const orden:Order = {
+      const orden: Order = {
         idCliente,
         productos,
         datosTarjeta,
-        lnglat
+        lnglat,
+        direccion
       }
       // console.log(orden)
       this.homeService.setOrder(orden)
-        .subscribe(res=>{
-          if(res.ok===true){
-            localStorage.clear();
+        .subscribe(res => {
+          if (res.ok === true) {
+            Swal.fire(
+              'Estupendo!',
+              `${res.msg}`,
+              'success'
+            ).then(() => {
+              localStorage.clear();
+              this.miFormulario.reset()
+            })
           }
         })
+    }else{
+      Swal.fire(
+        'Lo sentimos algo salido mal!',
+        `Verifica que hayan productos en el carrito he ingresa correctamente tus ubicarcion`,
+        'error'
+      )
     }
   }
 }

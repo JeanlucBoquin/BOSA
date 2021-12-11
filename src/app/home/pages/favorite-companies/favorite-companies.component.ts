@@ -54,6 +54,11 @@ export class FavoriteCompaniesComponent implements OnInit, AfterViewInit {
     if (this.empresasFavoritas.includes(idEmpresa)) {
       this.authService.setCompaniesFavorite(idEmpresa, false)
         .pipe(
+          // En este punto podemos eliminar el switchMap ya que en la res
+          // viene las empresas favoritas, pero lo dejaremos por el momento.
+          // En los producto favoritos no se retorna los 'productosFavoritos'
+          // se tendria que agregar en la respuesta del back por eso el switMap
+          // queda estupendo
           switchMap(res => this.authService.getCompaniesFavorite())
         )
         .subscribe(res => {

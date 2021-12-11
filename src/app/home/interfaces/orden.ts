@@ -3,6 +3,7 @@ export interface Order {
     productos:    Producto[];
     datosTarjeta: DatosTarjeta;
     lnglat:       Lnglat;
+    direccion:    string;  
 }
 
 export interface DatosTarjeta {
