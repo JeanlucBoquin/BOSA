@@ -43,7 +43,7 @@ const OrdenSchema = new Schema<IOrden>({
     },
     estadoRecorrido: {
         type:String,
-        default:"buscando motorista"
+        default:""
     }
 })
 
