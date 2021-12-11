@@ -1,10 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+import { Producto } from 'src/app/home/interfaces/producto';
 
 @Component({
   selector: 'app-dialog',
@@ -12,9 +8,9 @@ export interface DialogData {
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
-
+  cantidad!: number;
   constructor(public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+    @Inject(MAT_DIALOG_DATA) public data: Producto) { }
 
   ngOnInit(): void { }
 

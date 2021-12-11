@@ -18,21 +18,19 @@ export class CategoriesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("inicio")
     this.homeService.getCategories().subscribe(
       res => {
         res.categorias.forEach(categoria => {
-          // console.log(categoria)
           this.vectorCategorias.push(categoria)
         });
         setTimeout(() => {
-          this.cargado=true
+          this.cargado = true
         }, 50)
       }
     )
   }
 
   navegation(idCategory: string) {
-    this.router.navigate(['home/category', idCategory])
+    this.router.navigate(['home/categories', idCategory, "companies"])
   }
 }

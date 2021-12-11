@@ -12,5 +12,15 @@ figure,figcaption{
 }
 
 .card-body:hover{
-    background-color: rgba(242, 194, 162, 0.25);
+    background-color: rgba(242, 194, 162, 0.05);
+}
+
+.fa-facebook:hover{
+    cursor: pointer;
+    color: #0E8EF1;
+}
+
+.fa-gratipay:hover{
+    cursor: pointer;
+    color: #e74c3c;
 }

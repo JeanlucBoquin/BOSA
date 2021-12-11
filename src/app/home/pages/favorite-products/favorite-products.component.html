@@ -1,1 +1,62 @@
-<p>favorite-products works!</p>
+<section ngsReveal>
+    <!-- inicio "banner" -->
+    <!-- desktop -->
+
+    <!-- fin "banner" -->
+    
+    <div class="m-4">
+        <div>
+            <h1 class="m-0">Productos <span style="color: #F2A20C;">favoritos</span></h1>
+            <svg height="10" width="150">
+                <line x1="0" x2="50" style="stroke:#F2A20C; stroke-width:10" />
+            </svg>
+            <p>Accede más rápidamente a lo que necesitas</p>
+        </div>
+        <div #noDisponibles>
+            <!-- <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+                <h1>Lo sentimos</h1>
+                <p>Aun no se ha registrado productos en esta empresa</p>
+            </div> -->
+        </div>
+        <div class="gripProducts">
+            <div *ngFor="let product of products" class="card"
+                style="border-top-width: 5px; border-style: solid; border-top-color:#D93232;">
+                <div class="back p-4">
+                    <img style="width: 200px; height: 200px;"
+                        [src]="'../../../../assets/img/home/Productos/'+product.pathImg" alt="">
+                </div>
+                <div class="card-body pb-0">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <i class="fas fa-star" style="color: #F2E205;"></i>
+                            <i class="fas fa-star" style="color: #F2E205;"></i>
+                            <i class="fas fa-star" style="color: #F2E205;"></i>
+                            <i class="fas fa-star-half-alt" style="color: #F2E205;"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: .5rem;">
+                            <strong
+                                [ngStyle]="{'color':(product.disponibles>0)?'#27ae60':'#e74c3c'}">{{(product.disponibles>0)?"disponible":"no
+                                disponible"}}</strong>
+                            <i  #corazon 
+                                (click)="like_dislike(product._id,corazon)"
+                                class="fab fa-gratipay fa-2x"
+                                [ngStyle]="{'color':productosFavoritos.includes(product._id)?'#e74c3c':''}">
+                            </i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>{{product.nombre | titlecase}}</h4>
+                        <p class="m-0">{{product.descripcion}}</p>
+                    </div>
+                    <div class="py-2" style="display: flex; justify-content:space-between; align-items: center;">
+                        <button type="button" class="btn btn-outline-danger" [disabled]="product.disponibles<=0" (click)="openDialog(product._id)">Ordenar
+                            producto</button>
+                        <strong>{{product.precio}} Lps</strong>
+                    </div>
+                </div>
+                <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
+            </div>
+        </div>
+    </div>
+</section>

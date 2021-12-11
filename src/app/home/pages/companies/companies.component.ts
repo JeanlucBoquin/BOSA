@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../../home.service';
 import { Empresa } from '../../interfaces/empresa';
 import { switchMap, tap } from 'rxjs/operators'
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-companies',
@@ -11,10 +12,14 @@ import { switchMap, tap } from 'rxjs/operators'
 })
 export class CompaniesComponent implements OnInit, AfterViewInit {
   @ViewChildren('font') prueba!: QueryList<ElementRef>;
+  @ViewChild("noDisponibles") noDisponibles!: ElementRef;
   empresas: Empresa[] = [];
+  empresasFavoritas: string[] = []
 
-  constructor(private router: ActivatedRoute,
-    private homeService: HomeService
+  constructor(
+    private router: ActivatedRoute,
+    private homeService: HomeService,
+    private authService: AuthService
   ) { }
 
   ngAfterViewInit(): void {
@@ -26,15 +31,30 @@ export class CompaniesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-
     this.router.params
       .pipe(
-        tap(console.log),
-        switchMap(res => this.homeService.getCompanies(res.idCategory))
-      ).subscribe(res => {
-        res.empresas.forEach(empresa => {
-          this.empresas.push(empresa)
+        switchMap(res => this.homeService.getCompanies(res.idCategory)),
+        switchMap(res => {
+          res.empresas.forEach(empresa => {
+            this.empresas.push(empresa)
+          });
+          if (res.empresas.length == 0) {  
+            this.noDisponibles.nativeElement.innerHTML =
+              `
+              <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+                <h1>Lo sentimos</h1>
+                <p>Aun no se ha registrado empresas en esta categoria</p>
+              </div>
+              `
+          }
+          return this.authService.getCompaniesFavorite()
         })
+      ).subscribe(res => {
+        if(res.ok){
+          res.empresasFavoritas.forEach(empresa => {
+            this.empresasFavoritas.push(empresa._id)
+          })
+        }
       });
 
   }
@@ -48,6 +68,22 @@ export class CompaniesComponent implements OnInit, AfterViewInit {
         ele.nativeElement.innerHTML += estrella
       }
     });
+  }
+
+  like_dislike(idEmpresa: string, element: HTMLElement) {
+    if (this.empresasFavoritas.includes(idEmpresa)) {
+      this.authService.setCompaniesFavorite(idEmpresa, false)
+        .subscribe()
+      const index = this.empresasFavoritas.indexOf(idEmpresa);
+      this.empresasFavoritas.splice(index, 1);
+      element.style.color = "#000";
+    } else {
+      this.authService.setCompaniesFavorite(idEmpresa, true)
+        .subscribe();
+      this.empresasFavoritas.push(idEmpresa)
+      element.style.color = "#e74c3c";
+    }
+    // console.log(this.empresasFavoritas)
   }
 
 }

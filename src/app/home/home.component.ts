@@ -1,5 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as mapboxgl from "mapbox-gl";
+import { environment } from 'src/environments/environment';
 
 interface BtnOptions {
   nombre: string;
@@ -53,10 +55,11 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    (mapboxgl as any).accessToken = environment.mapboxToken;
   }
 
   navegation(path: string) {
-    console.log(path)
+    // console.log(path)
     if (path == "Categorias") {
       this.router.navigateByUrl('/home/categories');
     } else if (path == "Empresas favoritas") {

@@ -1,36 +1,37 @@
-<section class="m-3">
-    <h1 class="m-0">Informacion de <span>pago</span></h1>
+<section class="colorBackgroud">
+    <h1 class="m-0" style="color:#fff;">Informacion de <span style="color:#F2A20C;">pago</span></h1>
     <svg height="10" width="150">
         <line x1="0" x2="300" style="stroke:#F2A20C; stroke-width:10" />
     </svg>
-    <p>Tu informacion esta segura</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(50%,1fr))">
-        <div style="background-color: #fff;" class="p-2">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem,1fr)); gap: 1rem;">
-                <mat-form-field appearance="outline" floatLabel="always">
+    <p style="color:#fff;">Tu informacion esta segura</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(50%,1fr));">
+        <div style="background-color: #fff; border-radius: 5px;" class="p-3">
+            <form [formGroup]="miFormulario" autocomplete="off" (ngSubmit)="procesarOrden()">
+                <mat-form-field class="w-100" appearance="outline" floatLabel="always">
                     <mat-label>Nombre</mat-label>
-                    <input matInput type="number" class="example-right-align" placeholder="0">
+                    <input matInput formControlName="nombre" type="text" class="example-right-align" placeholder="0">
                 </mat-form-field>
-                <mat-form-field appearance="outline" floatLabel="always">
+                <mat-form-field class="w-100" appearance="outline" floatLabel="always">
                     <mat-label>Apellido</mat-label>
-                    <input matInput type="number" class="example-right-align" placeholder="0">
+                    <input matInput formControlName="apellido" type="text" class="example-right-align" placeholder="0">
                 </mat-form-field>
-            </div>
-            <mat-form-field class="w-100" appearance="outline" floatLabel="always">
-                <mat-label>Numero de tarjeta de credito</mat-label>
-                <input matInput type="number" class="example-right-align" placeholder="0">
-            </mat-form-field>
-            <mat-form-field class="w-100" appearance="outline" floatLabel="always">
-                <mat-label>Fecha de expiracion</mat-label>
-                <input matInput type="number" class="example-right-align" placeholder="0">
-            </mat-form-field>
-            <mat-form-field class="w-100" appearance="outline" floatLabel="always">
-                <mat-label>CVV</mat-label>
-                <input matInput type="number" class="example-right-align" placeholder="0">
-            </mat-form-field>
-            <button class=" mt-2" mat-raised-button style="background-color: #D93232; color: #f3f3f0;" routerLink="/home/payment">Continuar</button>
+                <mat-form-field class="w-100" appearance="outline" floatLabel="always">
+                    <mat-label>Numero de tarjeta de credito</mat-label>
+                    <input matInput formControlName="tarjeta" type="text" class="example-right-align" placeholder="0">
+                </mat-form-field>
+                <mat-form-field class="w-100" appearance="outline" floatLabel="always">
+                    <mat-label>Fecha de expiracion</mat-label>
+                    <input matInput formControlName="fechaExp" type="text" class="example-right-align" placeholder="0">
+                </mat-form-field>
+                <mat-form-field class="w-100" appearance="outline" floatLabel="always">
+                    <mat-label>CVV</mat-label>
+                    <input matInput formControlName="cvv" type="text" class="example-right-align" placeholder="0">
+                </mat-form-field>
+                <button class=" mt-2 w-100" mat-raised-button [disabled]="miFormulario.invalid"
+                    routerLink="/home/payment">Continuar</button>
+            </form>
         </div>
-        <div class="d-none d-md-grid pe-4" style="display: flex; align-items: center;">
+        <div class="d-none d-md-grid px-4" style="display: flex; align-items: center;">
             <img style="width: 100%; height: 60vh;" src="../../../../assets/img/home/Payment/payments.svg" alt="">
         </div>
     </div>

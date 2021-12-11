@@ -19,7 +19,7 @@
 .gripProducts{
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20rem,1fr));
 }
 
 .back{
@@ -31,4 +31,9 @@
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
+}
+
+.fa-gratipay:hover{
+    cursor: pointer;
+    color: #e74c3c;
 }

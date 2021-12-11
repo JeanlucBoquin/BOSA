@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingCart } from '../../interfaces/carrito-de-compras';
 
 export interface Product {
   name: string;
@@ -13,23 +14,26 @@ export interface Product {
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'description', 'amount'];
-  dataSource: Product[] = [
-    { name: 'Hydrogen', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-    { name: 'Helium', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-    { name: 'Lithium', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-    { name: 'Beryllium', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-    { name: 'Boron', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-    { name: 'Carbon', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-    { name: 'Nitrogen', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-    { name: 'Oxygen', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-    { name: 'Fluorine', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-    { name: 'Neon', description: 'Whisky Johnnie Walker Etiq Negra 750 ml', amount:5 },
-  ];
+  totalToPay: number = 0;
+  displayedColumns: string[] = ['name', 'description', 'amount', 'option'];
+  dataSource: ShoppingCart[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.dataSource = JSON.parse(localStorage.getItem('shoppingcart') || "[]");
+    this.dataSource.forEach((product,index) => {
+      this.totalToPay += product.cantidad * product.precio;
+      product["index"]=index;
+    })
   }
-
+  deleteProductShoppingCart(index:number) {
+    this.totalToPay=0;
+    this.dataSource = this.dataSource.filter(product=>product.index!=index);
+    this.dataSource.forEach((product,index) => {
+      this.totalToPay += product.cantidad * product.precio;
+      product["index"]=index;
+    });
+    localStorage.setItem("shoppingcart", JSON.stringify(this.dataSource));
+  }
 }
