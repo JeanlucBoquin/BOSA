@@ -47,7 +47,7 @@ export const signIn = async (req: Request, res: Response) => {
         if (!match) return res.status(401).json({ token: null, message: 'Password invalida' });
         if (motorista.aceptacion !== 'aprobado') return res.status(201).json({ token: null, message: 'Motorista no Aprobado' });
         const token = jwt.sign({ id: motorista._id }, process.env.SECRET!, { expiresIn: 43200 });
-        res.status(200).send({ token });
+        res.status(200).send({ token, motorista});
     } catch (error) {
 
     }

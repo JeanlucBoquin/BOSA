@@ -33,7 +33,7 @@ export const signIn = async (req: Request, res: Response) => {
         const match = await Admins.comparePassword(password, admin.password);
         if (!match) return res.status(401).json({ token: null, message: 'Password invalida' });
         const token = jwt.sign({ id: admin._id }, process.env.SECRET!, { expiresIn: 43200 });
-        res.status(200).send({ token });
+        res.status(200).send({ token, admin });
     } catch (error) {
         res.status(500).send({ error: error });
     }

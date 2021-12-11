@@ -82,6 +82,16 @@ const getProductCategory = async (req: Request, res: Response) => {
     }
 }
 
+const getProductId = async (req: Request, res: Response) => {
+    const {id} = req.params;
+    try {
+        const producto = await Producto.findOne({_id: id});
+        res.status(200).json({producto});
+    } catch (error) {
+        triggerCarch(error, res, 'Error en la peticion de obtener producto');
+    }
+}
+
 function triggerCarch(error: any, res: Response, msg: string) {
     console.log(error);
     res.status(500).json({
@@ -90,4 +100,5 @@ function triggerCarch(error: any, res: Response, msg: string) {
     })
 }
 
-export { getProductsTopAndCategories, getProductCategory }
+
+export { getProductsTopAndCategories, getProductCategory, getProductId }

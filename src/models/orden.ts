@@ -29,6 +29,7 @@ interface Producto {
 const OrdenSchema = new Schema<IOrden>({
     idCliente: {
         type: Schema.Types.ObjectId,
+        ref: 'clientes',
         required: true
     },
     idMotorista: {

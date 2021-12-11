@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import mongoose from 'mongoose';
 import Orden from "../models/orden";
 import Producto from "../models/producto"
 
@@ -34,9 +35,19 @@ export const agregarOrden = async (req: Request, res: Response) => {
     }
 }
 
+export const detalleOrden = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    try {
+        const orden = await Orden.findOne({ _id: id }).populate('idCliente');
+        res.status(200).json({ orden });
+    } catch (error) {
+        triggerCarch(error, res, "Error al obtener detalle");
+    }
+}
+
 export const obtenerOrdenes = async (req: Request, res: Response) => {
     try {
-        const ordenes = await Orden.find({ estadoOrden: "disponible" })
+        const ordenes = await Orden.find({ estadoOrden: "disponible" }).populate('idCliente');
         res.status(200).json({
             ok: true,
             ordenes
@@ -58,7 +69,7 @@ export const ordenesPendientes = async (req: Request, res: Response) => {
 export const ordenesEntregadas = async (req: Request, res: Response) => {
     const id = req.params.id;
     try {
-        const ordenes = await Orden.find({ idMotorista: id }, { estadoOrden: 'entregada' });
+        const ordenes = await Orden.find({ idMotorista: id, estadoOrden: 'entregada' });
         res.status(200).json({ ordenes });
     } catch (error) {
         triggerCarch(error, res, 'Error al obtener las ordenes pendientes');
@@ -78,11 +89,14 @@ export const actualizarOrden = async (req: Request, res: Response) => {
 
 export const actualizarRecorrido = async (req: Request, res: Response) => {
     const { idOrden } = req.params;
-    const { estadoRecorrido } = req.body;
-    console.log(req.body);
-
+    const { estadoRecorrido, estadoOrden } = req.body;
     try {
-        await Orden.findByIdAndUpdate(idOrden, { estadoRecorrido });
+        if (estadoOrden !== undefined) {
+            await Orden.findByIdAndUpdate(idOrden, { estadoRecorrido, estadoOrden });
+
+        } else {
+            await Orden.findByIdAndUpdate(idOrden, { estadoRecorrido });
+        }
         res.status(200).json({ ok: 'true' });
     } catch (error) {
         triggerCarch(error, res, 'Error al actualizar estado de la orden');
