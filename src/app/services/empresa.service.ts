@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NuevaEmpresa } from '../home/components/form-register/form-register.component';
-import { TodasLasEmpresas } from './interfaces/empresas';
+import { TodasLasEmpresas, EmpresasDatosCompletos, Empresaregistrada } from './interfaces/empresas';
 import { Categorias } from './interfaces/categoria';
 
 @Injectable({
@@ -14,11 +14,15 @@ export class EmpresaService {
   constructor(private http:HttpClient) { }
 
   registrarEmpresa(data:NuevaEmpresa){
-    return this.http.post(`${this.baseUrl}/empresas/agregar-empresa`,data)
+    return this.http.post<Empresaregistrada>(`${this.baseUrl}/empresas/agregar-empresa`,data)
   }
 
   obtenerTodasLasEmpresas(){
     return this.http.get<TodasLasEmpresas>(`${this.baseUrl}/empresas/obtener-empresas`)
+  }
+
+  obtenerTodasLasEmpresasDatosCompletos(){
+    return this.http.get<EmpresasDatosCompletos>(`${this.baseUrl}/empresas/obtener-empresas-completas`)
   }
 
   obtenerTodasLasCategoriasDeEmpresa(){
