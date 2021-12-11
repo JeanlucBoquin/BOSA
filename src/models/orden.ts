@@ -6,7 +6,7 @@ interface IOrden {
     productos: Producto[];
     datosTarjeta: DatosTarjeta;
     lnglat: Lnglat;
-    direccion:string;
+    direccion: string;
     estadoOrden: string;
     estadoRecorrido: string;
 }
@@ -33,24 +33,24 @@ const OrdenSchema = new Schema<IOrden>({
         ref: 'clientes',
         required: true
     },
-    direccion:{
-        type:String,
-        required:true
+    direccion: {
+        type: String,
+        required: true
     },
     idMotorista: {
         type: Schema.Types.ObjectId
     },
     estadoOrden: {
-        type:String,
-        default:"disponible"
+        type: String,
+        default: "disponible"
     },
     estadoRecorrido: {
-        type:String,
-        default:""
+        type: String,
+        default: ""
     },
     productos: Schema.Types.Array,
     datosTarjeta: Object,
     lnglat: Object,
-})
+}, { timestamps: true, versionKey: false })
 
 export default model<IOrden>("ordenes", OrdenSchema)
