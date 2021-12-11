@@ -1,12 +1,9 @@
-.form-control {
-    background-color: #E7E7E7;
-    border: 2px solid #9F9F9F;
-}
-
-img {
-    width: 80%;
-}
-
-.centrar{
-    display: flex;
+.form-select, .form-control{
+    /* From https://css.glass */
+background: rgba(175, 175, 175, 0.3);
+border-radius: 5px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
 }

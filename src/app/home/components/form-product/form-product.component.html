@@ -1,45 +1,70 @@
 <div class="component-body">
-    <form class="row" action="">
-        <div class="col-6">
+    <form class="row" [formGroup]="miFormulario" (ngSubmit)="registrar()">
+        <div class="col-12 mb-3">
+            <label for="empresa" class="form-label">Empresa</label>
+            <select id="empresa" class="form-select" formControlName="idEmpresa">
+                <option selected value="">-- seleccione la empresa donde agrega el producto --</option>
+                <option *ngFor="let empresa of empresas" 
+                        [value]="empresa._id">{{empresa.nombre|titlecase}}</option>
+            </select>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6">
             <!-- Nombre del producto -->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Nombre del producto</label>
-                <input type="text" class="form-control" />
+                <label for="nombre" class="form-label">Nombre</label>
+                <input id="nombre" type="text" class="form-control" formControlName="nombre" />
             </div>
 
             <!-- Descripcion del producto -->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Descripcion del producto</label>
-                <input type="text" class="form-control" />
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <!-- <input id="descripcion" type="text" class="form-control" formControlName="descripcion"/> -->
+                <textarea id="descripcion" class="form-control" formControlName="descripcion" cols="30"
+                    rows="3"></textarea>
+            </div>
+
+            <!-- categoria del producto -->
+            <div class="mb-3">
+                <label for="categoria" class="form-label">Categoria</label>
+                <input id="categoria" type="text" class="form-control" formControlName="categoria" />
             </div>
 
             <!-- Precion del producto -->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Precio del producto</label>
-                <input type="number" class="form-control" />
+                <label for="precio" class="form-label">Precio</label>
+                <input id="precio" type="number" class="form-control" formControlName="precio" />
             </div>
 
             <!-- Cantidad Disponible -->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Cantidad Disponible</label>
-                <input type="number" class="form-control" />
+                <label for="cantidad" class="form-label">Cantidad Disponible</label>
+                <input id="cantidad" type="number" class="form-control" formControlName="disponibles" />
             </div>
 
+
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-6">
             <!-- Imagen o logo -->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Imagen o logo</label>
-                <input type="file" class="form-control" />
+                <label for="imagen" class="form-label">Imagen o logo</label>
+                <input readonly id="imagen" type="text" class="form-control" formControlName="pathImg" />
+            </div>
+
+            <!-- Calificacion -->
+            <div class="mb-5">
+                <label for="cali" class="form-label">Calificacion</label>
+                <input id="cali" type="number" min=0 max="5" class="form-control" formControlName="calificacion" />
             </div>
 
             <!-- Registrar Producto -->
-            <div class="d-grid gap-2 mt-5">
-                <button class="btn btn-submit" type="button">Registrar Producto</button>
+            <div class="d-grid mb-3">
+                <button class="btn btn-submit" type="submit" [disabled]="miFormulario.invalid">Registrar
+                    Producto</button>
             </div>
-        </div>
 
-        <div class="col-6">
-            <div class="text-center centrar w-100 h-100">
-                <img class="w-100" src="../../../../assets/imageForm.svg" alt="">
+            <div class=" d-none d-md-flex d-lg-flex d-xl-flex justify-content-center">
+                <img src="../../../../assets/imageForm.svg" alt="" width="100%" height="100%">
             </div>
         </div>
 

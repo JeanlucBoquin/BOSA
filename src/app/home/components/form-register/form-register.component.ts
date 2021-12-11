@@ -1,5 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmpresaService } from 'src/app/services/empresa.service';
+import { Categoria } from 'src/app/services/interfaces/categoria';
+import Swal from 'sweetalert2';
+
+export interface NuevaEmpresa {
+  nombre: string;
+  descripcion: string;
+  calificacion: number;
+  categoria: string;
+  pathImg: string;
+}
 
 @Component({
   selector: 'app-form-register',
@@ -7,24 +18,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-register.component.css']
 })
 export class FormRegisterComponent implements OnInit {
-
-  form: FormGroup = this.fb.group({
-    name: ['', Validators.required],
-    rtn: ['', Validators.required],
-    email: ['', Validators.required],
-    tel: ['', Validators.required],
-    tel2: ['', Validators.required],
-    country: ['', Validators.required],
-    direction: ['', Validators.required],
-    category: ['', Validators.required],
-    quantityBranches: [0, Validators.required],
-    nameAdmins: ['', Validators.required],
-    img: ['', Validators.required],
+  categorias: Categoria[] = [];
+  miFormulario: FormGroup = this.fb.group({
+    nombre: ['', Validators.required],
+    descripcion: ['', Validators.required],
+    calificacion: [, [Validators.required, Validators.min(0), Validators.max(5)], []],
+    idCategoria: ['', Validators.required],
+    pathImg: ["default/microsoft.jpg", [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private empresaService: EmpresaService
+  ) { }
 
   ngOnInit(): void {
+    this.empresaService.obtenerTodasLasCategoriasDeEmpresa()
+      .subscribe(res => {
+        if (res.ok === true) {
+          res.categorias.forEach(categoria => {
+            this.categorias.push(categoria)
+          })
+        }
+      })
   }
 
+  registrar() {
+    const data: NuevaEmpresa = this.miFormulario.value;
+    console.log(data)
+    this.empresaService.registrarEmpresa(data)
+      .subscribe(res=>{
+        if(res.ok){
+          Swal.fire(
+            'Estupendo!',
+            `${res.msg}`,
+            'success'
+          ).then(() => {
+            this.miFormulario.reset()
+          }
+          )
+        }
+      })
+  }
 }

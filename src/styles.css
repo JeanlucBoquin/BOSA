@@ -14,9 +14,14 @@
 
 .btn-submit {
   background-color: #163157;
-  /* font-weight: 700; */
   color: #f3f3f2;
 }
+
+.btn-submit:hover {
+  color: #f3f3f2;
+  background-color: #122a4b;
+}
+
 body {
   background-color: #f3f3f0;
   background-image: url("assets/PatronSinFondo35-15.png");
