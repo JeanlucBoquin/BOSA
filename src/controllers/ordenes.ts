@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import mongoose from 'mongoose';
 import Orden from "../models/orden";
 import Producto from "../models/producto"
+import { Motorista } from '../models/motorista';
 
 interface ProductoOrdenado {
     idProduct: string;
@@ -81,6 +82,7 @@ export const actualizarOrden = async (req: Request, res: Response) => {
 
     try {
         await Orden.findByIdAndUpdate(idOrden, { estadoOrden, idMotorista });
+        stadeBikers(idMotorista);
         res.status(200).json({ ok: 'true' })
     } catch (error) {
         triggerCarch(error, res, 'Error al actualizar estado de la orden');
@@ -103,6 +105,14 @@ export const actualizarRecorrido = async (req: Request, res: Response) => {
     }
 }
 
+export const stadeBikers = async (idMotorista: string) => {
+    const ordenes = await Orden.find({ idMotorista, estadoOrden: 'pendiente' });
+    if (ordenes.length > 0) {
+        await Motorista.findByIdAndUpdate(idMotorista, { estado: 'ocupado' });
+    } else {
+        await Motorista.findByIdAndUpdate(idMotorista, { estado: 'libre' });
+    }
+}
 
 function triggerCarch(error: any, res: Response, msg: string) {
     console.log(error);

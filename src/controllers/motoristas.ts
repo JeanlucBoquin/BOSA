@@ -47,7 +47,7 @@ export const signIn = async (req: Request, res: Response) => {
         if (!match) return res.status(401).json({ token: null, message: 'Password invalida' });
         if (motorista.aceptacion !== 'aprobado') return res.status(201).json({ token: null, message: 'Motorista no Aprobado' });
         const token = jwt.sign({ id: motorista._id }, process.env.SECRET!, { expiresIn: 43200 });
-        res.status(200).send({ token, motorista});
+        res.status(200).send({ token, motorista });
     } catch (error) {
 
     }
@@ -59,10 +59,19 @@ export const updateBiker = async (req: Request, res: Response) => {
     const { aceptacion } = req.body;
 
     try {
-        const motorista = await Motorista.findByIdAndUpdate(id, {aceptacion});
-        res.status(200).json({motorista});
+        const motorista = await Motorista.findByIdAndUpdate(id, { aceptacion });
+        res.status(200).json({ motorista });
     } catch (error) {
-        res.status(400).json({message: 'Error al actualizar motorista'})
+        res.status(400).json({ message: 'Error al actualizar motorista' })
     }
 }
 
+
+export const getBikers = async (req: Request, res: Response) => {
+    try {
+        const motoristas = await Motorista.find({ estado: 'libre' });
+        res.status(200).send(motoristas);
+    } catch (error) {
+        res.status(400).json({ message: 'Error al actualizar motorista' })
+    }
+}
