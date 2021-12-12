@@ -1,0 +1,30 @@
+<section class="m-4">
+    <app-title [title]="title"></app-title>
+
+
+    <div class="component-body">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Estado Orden</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let orden of ordenes; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{orden.idCliente.nombre}} {{orden.idCliente.apellido}}</td>
+                    <td>{{orden.direccion}}</td>
+                    <td>{{orden.estadoOrden | titlecase}}</td>
+                    <td>
+                        <i (click)="asignar(orden)" class="far fa-edit"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</section>

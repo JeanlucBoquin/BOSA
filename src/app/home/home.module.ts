@@ -22,6 +22,7 @@ import { TableProductsComponent } from './components/table-products/table-produc
 import { TableCompaniesComponent } from './components/table-companies/table-companies.component';
 import { FormBikersComponent } from './components/form-bikers/form-bikers.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TableProductsComponent,
     TableCompaniesComponent,
     FormBikersComponent,
+    OrdersComponent,
   ],
   imports: [
     CommonModule,
