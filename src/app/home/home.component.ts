@@ -15,7 +15,7 @@ interface BtnOptions {
 export class HomeComponent implements OnInit {
   btnOptions_1: BtnOptions[] = [
     {
-      nombre: "Categorias",
+      nombre: "Ordenes",
       img: "../../assets/sidenav/categoria.png",
     },
     {
@@ -67,8 +67,8 @@ export class HomeComponent implements OnInit {
   }
   navegation(path: string) {
     console.log(path)
-    if (path == "Categorias") {
-      this.router.navigateByUrl('/home/categories')
+    if (path == "Ordenes") {
+      this.router.navigateByUrl('/home/ordenes')
     } else if (path == "Empresas") {
       this.router.navigateByUrl('/home/companies')
     } else if (path == "Productos") {
