@@ -1,0 +1,30 @@
+.example-container {
+    height: auto;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+th,td {
+    text-align: center!important;
+}
+th{
+    font-weight: bold;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.colorBackgroud{
+    height: auto;
+    min-height: calc(100vh - 63.98px);
+    width:100%;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+}

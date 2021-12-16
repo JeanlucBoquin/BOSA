@@ -1,0 +1,20 @@
+.mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+}
+
+.colorBackgroud {
+    height: auto;
+    min-height: calc(100vh - 63.98px);
+    width: 100%;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+input:disabled {
+    color: #202020;
+}
+
+button:enabled {
+    background-color: #D93232;
+    color: #f3f3f0;
+}

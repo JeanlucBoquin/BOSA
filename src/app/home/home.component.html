@@ -1,0 +1,55 @@
+<mat-toolbar>
+
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>BOSA</span>
+
+    <span class="example-spacer"></span>
+    <!-- <button mat-button>
+        <mat-icon>thumb_up_off_alt</mat-icon><span class="ms-1 d-none d-md-inline">Ofertas</span>
+    </button>
+    <button mat-button>
+        <mat-icon>star_outline</mat-icon><span class="ms-1 d-none d-md-inline">Empresas mas populares</span>
+    </button> -->
+    <button mat-button (click)="navegation('Carrito')">
+        <mat-icon>add_shopping_cart</mat-icon><span class="ms-1 d-none d-md-inline">Carrito</span>
+    </button>
+    <div class="username mx-1">
+        JB
+    </div>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="material-container" [hasBackdrop]="true">
+    <mat-sidenav class="material-sidenav" #sidenav mode="over" opened=false>
+        <div class="mt-4 mb-3" style="display: flex; flex-direction: column; align-items: center;">
+            <img style="width: 100px; border-radius: 50%;" src="../../assets/img/sidenav/JeanCuadrada.png" alt="">
+            <strong>Jeanluc Boquin</strong>
+        </div>
+        <div class="contenedorBotones">
+            <button *ngFor="let btnOption of btnOptions_1" mat-button (click)="navegation(btnOption.nombre)">
+                <div class="contenidoBotones">
+                    <div>
+                        <img style="width: 18px;" [src]=btnOption.img alt="imgBreak">
+                    </div>
+                    <span>{{btnOption.nombre}}</span>
+                </div>
+            </button>
+            <hr class="mx-3">
+            <button *ngFor="let btnOption of btnOptions_2" mat-button (click)="navegation(btnOption.nombre)">
+                <div class="contenidoBotones">
+                    <div>
+                        <img style="width: 18px;" [src]=btnOption.img alt="imgBreak">
+                    </div>
+                    <span>{{btnOption.nombre}}</span>
+                </div>
+            </button>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content (click)="sidenav.close()">
+
+        <router-outlet></router-outlet>
+    
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,44 @@
+.parallax{
+    width: 100%;
+    height: 40vh;
+    background-image: url("../../../../../../assets/img/imgOptimizadas/florists.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.gripPrincipal{
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(auto-fit,minmax(15rem, 1fr));
+    align-items: center;
+}
+
+.tarjeta{
+    height: auto;
+    /* min-height: 45vh; */
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.btn-primary{
+    background-color: #d93232 !important;
+    border-style: none;
+    box-shadow: none;
+}
+
+.btn-primary:active:focus{
+    box-shadow: 0 0 0 0.25rem rgba(217, 50, 50, 0.25) !important;
+}
+
+.imgResp{
+    width: 100%;
+    height: 80vh
+}
+

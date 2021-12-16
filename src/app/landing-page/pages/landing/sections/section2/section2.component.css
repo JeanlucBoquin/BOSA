@@ -1,0 +1,44 @@
+.gridPrincipal{
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(auto-fit,minmax(15rem, 1fr));
+    align-items: center;
+}
+
+.gridHijo{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cotendedorAlternativas{
+    width: auto;
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.alternativas{
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cajas{
+    background-color: #2d3436 /*rgb(58, 53, 53)*/;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cajas img{
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
+.imgResp{
+    width: 100%;
+    height: 80vh
+}
