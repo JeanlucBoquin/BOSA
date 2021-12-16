@@ -1,0 +1,62 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between m-4 mb-2">
+      <a (click)="drawer.toggle()"> <i class="fas fa-bars fs-1"></i></a>
+      <app-profile [name]="currentBiker.nombre" [lastName]="currentBiker.apellido"></app-profile>
+    </div>
+    <div class="principal">
+      <app-title title="Detalle de" title1="la Orden" src="../../../../assets/img/disponibles.png"></app-title>
+
+      <div class="container container-home">
+        <div class="d-flex flex-column">
+          <img (click)="openMap(orden.lnglat)" class="mt-2" src="../../../../assets/img/mapa.png" alt="">
+
+          <section class="mt-4">
+            <h6 class="m-0">Cliente:</h6>
+            <h6 class="text">{{cliente.nombre}} {{cliente.apellido}} | 9602-2913
+            </h6>
+          </section>
+
+          <section class="mt-3">
+            <h6 class="m-0">Direccion:</h6>
+            <h6 class="text">{{orden.direccion}}</h6>
+          </section>
+
+          <section class="mt-3">
+            <h6 class="m-0">Produtos:</h6>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+              <table class="table table-bordered table-striped mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Cantidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let producto of productosFinal; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{producto.resp.producto.descripcion}}</td>
+                    <td>{{producto.cantidad}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+
+          </section>
+
+          <section class="d-flex">
+            <h6 class="mr-3">Comision</h6>
+            <h6 class="">: L. {{comision}}</h6>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-drawer-container>
