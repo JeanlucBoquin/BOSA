@@ -1,0 +1,48 @@
+<div class="component-body">
+    <form class="row" [formGroup]="miFormulario" (ngSubmit)="registrar()">
+        <div class="col-12 col-md-6 col-lg-6">
+            <!-- Nombre de la empresa -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre de la empresa</label>
+                <input id="nombre" type="text" class="form-control" formControlName="nombre"/>
+            </div>
+            <!-- Descripcion -->
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <textarea name="" id="descripcion" cols="30" rows="5" class="form-control" formControlName="descripcion"></textarea>
+            </div>
+            <!-- Calificacion -->
+            <div class="mb-3">
+                <label for="cali" class="form-label">Calificacion</label>
+                <input id="cali" type="number" class="form-control" formControlName="calificacion" min="0" max="5"/>
+            </div>
+
+            <!-- Selecione categoria -->
+            <div class="mb-3">
+                <label for="selectCategory" class="form-label">Selecione la categoria</label>
+                <select id="selectCategory" class="form-select" formControlName="idCategoria">
+                    <option selected value="">-- seleccione una categoria --</option>
+                    <option *ngFor="let categoria of categorias"
+                            [value]="categoria._id">{{categoria.nombre|titlecase}}</option>
+                </select>
+
+            </div>
+            <!-- Imagen o logo -->
+            <div class="mb-4">
+                <label for="imgLog" class="form-label">Imagen o logo (Incompleto)</label>
+                <input readonly id="imgLog" type="text" class="form-control" name="imagen" formControlName=pathImg/>
+            </div>
+
+            <!-- Registrar Empresa -->
+            <div class="d-grid mt-4">
+                <button class="btn btn-submit" type="submit" [disabled]="miFormulario.invalid">Registrar Empresa</button>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-6 d-none d-md-block d-lg-block d-xl-block">
+            <img src="../../../../assets/imagenesForms/undraw_web_devices_re_m8sc.svg" alt="" width="100%"
+                height="100%">
+                <!-- {{miFormulario.invalid}} -->
+        </div>
+    </form>
+</div>

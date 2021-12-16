@@ -1,0 +1,54 @@
+<div>
+    <label for="empresa" class="form-label" style="color: rgba(0,0,0,.87);">Empresa</label>
+    <select id="empresa" #select class="form-select" (change)="obtenerProductos(select.value)">
+        <option selected value="">-- seleccione la empresa donde agrega el producto --</option>
+        <option *ngFor="let empresa of empresas" [value]="empresa._id">{{empresa.nombre|titlecase}}</option>
+    </select>
+</div>
+<div #noDisponibles class="mt-4">
+    <!-- <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+        <h1>Lo sentimos</h1>
+        <p>Aun no se ha registrado productos en esta empresa</p>
+    </div> -->
+</div>
+<div *ngIf="!(productos.length<=0)" class="component mt-4">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <!-- <th scope="col"></th> -->
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Ventas</th>
+                <th scope="col">Disponibles</th>
+                <th scope="col">Calificacion</th>
+                <th scope="col">Estado</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos">
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.descripcion.substring(0,15)}}...</td>
+                <td>{{producto.categoria}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.ventas}}</td>
+                <td>{{producto.disponibles}}</td>
+                <td>{{producto.calificacion}}</td>
+                <td>
+                    <div class="aprobado">
+                        Activo
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        <i class="far fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
