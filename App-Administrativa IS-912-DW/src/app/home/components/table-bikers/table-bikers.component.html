@@ -1,0 +1,44 @@
+
+  <div class="component-body">
+    <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Identidad</th>
+            <th scope="col">Aprobado</th>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bike of bikers">
+            <td class="td-img">
+                <img *ngIf="estadoImg(bike)" [src]="bike.imagen.imageUrl" class="rounded-circle img-table" alt="profile">
+            </td>
+            <td>{{bike.nombre}} {{bike.apellido}}</td>
+            <td>{{bike.fechaNacimiento | date}}</td>
+            <td>{{bike.identidad}}</td>
+            <td>
+                <div class="{{bike.aceptacion}}">
+                    {{bike.aceptacion | titlecase}}
+                </div>
+            </td>
+            <td>
+                <div class="{{bike.estado}}">
+                    {{bike.estado | titlecase}}
+                </div>
+            </td>
+            <td>
+                <div class="">
+                    <i (click)="editar(bike)" class="far fa-edit" ></i>
+                    <i (click)="eliminar(bike)"class="fas fa-trash-alt"></i>
+                </div>
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+    
+  </div>

@@ -1,0 +1,56 @@
+<section ngsReveal class="m-4">
+    <h1 class="m-0">Empresas <span style="color: #F2A20C;">favoritas</span></h1>
+    <svg height="10" width="150">
+        <line x1="0" x2="50" style="stroke:#F2A20C; stroke-width:10" />
+    </svg>
+    <p>Accede más rápidamente a lo que necesitas</p>
+    <!-- GRID -->
+    <!-- [ngsRevealSet]="{ reset:true}" [ngsInterval]="200" [ngsSelector]="'.item'" -->
+    <div [ngsRevealSet]="{ reset:true}" [ngsInterval]="200" [ngsSelector]="'.itemm'" *ngIf="empresas.length>0" class="gripCompanies">
+        <div *ngFor="let empresa of empresas; let i=index;" class="card shadow"
+            style="border-top-width: 5px; border-style: solid; border-top-color:#D93232;">
+            <div>
+                <img class="img-fluid" [src]="'../../../../assets/img/home/Companies/'+empresa.pathImg"
+                    [alt]="empresa.pathImg">
+            </div>
+            <div class="card-body pb-0 pt-2">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div #font>
+                        <!-- <i class="fas fa-star" style="color: #F2E205;"></i>
+                        <i class="fas fa-star" style="color: #F2E205;"></i>
+                        <i class="fas fa-star" style="color: #F2E205;"></i>
+                        <i class="fas fa-star-half-alt" style="color: #F2E205;"></i>
+                        <i class="far fa-star"></i> -->
+                    </div>
+                    <div>
+                        <i class="fab fa-facebook fa-2x me-1"></i>
+                        <i  #corazon 
+                            (click)="like_dislike(empresa._id,corazon)"
+                            class="fab fa-gratipay fa-2x"
+                            [ngStyle]="{'color':empresasFavoritas.includes(empresa._id)?'#e74c3c':''}"
+                        ></i>
+                    </div>
+                    <!-- [ngStyle]="{'color':empresasFavoritas.includes(empresa._id)?'#e74c3c':''}" -->
+                </div>
+                <div>
+                    <h4>{{empresa.nombre|titlecase}}</h4>
+                    <p class="m-0">{{empresa.descripcion.slice(0,90)}} ...</p>
+                </div>
+                <div class="text-center py-2">
+                    <button type="button" class="btn btn-danger w-100" (click)="navegate(empresa._id,empresa.idCategoria)">Ver
+                        productos</button>
+                        <!-- [routerLink]="[empresa._id,'products']" -->
+                    <!-- <button class="w-75" style="color:#D93232" mat-stroked-button color="warn">Explorar</button> -->
+                </div>
+            </div>
+            <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
+        </div>
+    </div>
+    <div #noDisponibles>
+        <!-- <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+            <h1>Lo sentimos</h1>
+            <p>Aun no se ha registrado productos en esta empresa</p>
+        </div> -->
+    </div>
+    <!-- FIN GRID -->
+</section>

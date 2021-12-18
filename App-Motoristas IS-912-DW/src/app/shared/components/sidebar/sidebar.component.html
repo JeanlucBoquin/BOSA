@@ -1,0 +1,46 @@
+<div class="sidebar">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="profile-sidebar">
+        <img
+          class="avatar mb-2"
+          src="../../../../assets/img/avatar.png"
+          alt=""
+        />
+        <h6><i>{{nombre}}</i></h6>
+      </div>
+    </li>
+    <hr />
+    <li class="list-group-item" routerLink="/inicio/resumen">
+      <i class="fas fa-home"></i>
+      Inicio
+    </li>
+    <hr />
+    <li class="list-group-item" routerLink="/inicio/ordenes-disponibles">
+      <i class="fas fa-store"></i>
+      Disponibles
+    </li>
+    <li class="list-group-item" routerLink="/inicio/ordenes-pendientes">
+      <i class="fas fa-shopping-basket"></i>
+      Pendientes
+    </li>
+    <li class="list-group-item" routerLink="/inicio/ordenes-entregadas">
+      <i class="fas fa-money-bill-alt"></i>
+      Entregadas
+    </li>
+    <hr />
+    <li class="list-group-item">
+      <i class="fas fa-user"></i>
+      Cuenta
+    </li>
+    <li class="list-group-item">
+      <i class="fas fa-cog"></i>
+      Ajustes
+    </li>
+    <li class="list-group-item" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+      Cerrar Sesion
+    </li>
+    <hr />
+  </ul>
+</div>

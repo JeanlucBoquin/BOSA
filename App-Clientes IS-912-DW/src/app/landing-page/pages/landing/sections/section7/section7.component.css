@@ -1,0 +1,16 @@
+.gridSocial{
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(15rem,1fr));
+}
+
+.flexSocial{
+    display: flex;
+    justify-content: space-around;
+}
+
+.gridBodyFooter{
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(15rem,1fr));
+}

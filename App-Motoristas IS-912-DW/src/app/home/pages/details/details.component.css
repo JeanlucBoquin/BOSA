@@ -1,0 +1,38 @@
+.rounded {
+    border-radius: 20px !important;
+    width: 130px !important;
+    height: 35px !important;
+}
+
+.text{
+    font-weight: 400;
+    font-size: 93%;
+}
+
+section h6 {
+    color: #163157;
+}
+
+/* tabla */
+
+
+table {
+    width: 100%;
+  }
+  
+  th,
+  td {
+    font-size: 13px;
+  }
+  
+  .my-custom-scrollbar {
+    position: relative;
+    height: 150px;
+    overflow: auto;
+    margin: 10px 0px 23px 0px;
+  }
+  
+  .table-wrapper-scroll-y {
+    display: block;
+  }
+  

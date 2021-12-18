@@ -1,0 +1,56 @@
+<div class="component">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <!-- <th scope="col"></th> -->
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Calificacion</th>
+                <th scope="col">Estado</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let empresa of empresas">
+
+                <td>{{empresa.nombre |titlecase}}</td>
+                <td>{{empresa.idCategoria.nombre}}</td>
+                <td>{{empresa.descripcion.substring(0,15)}}...</td>
+                <td>{{empresa.calificacion}}</td>
+                <td>
+                    <div class="aprobado">
+                        Activo
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        <i class="far fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td class="td-img">
+                    <img src="../../../../assets/colonia.svg" class="rounded-circle img-table" alt="profile">
+                </td>
+                <td>La Colonia</td>
+                <td>2223-2232</td>
+                <td>lacolonia@gmail.com</td>
+                <td>Honduras</td>
+                <td>
+                    <div class="aprobado">
+                        Activo
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        <i class="far fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
+</div>

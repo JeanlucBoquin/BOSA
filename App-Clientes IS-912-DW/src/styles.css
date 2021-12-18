@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body{
+    background-color: #f3f3f0;
+    background-image: url("assets/img/PatronSinFondo35-15.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-dialog-container{
+    border-left-color: #f2a20c;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}

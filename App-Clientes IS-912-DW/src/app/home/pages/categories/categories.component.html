@@ -1,0 +1,30 @@
+<section ngsReveal *ngIf="cargado" class="m-4">
+    <h1 class="m-0">Categorias <span>BOSA</span></h1>
+    <svg height="10" width="150">
+        <line x1="0" x2="300" style="stroke:#F2A20C; stroke-width:10" />
+    </svg>
+    <p>Lo que desees, cuando lo desees</p>
+
+
+    <div class="gripCategories">
+        <div *ngFor="let categoria of vectorCategorias">
+            <h4>{{categoria.nombre |titlecase}}</h4>
+            <figure class="imghvr-slide-right shadow" style="border-top: 5px solid #D93232; border-radius: 10px;">
+                <img [src]="'../../../../assets/img/home/Categorias/'+categoria.pathImg" alt="example-image"
+                    width="100%">
+                <figcaption>
+
+                    <p style="font-weight: 500; color: #424041;" class="ih-zoom-in ih-delay-md">
+                        <i>"{{categoria.descripcion}}"</i>
+                    </p>
+
+                    <button type="button" class="btn btn-danger w-100"
+                        (click)="navegation(categoria._id!)">Explorar</button>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+<div *ngIf="!cargado" class="center">
+    <mat-spinner  ngsReveal color="warn"></mat-spinner>
+</div>

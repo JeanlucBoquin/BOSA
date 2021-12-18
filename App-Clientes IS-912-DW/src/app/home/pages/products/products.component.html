@@ -1,0 +1,87 @@
+<section ngsReveal>
+    <!-- inicio "banner" -->
+    <!-- desktop -->
+    <div class="bgImgMd d-none d-md-block position-relative mb-5">
+        <h1 class="position-absolute top-0 start-0 ms-3 mt-3" style="color: #fafafa;">{{companyName|titlecase}}</h1>
+        <!-- <img src="../../../../assets/img/home/Companies/supermercados/laantorcha.png" alt="" height="100%" width="100%"> -->
+        <div class="mp-3 position-absolute top-100 start-50 translate-middle"
+            style="width: 100%; display: flex; justify-content: center;">
+            <select class="form-select form-select-lg mb-3 w-75" [(ngModel)]="categorySelect"
+                (change)="changeCategory()">
+                <option value="default">-- Seleccione la categoria --</option>
+                <option *ngFor="let category of categories" [ngValue]="category">{{category}}</option>
+            </select>
+        </div>
+    </div>
+    <!-- movil -->
+    <div class="bgImg d-block d-md-none position-relative mb-4">
+        <!-- En este punto sucede un error get pero el ciclo de detecion de cambio
+        optiniene la imagen al terminar la peticon del backend -->
+        <img ngsReveal [src]="'../../../../assets/img/home/Companies/'+companyImg" alt="" height="100%" width="100%" style="border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
+        <div class="mp-3 position-absolute top-100 start-50 translate-middle"
+            style="width: 100%; display: flex; justify-content: center;">
+            <select class="form-select form-select-lg mb-3 w-75" [(ngModel)]="categorySelect"
+                (change)="changeCategory()">
+                <option value="default">-- Seleccione la categoria --</option>
+                <option *ngFor="let category of categories" [ngValue]="category">{{category}}</option>
+            </select>
+        </div>
+    </div>
+    <!-- fin "banner" -->
+    
+    <div class="m-4">
+        <div #noDisponibles>
+            <!-- <div class="p-3" style="background-color: rgba(217, 50, 50, 0.9); border-radius: 5px;">                
+                <h1>Lo sentimos</h1>
+                <p>Aun no se ha registrado productos en esta empresa</p>
+            </div> -->
+        </div>
+        <div *ngIf="categorySelect == 'default' && products.length > 0;">
+            <h3 class="m-0">Top 5</h3>
+            <svg height="10" width="150">
+                <line x1="0" x2="70" style="stroke:#F2A20C; stroke-width:10" />
+            </svg>
+            <p>Productos mas vendidos</p>
+        </div>
+        <div class="gripProducts">
+            <div *ngFor="let product of products" class="card"
+                style="border-top-width: 5px; border-style: solid; border-top-color:#D93232;">
+                <div class="back p-4">
+                    <img style="width: 200px; height: 200px;"
+                        [src]="'../../../../assets/img/home/Productos/'+product.pathImg" alt="">
+                </div>
+                <div class="card-body pb-0">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <i class="fas fa-star" style="color: #F2E205;"></i>
+                            <i class="fas fa-star" style="color: #F2E205;"></i>
+                            <i class="fas fa-star" style="color: #F2E205;"></i>
+                            <i class="fas fa-star-half-alt" style="color: #F2E205;"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: .5rem;">
+                            <strong
+                                [ngStyle]="{'color':(product.disponibles>0)?'#27ae60':'#e74c3c'}">{{(product.disponibles>0)?"disponible":"no
+                                disponible"}}</strong>
+                            <i  #corazon 
+                                (click)="like_dislike(product._id,corazon)"
+                                class="fab fa-gratipay fa-2x"
+                                [ngStyle]="{'color':productosFavoritos.includes(product._id)?'#e74c3c':''}">
+                            </i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>{{product.nombre | titlecase}}</h4>
+                        <p class="m-0">{{product.descripcion}}</p>
+                    </div>
+                    <div class="py-2" style="display: flex; justify-content:space-between; align-items: center;">
+                        <button type="button" class="btn btn-outline-danger" [disabled]="product.disponibles<=0" (click)="openDialog(product._id)">Ordenar
+                            producto</button>
+                        <strong>{{product.precio}} Lps</strong>
+                    </div>
+                </div>
+                <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
+            </div>
+        </div>
+    </div>
+</section>

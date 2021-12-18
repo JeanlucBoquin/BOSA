@@ -1,0 +1,12 @@
+.form-control {
+    background-color: #E7E7E7;
+    border: 2px solid #9F9F9F;
+}
+
+img {
+    width: 100%;
+}
+
+.centrar{
+    display: flex;
+}
